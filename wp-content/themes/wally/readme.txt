@@ -1,6 +1,6 @@
 === Wally ===
 
-Contributors: automattic
+Contributors: Carmine Colicino
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
@@ -30,7 +30,7 @@ Wally includes support for WooCommerce and for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 1.0 - 25 April 2020 =
 * Initial release
 
 == Credits ==

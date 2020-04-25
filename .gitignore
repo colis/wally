@@ -52,6 +52,9 @@ local-by-flywheel-demo-urls.php
 *.wmv
 *.avi
 
+# Composer
+vendor/
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/
 

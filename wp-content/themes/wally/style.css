@@ -1,6 +1,6 @@
 /*!
 Theme Name: Wally
-Theme URI: http://underscores.me/
+Theme URI: https://github.com/colis/wally
 Author: Carmine Colicino
 Author URI: https://github.com/colis
 Description: Description
@@ -535,7 +535,7 @@ input[type="submit"]:hover {
 }
 
 button:active,
-button:focus,
+ button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="reset"]:active,
@@ -610,8 +610,8 @@ a:visited {
 }
 
 a:hover,
-a:focus,
-a:active {
+ a:focus,
+ a:active {
 	color: #191970;
 }
 
@@ -620,7 +620,7 @@ a:focus {
 }
 
 a:hover,
-a:active {
+ a:active {
 	outline: 0;
 }
 
@@ -695,9 +695,9 @@ a:active {
 }
 
 .site-main .comment-navigation,
-.site-main
+ .site-main
 .posts-navigation,
-.site-main
+ .site-main
 .post-navigation {
 	margin: 0 0 1.5em;
 }
