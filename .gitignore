@@ -1,0 +1,117 @@
+## GENERAL
+*~
+~*
+.DS_Store
+.svn
+.cvs
+*.bak
+*.swp
+Thumbs.db
+.sass-cache
+*.log
+*.sql
+*.zip
+
+## Local (Flywheel)
+local-by-flywheel-demo-urls.php
+
+## PHP Storm
+.idea
+
+## LARGE FILE TYPES (WPEngine)
+*.hqx
+*.bin
+*.exe
+*.dll
+*.deb
+*.dmg
+*.iso
+*.img
+*.msi
+*.msp
+*.msm
+*.mid
+*.midi
+*.kar
+*.mp3
+*.ogg
+*.m4a
+*.ra
+*.3gpp
+*.3gp
+*.mp4
+*.mpeg
+*.mpg
+*.mov
+*.webm
+*.flv
+*.m4v
+*.mng
+*.asx
+*.asf
+*.wmv
+*.avi
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/
+
+### WP CLI ###
+wp-cli.yml
+wp-cli*.yml
+
+### VisualStudioCode ###
+.vscode/
+*.code-workspace
+
+## WORDPRESS CORE
+index.php
+/index.php
+/license.txt
+/readme.html
+wp-activate.php
+wp-admin/
+wp-blog-header.php
+wp-comments-post.php
+wp-config*.php
+wp-cron.php
+wp-includes/
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+
+## WORDPRESS CONTENT
+wp-content/backup*
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/languages/
+wp-content/install.php
+
+## WP PLUGINS
+wp-content/plugins/query-monitor/
+wp-content/db.php
+wp-content/plugins/what-the-file/
+wp-content/uploads/sucuri/sucuri-settings.php
+*.mmdb
+srdb*/
+
+## 3rd Party Composer-Managed Plugins
+wp-content/plugins/*
+
+## PRAGMATIC
+node_modules/
+.htaccess
+sitemap.xml
+sitemap.xml.gz
+config.codekit
+config.codekit3
+/robots.txt
+
+# In house plugins to keep (not 3rd-party composer managed)
+!wp-content/plugins/wally-**
