@@ -1,0 +1,27 @@
+{
+  "name": "wally-core",
+  "version": "1.0.0",
+  "description": "Core functionalities for the veronicaurbano.it site.",
+  "author": {
+    "name": "Pragmatic",
+    "email": "info@pragmatic.agency",
+    "url": "https://pragmatic.agency",
+    "role": "developer"
+  },
+  "scripts": {
+    "test": "phpunit",
+    "start": "composer install",
+    "bundle": "composer install --no-dev -o",
+    "lint-php": "composer run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/pragmaticweb/plugin-scaffold"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "engineStrict": true,
+  "engines": {
+    "node": ">=8.11"
+  }
+}

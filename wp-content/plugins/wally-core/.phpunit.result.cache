@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":321:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:5:{s:39:"Wally\Core\Setup\Core_Tests::test_setup";d:0.297;s:38:"Wally\Core\Setup\Core_Tests::test_i18n";d:0.062;s:38:"Wally\Core\Setup\Core_Tests::test_init";d:0.001;s:42:"Wally\Core\Setup\Core_Tests::test_activate";d:0.001;s:44:"Wally\Core\Setup\Core_Tests::test_deactivate";d:0;}}}

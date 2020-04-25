@@ -1,0 +1,27 @@
+{
+  "name": "colis/wally-core",
+  "description": "Wally Core",
+  "authors": [
+    {
+      "name": "Carmine Colicino",
+      "email": "carminecolicino@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Wally\\Core\\": "includes/classes/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": ">=7.0",
+    "10up/wp_mock": "dev-master",
+    "10up/phpcs-composer": "dev-master"
+  },
+  "scripts": {
+    "lint": "phpcs .",
+    "lint-fix": "phpcbf ."
+  }
+}
