@@ -38,6 +38,8 @@ abstract class BaseCustomPostType implements Registrable {
 				register_post_type( $this->get_name(), $arguments );
 			}
 		);
+
+		add_action( 'pre_get_posts', [ $this, 'add_cpt_post_names_to_main_query' ] );
 	}
 
 	/**
@@ -96,5 +98,32 @@ abstract class BaseCustomPostType implements Registrable {
 			/* translators: %s - custom post type singular name. */
 			'search_items'      => sprintf( esc_html__( 'Search %s', 'wally-core' ), static::LABEL_SINGULAR ),
 		];
+	}
+
+	/**
+	 * Have WordPress match postname to any of our public post types.
+	 * All of our public post types can have /post-name/ as the slug, so they need to be unique across all posts.
+	 * By default, WordPress only accounts for posts and pages where the slug is /post-name/.
+	 *
+	 * @param \WP_Query $query The current query.
+	 */
+	public function add_cpt_post_names_to_main_query( \WP_Query $query ) {
+		// Bail if this is not the main query.
+		if ( ! $query->is_main_query() ) {
+			return;
+		}
+
+		// Bail if this query doesn't match our very specific rewrite rule.
+		if ( ! isset( $query->query['page'] ) || 2 !== count( $query->query ) ) {
+			return;
+		}
+
+		// Bail if we're not querying based on the post name.
+		if ( empty( $query->query['name'] ) ) {
+			return;
+		}
+
+		// Add CPT to the list of post types WP will include when it queries based on the post name.
+		$query->set( 'post_type', [ 'post', 'page', 'project' ] );
 	}
 }

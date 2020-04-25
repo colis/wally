@@ -3,6 +3,7 @@ bower_components
 release
 .idea
 *.log
+*.cache
 
 # Project Files
 dist

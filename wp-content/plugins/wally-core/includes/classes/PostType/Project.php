@@ -43,10 +43,15 @@ class Project extends BaseCustomPostType {
 			'author',
 		];
 
+		$rewrite = [
+			'slug'       => '/',
+			'with_front' => false,
+		];
+
 		return [
 			'labels'       => $this->get_labels(),
 			'supports'     => $supports,
-			'rewrite'      => true,
+			'rewrite'      => $rewrite,
 			'public'       => true,
 			'show_in_rest' => true,
 			'has_archive'  => false,
