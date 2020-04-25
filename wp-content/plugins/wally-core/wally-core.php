@@ -22,11 +22,11 @@ define( 'WALLY_CORE_INC', WALLY_CORE_PATH . 'includes/' );
 require_once WALLY_CORE_INC . 'functions/setup.php';
 
 // Activation/Deactivation.
-register_activation_hook( __FILE__, '\Wally\Setup\activate' );
-register_deactivation_hook( __FILE__, '\Wally\Setup\deactivate' );
+register_activation_hook( __FILE__, '\Wally\Core\Setup\activate' );
+register_deactivation_hook( __FILE__, '\Wally\Core\Setup\deactivate' );
 
 // Bootstrap.
-Wally\Setup\setup();
+Wally\Core\Setup\setup();
 
 // Require Composer autoloader if it exists.
 if ( file_exists( WALLY_CORE_PATH . '/vendor/autoload.php' ) ) {

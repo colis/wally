@@ -8,7 +8,7 @@
 namespace Wally\Core\Taxonomy;
 
 use Wally\Core\Registrable;
-use Wally\Core\PostType\CPT as CPT;
+use Wally\Core\PostType\Project as ProjectCPT;
 
 defined( 'ABSPATH' ) || die();
 
@@ -21,7 +21,7 @@ class Category implements Registrable {
 	const NAME = 'category';
 
 	const CUSTOM_POST_TYPES = [
-		// CPT::NAME,
+		ProjectCPT::NAME,
 	];
 
 	/**

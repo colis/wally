@@ -55,15 +55,6 @@ abstract class BaseCustomPostType implements Registrable {
 	abstract protected function get_arguments() : array;
 
 	/**
-	 * Get the parent slug.
-	 *
-	 * @return string The parent slug.
-	 */
-	protected function get_parent_slug() : string {
-		return _x( 'resources', 'Parent slug', 'wally-core' );
-	}
-
-	/**
 	 * Gets the labels array for cpt configuration.
 	 *
 	 * @return array Array of labels.
