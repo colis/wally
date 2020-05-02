@@ -1,0 +1,22 @@
+/* ==========================================================================
+COLOR PALETTE
+========================================================================== */
+
+//
+// Map of colours where [key] is the name of the colour and [value] is the hex code.
+// NOTE: these colours should match Zeplin's styleguide
+//
+$colors: (
+	"catalina-blue" : #1D3557,
+	"charlotte"     : #A8DADC,
+	"panache"       : #F1FAEE,
+	"amaranth"      : #E63946,
+	"jelly-bean"    : #457B9D,
+);
+
+:root {
+	// Brand colours.
+	@each $colorName, $colorHex in $colors {
+		--color-#{$colorName}: #{$colorHex};
+	}
+}
