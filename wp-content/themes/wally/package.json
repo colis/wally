@@ -24,5 +24,8 @@
     "compile:css": "node-sass sass/style.scss style.css && node-sass sass/editor-style.scss editor-style.css && node-sass sass/woocommerce.scss woocommerce.css && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'"
+  },
+  "dependencies": {
+    "node-sass-json-importer": "^4.3.0"
   }
 }
