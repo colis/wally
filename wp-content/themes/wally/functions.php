@@ -100,6 +100,49 @@ if ( ! function_exists( 'wally_setup' ) ) :
 				'flex-height' => true,
 			)
 		);
+
+		// Add support for editor styles.
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'style.css' );
+
+		// Add support for wide-aligned images.
+		add_theme_support( 'align-wide' );
+
+		// Remove support for custom colors and font sizes.
+		add_theme_support( 'disable-custom-colors' );
+		add_theme_support( 'disable-custom-font-sizes' );
+		add_theme_support( 'editor-color-palette' );
+		add_theme_support( 'editor-button-styles' );
+
+		/**
+		 * Add color palette for the gutenberg editor.
+		 * Get the value from the CSS variables.
+		 *
+		 * @todo improvement: ideally get these from a yml or JSON file?
+		 */
+		$css_vars    = get_theme_file_path( 'sass/00-settings/_colors.scss' );
+		$css_colours = file_get_contents( $css_vars );
+
+		preg_match_all( '/^\s*--color-(.*):(?>\s|\t)*(?>#)(.*);$/m', $css_colours, $matches );
+
+		if ( is_array( $matches ) && ! empty( $matches[1] ) && ! empty( $matches[2] ) ) {
+			$gutenberg_palette = array_map(
+				function( $name, $hex_color ) {
+						$slug = sanitize_title( $name );
+						$name = str_replace( '-', ' ', ucwords( $slug ) );
+
+						return [
+							'name'  => $name,
+							'slug'  => $slug,
+							'color' => sanitize_hex_color( "#{$hex_color}" ),
+						];
+				},
+				$matches[1],
+				$matches[2]
+			);
+
+			add_theme_support( 'editor-color-palette', $gutenberg_palette );
+		}
 	}
 endif;
 add_action( 'after_setup_theme', 'wally_setup' );

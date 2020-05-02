@@ -44,36 +44,36 @@ BUTTONS
 /* Style variants */
 
 @mixin button-primary {
-	background-color: var(--color-igb-blue);
-	color: var(--color-white);
+	background-color: var(--color-charlotte);
+	color: #ffffff;
 
 	&.c-button--current,
 	&:hover,
 	&:focus,
 	&:focus-within,
 	&:active {
-		background-color: var(--color-darken-igb-blue);
-		color: var(--color-white);
+		background-color: var(--color-catalina-blue);
+		color: #ffffff;
 	}
 }
 
 @mixin button-secondary {
-	background-color: var(--color-background-darkest);
-	color: var(--color-white);
+	background-color: var(--color-catalina-blue);
+	color: #ffffff;
 
 	&.c-button--current,
 	&:hover,
 	&:focus,
 	&:focus-within,
 	&:active {
-		background-color: var(--color-brand-secondary);
-		color: var(--color-white);
+		background-color: var(--color-catalina-blue);
+		color: #ffffff;
 	}
 }
 
 @mixin button-filter {
-	background-color: var(--color-brand-primary);
-	color: var(--color-white);
+	background-color: var(--color-catalina-blue);
+	color: #ffffff;
 	padding: var(--spacing-xs) var(--spacing-l);
 	margin: 0 var(--spacing-s) var(--spacing-s) 0;
 	display: inline-block;
@@ -87,8 +87,8 @@ BUTTONS
 	&:focus,
 	&:focus-within,
 	&:active {
-		background-color: var(--color-white);
-		color: var(--color-brand-primary);
+		background-color: #ffffff;
+		color: var(--color-catalina-blue);
 	}
 }
 
