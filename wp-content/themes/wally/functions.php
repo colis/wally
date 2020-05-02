@@ -144,7 +144,6 @@ add_action( 'widgets_init', 'wally_widgets_init' );
  */
 function wally_scripts() {
 	wp_enqueue_style( 'wally-style', get_stylesheet_uri(), array(), THEME_VERSION );
-	wp_style_add_data( 'wally-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'wally-navigation', get_template_directory_uri() . '/js/navigation.js', array(), THEME_VERSION, true );
 

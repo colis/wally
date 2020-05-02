@@ -18,25 +18,10 @@
   },
   "devDependencies": {
     "@wordpress/scripts": "^8.0.1",
-    "node-sass": "^4.13.1",
-    "rtlcss": "^2.5.0"
-  },
-  "rtlcssConfig": {
-    "options": {
-      "autoRename": false,
-      "autoRenameStrict": false,
-      "blacklist": {},
-      "clean": true,
-      "greedy": false,
-      "processUrls": false,
-      "stringMap": []
-    },
-    "plugins": [],
-    "map": false
+    "node-sass": "^4.13.1"
   },
   "scripts": {
     "compile:css": "node-sass sass/style.scss style.css && node-sass sass/woocommerce.scss woocommerce.css && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
-    "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'"
   }
