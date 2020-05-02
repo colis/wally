@@ -100,6 +100,124 @@ FONTS
 	--line-height-h6-mobile: normal;
 }
 
+/* ==========================================================================
+SPACING FUNCTIONS
+========================================================================== */
+
+/**
+ * Generates the value for a spacing by multiplying
+ * the global baseline with the given ratio.
+ *
+ * USAGE:
+ * margin-bottom: spacing(10);
+ *
+ * NOTE:
+ * Please use spacing variables if applicable.
+ * This function should only be used if the spacing you're trying
+ * to achieve doesn't exist in the styleguide. (see settings/spacings.scss)
+ */
+
+/* ==========================================================================
+MEDIA QUERIES
+Based on https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/
+
+Example usage:
+
+.my-class {
+  padding: 10px;
+
+  @include for-desktop-up {
+    padding: 20px;
+  }
+}
+========================================================================== */
+
+/* ==========================================================================
+BUTTONS
+========================================================================== */
+
+/* Style variants */
+
+/* Size variants */
+
+/* ==========================================================================
+CORE BLOCKS
+========================================================================== */
+
+/* ==========================================================================
+DIMENSIONS
+========================================================================== */
+
+/**
+ * Helper for absolute full
+ */
+
+/* ==========================================================================
+GRID
+========================================================================== */
+
+/* ==========================================================================
+GRID GAP
+========================================================================== */
+
+/* ==========================================================================
+IMAGES
+========================================================================== */
+
+/**
+ * Fit an image to its container
+ */
+
+/**
+ * Shortcut to background image properties
+ */
+
+/* ==========================================================================
+RESET
+========================================================================== */
+
+/**
+ * Reset all padding and margin
+ */
+
+/**
+ * This mixin can be used to reset the appearance of a list element (ul, ol)
+ */
+
+/**
+ * This mixin can be used to reset the appearance
+ * of an input[type="submit"] element
+ */
+
+/**
+ * This mixin can be used to reset the appearance of a <button> element
+ */
+
+/**
+ * This mixin can be used to remove the default anchor styling.
+ */
+
+/**
+ * This mixin can be used to remove the default list styling.
+ */
+
+/* ==========================================================================
+TRANSITION
+========================================================================== */
+
+/**
+ * Transition shortcut
+ */
+
+/* ==========================================================================
+TYPOGRAPHY
+========================================================================== */
+
+/**
+ * Typography mixins to ensure that the correct desktop
+ * and mobile sizes of fonts are correct
+ */
+
 /*------------------------------------
 Generic
 ------------------------------------*/

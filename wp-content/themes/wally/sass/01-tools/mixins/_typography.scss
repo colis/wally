@@ -1,0 +1,41 @@
+/* ==========================================================================
+TYPOGRAPHY
+========================================================================== */
+
+/**
+ * Typography mixins to ensure that the correct desktop
+ * and mobile sizes of fonts are correct
+ */
+@mixin font_prop_body( $font-weight: 'regular' ) {
+	font-family: var(--font-family-primary);
+	font-weight: var(--font-weight-primary-#{$font-weight});
+	font-size: var(--font-size-body-mobile);
+	line-height: var(--line-height-body-mobile);
+
+	@include for-tablet-landscape-up {
+		font-size: var(--font-size-body-desktop);
+		line-height: var(--line-height-body-desktop);
+	}
+}
+
+@mixin font_prop_heading( $heading-type: 1, $font-weight: 'regular' ) {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-#{$font-weight});
+	font-size: var(--font-size-h#{$heading-type}-mobile);
+	line-height: var(--line-height-h#{$heading-type}-mobile);
+
+	@include for-tablet-landscape-up {
+		font-size: var(--font-size-h#{$heading-type}-desktop);
+		line-height: var(--line-height-h#{$heading-type}-desktop);
+	}
+}
+
+@mixin font_prop_small() {
+	font-size: var(--font-size-small);
+	line-height: var(--line-height-small);
+}
+
+@mixin font_prop_medium() {
+	font-size: var(--font-size-medium);
+	line-height: var(--line-height-medium);
+}

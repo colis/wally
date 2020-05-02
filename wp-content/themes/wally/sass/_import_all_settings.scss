@@ -15,6 +15,18 @@
 // Functions
 //------------------------------------
 
+@import "01-tools/functions/spacings";
+
 //------------------------------------
 // Mixins
 //------------------------------------
+@import '01-tools/mixins/breakpoints';
+@import '01-tools/mixins/buttons';
+@import '01-tools/mixins/core-blocks';
+@import '01-tools/mixins/dimensions';
+@import '01-tools/mixins/grid';
+@import '01-tools/mixins/grid_gap_fallback';
+@import '01-tools/mixins/img';
+@import '01-tools/mixins/reset';
+@import '01-tools/mixins/transition';
+@import '01-tools/mixins/typography';
