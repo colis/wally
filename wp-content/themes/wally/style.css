@@ -1001,3 +1001,25 @@ TYPOGRAPHY UTILITIES
 /*------------------------------------
 Trumps
 ------------------------------------*/
+
+/* ==========================================================================
+SHAME
+========================================================================== */
+
+/**
+ * The idea of shame.css is that you have a totally new stylesheet reserved
+ * just for your hacky code. The code you have to write to get the release
+ * out on time, but the code that makes you ashamed.
+ *
+ * @see https://csswizardry.com/2013/04/shame-css/
+ */
+
+/* ==========================================================================
+TEMPORARY
+========================================================================== */
+
+/**
+ * This file should always be empty.
+ * It could be a good place to put your styles in as you develop new features.
+ * Once done, you should move your styles in the appropriate folder.
+ */
