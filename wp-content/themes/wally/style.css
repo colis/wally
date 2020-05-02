@@ -49,9 +49,8 @@ TRANSITION
 	--font-family-primary: "Raleway", arial, sans-serif;
 	--font-family-headings: "Raleway", arial, sans-serif;
 	--font-weight-primary-light: 300;
-	--font-weight-primary-regular: 400;
 	--font-weight-primary-bold: 700;
-	--font-weight-headings-regular: 900;
+	--font-weight-headings-regular: 800;
 	--font-size-body-desktop: 18px;
 	--font-size-body-mobile: 16px;
 	--line-height-body-desktop: 1.78;
@@ -813,6 +812,191 @@ WP
 Utilities
 - ideally prefixed with `u-*`
 ------------------------------------*/
+
+/* ==========================================================================
+ACCESSIBILITY UTILITIES
+========================================================================== */
+
+/*
+ * [1] Many screen reader and browser combinations announce broken words
+ *     as they would appear visually.
+ * [2] Above WP toolbar.
+ */
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+
+	/* [1] */
+}
+
+.screen-reader-text:focus {
+	background-color: var(--color-white);
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: var(--color-black);
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: var(--font-weight-primary-bold);
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+
+	/* [2] */
+}
+
+/* ==========================================================================
+COLORS UTILITIES
+========================================================================== */
+.has-background.has-catalina-blue-background-color {
+	background-color: #1d3557;
+}
+
+.has-text-color.has-catalina-blue-color {
+	color: #1d3557;
+}
+
+.has-background.has-charlotte-background-color {
+	background-color: #a8dadc;
+}
+
+.has-text-color.has-charlotte-color {
+	color: #a8dadc;
+}
+
+.has-background.has-panache-background-color {
+	background-color: #f1faee;
+}
+
+.has-text-color.has-panache-color {
+	color: #f1faee;
+}
+
+.has-background.has-amaranth-background-color {
+	background-color: #e63946;
+}
+
+.has-text-color.has-amaranth-color {
+	color: #e63946;
+}
+
+.has-background.has-jelly-bean-background-color {
+	background-color: #457b9d;
+}
+
+.has-text-color.has-jelly-bean-color {
+	color: #457b9d;
+}
+
+/* ==========================================================================
+TYPOGRAPHY UTILITIES
+========================================================================== */
+.has-heading-1-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h1-mobile);
+	line-height: var(--line-height-h1-mobile);
+}
+
+@media (min-width: 900px) {
+
+	.has-heading-1-font-size {
+		font-size: var(--font-size-h1-desktop);
+		line-height: var(--line-height-h1-desktop);
+	}
+}
+
+.has-heading-2-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h2-mobile);
+	line-height: var(--line-height-h2-mobile);
+}
+
+@media (min-width: 900px) {
+
+	.has-heading-2-font-size {
+		font-size: var(--font-size-h2-desktop);
+		line-height: var(--line-height-h2-desktop);
+	}
+}
+
+.has-heading-3-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h3-mobile);
+	line-height: var(--line-height-h3-mobile);
+}
+
+@media (min-width: 900px) {
+
+	.has-heading-3-font-size {
+		font-size: var(--font-size-h3-desktop);
+		line-height: var(--line-height-h3-desktop);
+	}
+}
+
+.has-heading-4-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h4-mobile);
+	line-height: var(--line-height-h4-mobile);
+}
+
+@media (min-width: 900px) {
+
+	.has-heading-4-font-size {
+		font-size: var(--font-size-h4-desktop);
+		line-height: var(--line-height-h4-desktop);
+	}
+}
+
+.has-heading-5-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h5-mobile);
+	line-height: var(--line-height-h5-mobile);
+}
+
+@media (min-width: 900px) {
+
+	.has-heading-5-font-size {
+		font-size: var(--font-size-h5-desktop);
+		line-height: var(--line-height-h5-desktop);
+	}
+}
+
+.has-heading-6-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h6-mobile);
+	line-height: var(--line-height-h6-mobile);
+}
+
+@media (min-width: 900px) {
+
+	.has-heading-6-font-size {
+		font-size: var(--font-size-h6-desktop);
+		line-height: var(--line-height-h6-desktop);
+	}
+}
 
 /*------------------------------------
 Trumps
