@@ -156,6 +156,19 @@ function wally_scripts() {
 add_action( 'wp_enqueue_scripts', 'wally_scripts' );
 
 /**
+ * Enqueue the block editor assets.
+ */
+function wally_editor_assets() {
+	wp_enqueue_style(
+		'wally-editor-style',
+		get_stylesheet_directory_uri() . '/editor-style.css',
+		[ 'wp-edit-blocks' ],
+		THEME_VERSION
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'wally_editor_assets' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

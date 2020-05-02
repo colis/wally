@@ -26,11 +26,6 @@ Components
 ------------------------------------*/
 
 /*------------------------------------
-Blocks
-filename: `namespace/block` becomes `namespace-block`
-------------------------------------*/
-
-/*------------------------------------
 WP
 - In this section you should add any relevant file that overrides
 - a specific WordPress component (e.g. block, plugin, etc..)
