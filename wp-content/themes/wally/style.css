@@ -207,6 +207,10 @@ TYPOGRAPHY
 /*------------------------------------
 Generic
 ------------------------------------*/
+
+/* ==========================================================================
+BODY
+========================================================================== */
 body {
 	font-family: var(--font-family-primary);
 	font-weight: var(--font-weight-primary-regular);
@@ -652,6 +656,107 @@ template {
 Elements
 - only simple HTML tags can go here
 ------------------------------------*/
+
+/* ==========================================================================
+HEADINGS
+========================================================================== */
+h1 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h1-mobile);
+	line-height: var(--line-height-h1-mobile);
+}
+
+@media (min-width: 900px) {
+
+	h1 {
+		font-size: var(--font-size-h1-desktop);
+		line-height: var(--line-height-h1-desktop);
+	}
+}
+
+h2 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h2-mobile);
+	line-height: var(--line-height-h2-mobile);
+}
+
+@media (min-width: 900px) {
+
+	h2 {
+		font-size: var(--font-size-h2-desktop);
+		line-height: var(--line-height-h2-desktop);
+	}
+}
+
+h3 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h3-mobile);
+	line-height: var(--line-height-h3-mobile);
+}
+
+@media (min-width: 900px) {
+
+	h3 {
+		font-size: var(--font-size-h3-desktop);
+		line-height: var(--line-height-h3-desktop);
+	}
+}
+
+h4 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h4-mobile);
+	line-height: var(--line-height-h4-mobile);
+}
+
+@media (min-width: 900px) {
+
+	h4 {
+		font-size: var(--font-size-h4-desktop);
+		line-height: var(--line-height-h4-desktop);
+	}
+}
+
+h5 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h5-mobile);
+	line-height: var(--line-height-h5-mobile);
+}
+
+@media (min-width: 900px) {
+
+	h5 {
+		font-size: var(--font-size-h5-desktop);
+		line-height: var(--line-height-h5-desktop);
+	}
+}
+
+h6 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h6-mobile);
+	line-height: var(--line-height-h6-mobile);
+}
+
+@media (min-width: 900px) {
+
+	h6 {
+		font-size: var(--font-size-h6-desktop);
+		line-height: var(--line-height-h6-desktop);
+	}
+}
+
+/* ==========================================================================
+IMAGES
+========================================================================== */
+img {
+	display: block;
+	max-width: 100%;
+}
 
 /*------------------------------------
 Objects
