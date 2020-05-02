@@ -763,6 +763,36 @@ Objects
 - must be prefixed with `o-*`
 ------------------------------------*/
 
+/* ==========================================================================
+CONTAINER
+========================================================================== */
+.o-container {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1320px;
+	padding-left: 24px;
+	padding-right: 24px;
+	width: 100%;
+}
+
+/* ==========================================================================
+GRID
+========================================================================== */
+.o-grid {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1320px;
+	padding-left: 24px;
+	padding-right: 24px;
+	width: 100%;
+	grid-gap: 24px;
+	gap: 24px;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
+
 /*------------------------------------
 Components
 - must be prefixed with `c-*`

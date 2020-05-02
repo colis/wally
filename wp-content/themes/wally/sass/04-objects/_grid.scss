@@ -1,0 +1,11 @@
+/* ==========================================================================
+GRID
+========================================================================== */
+
+.o-grid {
+	@include grid_container();
+	@include grid_gap_fallback($grid-gutter);
+
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
