@@ -4,7 +4,7 @@ const themeJSON = require("./theme.json");
 const sass = require("node-sass");
 
 module.exports = {
-	"get($key)": function(key) {
+	"getFromJSON($key)": function(key) {
 		key = key.getValue();
 		const json = themeJSON;
 		const sassVars = json[key];
