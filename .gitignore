@@ -114,3 +114,4 @@ config.codekit3
 # Plugins to keep
 !wp-content/plugins/wally-**
 !wp-content/plugins/gutenberg
+!wp-content/plugins/instagram-feed
