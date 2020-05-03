@@ -13,7 +13,7 @@ RESET
 /**
  * This mixin can be used to reset the appearance of a list element (ul, ol)
  */
-@mixin reset_list_style() {
+@mixin reset_list_style {
 	list-style: none;
 	margin: 0;
 	padding: 0;

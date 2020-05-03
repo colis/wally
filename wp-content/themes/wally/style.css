@@ -821,6 +821,10 @@ Components
 /* ==========================================================================
 HEADER
 ========================================================================== */
+html.navigation-open {
+	overflow: hidden;
+}
+
 .c-main-nav {
 	display: flex;
 	height: 100%;
@@ -837,46 +841,143 @@ HEADER
 	background: none;
 	border: none;
 	padding: 0;
+	cursor: pointer;
+	width: 30px;
 }
 
 .c-menu-button__icon {
-	display: block;
+	position: absolute;
+	right: var(--spacing-m);
 	width: 28px;
 	height: 4px;
 	background-color: var(--color-catalina-blue);
-	transition: transform 0.3s;
+	transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
 .c-menu-button__icon::before,
 .c-menu-button__icon::after {
 	content: "";
+	position: absolute;
 	display: block;
-	width: 100%;
-	height: 100%;
-	transition: transform 0.5s, width 0.5s, top 0.3s;
+	width: 28px;
+	height: 4px;
 	background-color: inherit;
 }
 
 .c-menu-button__icon::before {
-	transform-origin: right top;
-	transform: translateY(-10px);
+	top: -10px;
+	transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
+}
+
+html.navigation-open .c-menu-button__icon::before {
+	top: 0;
+	transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
+	opacity: 0;
 }
 
 .c-menu-button__icon::after {
-	transform-origin: right bottom;
-	transform: translateY(6px);
+	bottom: -10px;
+	transition: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+html.navigation-open .c-menu-button__icon::after {
+	bottom: 0;
+	transition: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+	transform: rotate(-90deg);
+}
+
+html.navigation-open .c-menu-button__icon {
+	transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+	transform: rotate(225deg);
 }
 
 .c-navigation {
 	position: fixed;
-	top: 82px;
+	top: calc(100% - 80vh);
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: calc(100% - 82px);
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-	display: none;
+	height: 100%;
+	width: 100%;
+	visibility: hidden;
+	transition: visibility 0.7s;
+}
+
+html.navigation-open .c-navigation {
+	visibility: visible;
+}
+
+.menu-item {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu-item a {
+	color: var(--color-catalina-blue);
+	text-decoration: none;
+}
+
+.menu-item a:hover,
+.menu-item a:focus {
+	color: var(--color-amaranth);
+}
+
+.c-navigation__menu-wrapper {
+	padding: 0;
+	transform: translateX(100vw);
+	transition: transform 0.5s cubic-bezier(0.86, 0.01, 0.77, 0.78);
+}
+
+html.navigation-open .c-navigation__menu-wrapper {
+	transform: translateX(0);
+	transition: transform 0.7s cubic-bezier(0.82, 0.01, 0.77, 0.78);
+}
+
+#menu-main-navigation a {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h1-mobile);
+	line-height: var(--line-height-h1-mobile);
+}
+
+@media (min-width: 900px) {
+
+	#menu-main-navigation a {
+		font-size: var(--font-size-h1-desktop);
+		line-height: var(--line-height-h1-desktop);
+	}
+}
+
+#menu-social-networks {
+	display: inline-grid;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr;
+	grid-auto-flow: column;
+	column-gap: var(--spacing-xs);
+}
+
+#menu-social-networks a {
+	font-family: var(--font-family-primary);
+	font-weight: var(--font-weight-primary-light);
+	font-size: var(--font-size-body-mobile);
+	line-height: var(--line-height-body-mobile);
+}
+
+@media (min-width: 900px) {
+
+	#menu-social-networks a {
+		font-size: var(--font-size-body-desktop);
+		line-height: var(--line-height-body-desktop);
+	}
+}
+
+#main {
+	transition: transform 0.7s cubic-bezier(0.91, 0.01, 0.6, 0.99);
+}
+
+.navigation-open #main {
+	transform: translateX(-100vw);
 }
 
 /* ==========================================================================
