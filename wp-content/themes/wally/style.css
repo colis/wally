@@ -212,9 +212,10 @@ BODY
 ========================================================================== */
 body {
 	font-family: var(--font-family-primary);
-	font-weight: var(--font-weight-primary-regular);
+	font-weight: var(--font-weight-primary-light);
 	font-size: var(--font-size-body-mobile);
 	line-height: var(--line-height-body-mobile);
+	color: var(--color-catalina-blue);
 }
 
 @media (min-width: 900px) {

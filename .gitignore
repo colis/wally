@@ -67,7 +67,6 @@ wp-cli*.yml
 *.code-workspace
 
 ## WORDPRESS CORE
-index.php
 /index.php
 /license.txt
 /readme.html

@@ -4,4 +4,5 @@ BODY
 
 body {
 	@include font_prop_body();
+	color: var(--color-catalina-blue);
 }
