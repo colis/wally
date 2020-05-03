@@ -13,20 +13,19 @@
  */
 
 get_header();
+?>
 
-if ( have_posts() ) {
-	while ( have_posts() ) {
-		the_post();
+	<main id="main" class="o-container">
 
-		echo '<main id="main" class="o-container">';
+		<?php
+		while ( have_posts() ) : the_post();
 
-		if ( is_page() ) {
-			get_template_part( 'template-parts/content/entry', 'page' );
-		} else {
-			// get_template_part( 'template-parts/content/entry', get_post_type() );
-		}
-		echo '</main>';
-	}
-}
+			get_template_part( 'template-parts/content/entry', get_post_type() );
 
+		endwhile; // End of the loop.
+		?>
+
+	</main>
+
+<?php
 get_footer();
