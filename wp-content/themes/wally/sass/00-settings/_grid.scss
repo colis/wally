@@ -1,0 +1,8 @@
+/* ==========================================================================
+GRID SETTINGS
+========================================================================== */
+
+$grid-width: 1272px;
+$grid-gutter: 24px;
+$grid-item-width: ($grid-width - ($grid-gutter * 11)) / 12;
+$grid-width-full: $grid-width + ($grid-gutter * 2); // Adds a 24px padding to each side to account for spacing on smaller screens.

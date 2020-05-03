@@ -1,0 +1,68 @@
+/* ==========================================================================
+MEDIA QUERIES
+Based on https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/
+
+Example usage:
+
+.my-class {
+  padding: 10px;
+
+  @include for-desktop-up {
+    padding: 20px;
+  }
+}
+========================================================================== */
+
+@mixin for-phone-only {
+	@media (max-width: #{$phone-max}) {
+		@content;
+	}
+}
+
+@mixin for-tablet-portrait-up {
+	@media (min-width: #{$tablet-portrait-min}) {
+		@content;
+	}
+}
+
+@mixin for-tablet-landscape-up {
+	@media (min-width: #{$tablet-landscape-min}) {
+		@content;
+	}
+}
+
+@mixin for-desktop-up {
+	@media (min-width: #{$desktop-min}) {
+		@content;
+	}
+}
+
+@mixin for-big-desktop-up {
+	@media (min-width: #{$big-desktop-min}) {
+		@content;
+	}
+}
+
+@mixin up-to-tablet-portrait {
+	@media (max-width: #{$tablet-portrait-max}) {
+		@content;
+	}
+}
+
+@mixin up-to-tablet-landscape {
+	@media (max-width: #{$tablet-landscape-max}) {
+		@content;
+	}
+}
+
+@mixin up-to-desktop {
+	@media (max-width: #{$desktop-max}) {
+		@content;
+	}
+}
+
+@mixin up-to-big-desktop {
+	@media (max-width: #{$big-desktop-max}) {
+		@content;
+	}
+}

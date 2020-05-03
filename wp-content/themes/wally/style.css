@@ -1,55 +1,282 @@
-/*!
-Theme Name: Wally
-Theme URI: https://github.com/colis/wally
-Author: Carmine Colicino
-Author URI: https://github.com/colis
-Description: Description
-Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-Text Domain: wally
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+/* ==========================================================================
+BREAKPOINTS
+========================================================================== */
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned.
+/* ==========================================================================
+COLOR PALETTE
+========================================================================== */
+:root {
+	--color-catalina-blue: #1d3557;
+	--color-charlotte: #a8dadc;
+	--color-panache: #f1faee;
+	--color-amaranth: #e63946;
+	--color-jelly-bean: #457b9d;
+}
 
-Wally is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
+/* ==========================================================================
+GRID SETTINGS
+========================================================================== */
 
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-*/
+/* ==========================================================================
+IMAGES
+All images should be set to variables to be used within the codebase,
+this provides a central location for any replacements to be implemented
+========================================================================== */
 
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Normalize
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Widgets
-# Content
-	## Posts and pages
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
+/* ==========================================================================
+SPACINGS
+========================================================================== */
+:root {
+	--global-baseline: 8px;
+	--spacing-xxs: 4px;
+	--spacing-xs: 8px;
+	--spacing-s: 16px;
+	--spacing-m: 24px;
+	--spacing-l: 32px;
+	--spacing-xl: 40px;
+	--spacing-xxl: 48px;
+}
 
-/*--------------------------------------------------------------
-# Normalize
---------------------------------------------------------------*/
+/* ==========================================================================
+TRANSITION
+========================================================================== */
+:root {
+	--transition-base-easing: ease-in-out;
+	--transition-base-duration: 125ms;
+}
+
+:root {
+	--font-family-primary: "Raleway", arial, sans-serif;
+	--font-family-headings: "Raleway", arial, sans-serif;
+	--font-weight-primary-light: 300;
+	--font-weight-primary-bold: 700;
+	--font-weight-headings-regular: 800;
+	--font-size-body-desktop: 18px;
+	--font-size-body-mobile: 16px;
+	--line-height-body-desktop: 1.78;
+	--line-height-body-mobile: 1.75;
+	--font-size-small: 12px;
+	--line-height-small: normal;
+	--font-size-medium: 14px;
+	--line-height-medium: normal;
+	--font-size-h1-desktop: 40px;
+	--font-size-h1-mobile: 34px;
+	--line-height-h1-desktop: normal;
+	--line-height-h1-mobile: normal;
+	--font-size-h2-desktop: 28px;
+	--font-size-h2-mobile: 24px;
+	--line-height-h2-desktop: normal;
+	--line-height-h2-mobile: normal;
+	--font-size-h3-desktop: 24px;
+	--font-size-h3-mobile: 20px;
+	--line-height-h3-desktop: normal;
+	--line-height-h3-mobile: normal;
+	--font-size-h4-desktop: 22px;
+	--font-size-h4-mobile: 18px;
+	--line-height-h4-desktop: normal;
+	--line-height-h4-mobile: normal;
+	--font-size-h5-desktop: var(--font-size-body-desktop);
+	--font-size-h5-mobile: var(--font-size-body-mobile);
+	--line-height-h5-desktop: normal;
+	--line-height-h5-mobile: normal;
+	--font-size-h6-desktop: var(--font-size-body-desktop);
+	--font-size-h6-mobile: var(--font-size-body-mobile);
+	--line-height-h6-desktop: normal;
+	--line-height-h6-mobile: normal;
+}
+
+/* ==========================================================================
+SPACING FUNCTIONS
+========================================================================== */
+
+/**
+ * Generates the value for a spacing by multiplying
+ * the global baseline with the given ratio.
+ *
+ * USAGE:
+ * margin-bottom: spacing(10);
+ *
+ * NOTE:
+ * Please use spacing variables if applicable.
+ * This function should only be used if the spacing you're trying
+ * to achieve doesn't exist in the styleguide. (see settings/spacings.scss)
+ */
+
+/* ==========================================================================
+MEDIA QUERIES
+Based on https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/
+
+Example usage:
+
+.my-class {
+  padding: 10px;
+
+  @include for-desktop-up {
+    padding: 20px;
+  }
+}
+========================================================================== */
+
+/* ==========================================================================
+BUTTONS
+========================================================================== */
+
+/* Style variants */
+
+/* Size variants */
+
+/* ==========================================================================
+CORE BLOCKS
+========================================================================== */
+
+/* ==========================================================================
+DIMENSIONS
+========================================================================== */
+
+/**
+ * Helper for absolute full
+ */
+
+/* ==========================================================================
+GRID
+========================================================================== */
+
+/* ==========================================================================
+GRID GAP
+========================================================================== */
+
+/* ==========================================================================
+IMAGES
+========================================================================== */
+
+/**
+ * Fit an image to its container
+ */
+
+/**
+ * Shortcut to background image properties
+ */
+
+/* ==========================================================================
+RESET
+========================================================================== */
+
+/**
+ * Reset all padding and margin
+ */
+
+/**
+ * This mixin can be used to reset the appearance of a list element (ul, ol)
+ */
+
+/**
+ * This mixin can be used to reset the appearance
+ * of an input[type="submit"] element
+ */
+
+/**
+ * This mixin can be used to reset the appearance of a <button> element
+ */
+
+/**
+ * This mixin can be used to remove the default anchor styling.
+ */
+
+/**
+ * This mixin can be used to remove the default list styling.
+ */
+
+/* ==========================================================================
+TRANSITION
+========================================================================== */
+
+/**
+ * Transition shortcut
+ */
+
+/* ==========================================================================
+TYPOGRAPHY
+========================================================================== */
+
+/**
+ * Typography mixins to ensure that the correct desktop
+ * and mobile sizes of fonts are correct
+ */
+
+/*------------------------------------
+Generic
+------------------------------------*/
+
+/* ==========================================================================
+BODY
+========================================================================== */
+body {
+	font-family: var(--font-family-primary);
+	font-weight: var(--font-weight-primary-regular);
+	font-size: var(--font-size-body-mobile);
+	line-height: var(--line-height-body-mobile);
+}
+
+@media (min-width: 900px) {
+
+	body {
+		font-size: var(--font-size-body-desktop);
+		line-height: var(--line-height-body-desktop);
+	}
+}
+
+/* ==========================================================================
+BOX-SIZING
+========================================================================== */
+
+/**
+ * More sensible default box-sizing:
+ * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ */
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+/* ==========================================================================
+FONTS
+========================================================================== */
+@font-face {
+
+	/* Raleway-Light */
+	font-family: Raleway;
+	font-weight: 300;
+	src: url(./fonts/Raleway-Light.ttf);
+	font-display: swap;
+}
+
+@font-face {
+
+	/* Raleway-Bold */
+	font-family: Raleway;
+	font-weight: 700;
+	src: url(./fonts/Raleway-Bold.ttf);
+	font-display: swap;
+}
+
+@font-face {
+
+	/* Raleway-ExtraBold */
+	font-family: Raleway;
+	font-weight: 800;
+	src: url(./fonts/Raleway-ExtraBold.ttf);
+	font-display: swap;
+}
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
-	 ========================================================================== */
+   ========================================================================== */
 
 /**
  * 1. Correct the line height in all browsers.
@@ -57,11 +284,15 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  */
 html {
 	line-height: 1.15;
+
+	/* 1 */
 	-webkit-text-size-adjust: 100%;
+
+	/* 2 */
 }
 
 /* Sections
-	 ========================================================================== */
+   ========================================================================== */
 
 /**
  * Remove the margin in all browsers.
@@ -87,7 +318,7 @@ h1 {
 }
 
 /* Grouping content
-	 ========================================================================== */
+   ========================================================================== */
 
 /**
  * 1. Add the correct box sizing in Firefox.
@@ -95,8 +326,14 @@ h1 {
  */
 hr {
 	box-sizing: content-box;
+
+	/* 1 */
 	height: 0;
+
+	/* 1 */
 	overflow: visible;
+
+	/* 2 */
 }
 
 /**
@@ -105,11 +342,15 @@ hr {
  */
 pre {
 	font-family: monospace, monospace;
+
+	/* 1 */
 	font-size: 1em;
+
+	/* 2 */
 }
 
 /* Text-level semantics
-	 ========================================================================== */
+   ========================================================================== */
 
 /**
  * Remove the gray background on active links in IE 10.
@@ -124,8 +365,14 @@ a {
  */
 abbr[title] {
 	border-bottom: none;
+
+	/* 1 */
 	text-decoration: underline;
+
+	/* 2 */
 	text-decoration: underline dotted;
+
+	/* 2 */
 }
 
 /**
@@ -144,7 +391,11 @@ code,
 kbd,
 samp {
 	font-family: monospace, monospace;
+
+	/* 1 */
 	font-size: 1em;
+
+	/* 2 */
 }
 
 /**
@@ -175,7 +426,7 @@ sup {
 }
 
 /* Embedded content
-	 ========================================================================== */
+   ========================================================================== */
 
 /**
  * Remove the border on images inside links in IE 10.
@@ -185,7 +436,7 @@ img {
 }
 
 /* Forms
-	 ========================================================================== */
+   ========================================================================== */
 
 /**
  * 1. Change the font styles in all browsers.
@@ -197,9 +448,17 @@ optgroup,
 select,
 textarea {
 	font-family: inherit;
+
+	/* 1 */
 	font-size: 100%;
+
+	/* 1 */
 	line-height: 1.15;
+
+	/* 1 */
 	margin: 0;
+
+	/* 2 */
 }
 
 /**
@@ -208,6 +467,8 @@ textarea {
  */
 button,
 input {
+
+	/* 1 */
 	overflow: visible;
 }
 
@@ -217,6 +478,8 @@ input {
  */
 button,
 select {
+
+	/* 1 */
 	text-transform: none;
 }
 
@@ -262,15 +525,27 @@ fieldset {
  * 1. Correct the text wrapping in Edge and IE.
  * 2. Correct the color inheritance from `fieldset` elements in IE.
  * 3. Remove the padding so developers are not caught out when they zero out
- *		`fieldset` elements in all browsers.
+ *    `fieldset` elements in all browsers.
  */
 legend {
 	box-sizing: border-box;
+
+	/* 1 */
 	color: inherit;
+
+	/* 2 */
 	display: table;
+
+	/* 1 */
 	max-width: 100%;
+
+	/* 1 */
 	padding: 0;
+
+	/* 3 */
 	white-space: normal;
+
+	/* 1 */
 }
 
 /**
@@ -294,7 +569,11 @@ textarea {
 [type="checkbox"],
 [type="radio"] {
 	box-sizing: border-box;
+
+	/* 1 */
 	padding: 0;
+
+	/* 2 */
 }
 
 /**
@@ -311,7 +590,11 @@ textarea {
  */
 [type="search"] {
 	-webkit-appearance: textfield;
+
+	/* 1 */
 	outline-offset: -2px;
+
+	/* 2 */
 }
 
 /**
@@ -327,11 +610,15 @@ textarea {
  */
 ::-webkit-file-upload-button {
 	-webkit-appearance: button;
+
+	/* 1 */
 	font: inherit;
+
+	/* 2 */
 }
 
 /* Interactive
-	 ========================================================================== */
+   ========================================================================== */
 
 /*
  * Add the correct display in Edge, IE 10+, and Firefox.
@@ -348,7 +635,7 @@ summary {
 }
 
 /* Misc
-	 ========================================================================== */
+   ========================================================================== */
 
 /**
  * Add the correct display in IE 10+.
@@ -364,366 +651,177 @@ template {
 	display: none;
 }
 
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-body,
-button,
-input,
-select,
-optgroup,
-textarea {
-	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	font-size: 1rem;
-	line-height: 1.5;
+/*------------------------------------
+Elements
+- only simple HTML tags can go here
+------------------------------------*/
+
+/* ==========================================================================
+HEADINGS
+========================================================================== */
+h1 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h1-mobile);
+	line-height: var(--line-height-h1-mobile);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
+@media (min-width: 900px) {
+
+	h1 {
+		font-size: var(--font-size-h1-desktop);
+		line-height: var(--line-height-h1-desktop);
+	}
+}
+
+h2 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h2-mobile);
+	line-height: var(--line-height-h2-mobile);
+}
+
+@media (min-width: 900px) {
+
+	h2 {
+		font-size: var(--font-size-h2-desktop);
+		line-height: var(--line-height-h2-desktop);
+	}
+}
+
+h3 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h3-mobile);
+	line-height: var(--line-height-h3-mobile);
+}
+
+@media (min-width: 900px) {
+
+	h3 {
+		font-size: var(--font-size-h3-desktop);
+		line-height: var(--line-height-h3-desktop);
+	}
+}
+
+h4 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h4-mobile);
+	line-height: var(--line-height-h4-mobile);
+}
+
+@media (min-width: 900px) {
+
+	h4 {
+		font-size: var(--font-size-h4-desktop);
+		line-height: var(--line-height-h4-desktop);
+	}
+}
+
+h5 {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h5-mobile);
+	line-height: var(--line-height-h5-mobile);
+}
+
+@media (min-width: 900px) {
+
+	h5 {
+		font-size: var(--font-size-h5-desktop);
+		line-height: var(--line-height-h5-desktop);
+	}
+}
+
 h6 {
-	clear: both;
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h6-mobile);
+	line-height: var(--line-height-h6-mobile);
 }
 
-p {
-	margin-bottom: 1.5em;
+@media (min-width: 900px) {
+
+	h6 {
+		font-size: var(--font-size-h6-desktop);
+		line-height: var(--line-height-h6-desktop);
+	}
 }
 
-dfn,
-cite,
-em,
-i {
-	font-style: italic;
-}
-
-blockquote {
-	margin: 0 1.5em;
-}
-
-address {
-	margin: 0 0 1.5em;
-}
-
-pre {
-	background: #eee;
-	font-family: "Courier 10 Pitch", courier, monospace;
-	font-size: 0.9375rem;
-	line-height: 1.6;
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
-}
-
-code,
-kbd,
-tt,
-var {
-	font-family: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	font-size: 0.9375rem;
-}
-
-abbr,
-acronym {
-	border-bottom: 1px dotted #666;
-	cursor: help;
-}
-
-mark,
-ins {
-	background: #fff9c0;
-	text-decoration: none;
-}
-
-big {
-	font-size: 125%;
-}
-
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
-
-/* Inherit box-sizing to more easily change it's value on a component level.
-@link http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-*,
-*::before,
-*::after {
-	box-sizing: inherit;
-}
-
-html {
-	box-sizing: border-box;
-}
-
-body {
-	background: #fff;
-}
-
-hr {
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
-}
-
-ul,
-ol {
-	margin: 0 0 1.5em 3em;
-}
-
-ul {
-	list-style: disc;
-}
-
-ol {
-	list-style: decimal;
-}
-
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
-}
-
-dt {
-	font-weight: 700;
-}
-
-dd {
-	margin: 0 1.5em 1.5em;
-}
-
+/* ==========================================================================
+IMAGES
+========================================================================== */
 img {
-	height: auto;
+	display: block;
 	max-width: 100%;
 }
 
-figure {
-	margin: 1em 0;
-}
+/*------------------------------------
+Objects
+- must be prefixed with `o-*`
+------------------------------------*/
 
-table {
-	margin: 0 0 1.5em;
-	width: 100%;
-}
-
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
-	color: rgba(0, 0, 0, 0.8);
-	font-size: 0.75rem;
-	line-height: 1;
-	padding: 0.6em 1em 0.4em;
-}
-
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
-}
-
-button:active,
- button:focus,
-input[type="button"]:active,
-input[type="button"]:focus,
-input[type="reset"]:active,
-input[type="reset"]:focus,
-input[type="submit"]:active,
-input[type="submit"]:focus {
-	border-color: #aaa #bbb #bbb;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
-textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 3px;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="number"]:focus,
-input[type="tel"]:focus,
-input[type="range"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="week"]:focus,
-input[type="time"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="color"]:focus,
-textarea:focus {
-	color: #111;
-}
-
-select {
-	border: 1px solid #ccc;
-}
-
-textarea {
-	width: 100%;
-}
-
-/*--------------------------------------------------------------
-# Navigation
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Links
---------------------------------------------------------------*/
-a {
-	color: #4169e1;
-}
-
-a:visited {
-	color: #800080;
-}
-
-a:hover,
- a:focus,
- a:active {
-	color: #191970;
-}
-
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover,
- a:active {
-	outline: 0;
-}
-
-/*--------------------------------------------------------------
-## Menus
---------------------------------------------------------------*/
-.main-navigation {
-	display: block;
-	width: 100%;
-}
-
-.main-navigation ul {
-	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
-
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	display: block;
-	left: auto;
-}
-
-.main-navigation ul ul a {
-	width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-
-.main-navigation li {
+/* ==========================================================================
+CONTAINER
+========================================================================== */
+.o-container {
 	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1320px;
+	padding-left: 24px;
+	padding-right: 24px;
+	width: 100%;
 }
 
-.main-navigation a {
-	display: block;
-	text-decoration: none;
+/* ==========================================================================
+GRID
+========================================================================== */
+.o-grid {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1320px;
+	padding-left: 24px;
+	padding-right: 24px;
+	width: 100%;
+	grid-gap: 24px;
+	gap: 24px;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
+/*------------------------------------
+Components
+- must be prefixed with `c-*`
+------------------------------------*/
 
-@media screen and (min-width: 37.5em) {
+/*------------------------------------
+Blocks
+filename: `namespace/block` becomes `namespace-block`
+------------------------------------*/
 
-	.menu-toggle {
-		display: none;
-	}
+/*------------------------------------
+WP
+- In this section you should add any relevant file that overrides
+- a specific WordPress component (e.g. block, plugin, etc..)
+------------------------------------*/
 
-	.main-navigation ul {
-		display: flex;
-	}
-}
+/*------------------------------------
+Utilities
+- ideally prefixed with `u-*`
+------------------------------------*/
 
-.site-main .comment-navigation,
- .site-main
-.posts-navigation,
- .site-main
-.post-navigation {
-	margin: 0 0 1.5em;
-}
+/* ==========================================================================
+ACCESSIBILITY UTILITIES
+========================================================================== */
 
-.comment-navigation .nav-links,
-.posts-navigation .nav-links,
-.post-navigation .nav-links {
-	display: flex;
-}
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	flex: 1 0 50%;
-}
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	text-align: end;
-	flex: 1 0 50%;
-}
-
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
+/*
+ * [1] Many screen reader and browser combinations announce broken words
+ *     as they would appear visually.
+ * [2] Above WP toolbar.
+ */
 
 /* Text meant only for screen readers. */
 .screen-reader-text {
@@ -737,18 +835,21 @@ a:hover,
 	position: absolute !important;
 	width: 1px;
 	word-wrap: normal !important;
+
+	/* [1] */
 }
 
 .screen-reader-text:focus {
-	background-color: #f1f1f1;
+	background-color: #fff;
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;
 	clip-path: none;
-	color: #21759b;
+	color: #000;
 	display: block;
+	font-size: 14px;
 	font-size: 0.875rem;
-	font-weight: 700;
+	font-weight: var(--font-weight-primary-bold);
 	height: auto;
 	left: 5px;
 	line-height: normal;
@@ -757,196 +858,168 @@ a:hover,
 	top: 5px;
 	width: auto;
 	z-index: 100000;
+
+	/* [2] */
 }
 
-/* Do not show the outline on the skip link target. */
-#primary[tabindex="-1"]:focus {
-	outline: 0;
+/* ==========================================================================
+COLORS UTILITIES
+========================================================================== */
+.has-background.has-catalina-blue-background-color {
+	background-color: #1d3557;
 }
 
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-.alignleft {
-	float: left;
-	margin-right: 1.5em;
-	margin-bottom: 1.5em;
+.has-text-color.has-catalina-blue-color {
+	color: #1d3557;
 }
 
-.alignright {
-	float: right;
-	margin-left: 1.5em;
-	margin-bottom: 1.5em;
+.has-background.has-charlotte-background-color {
+	background-color: #a8dadc;
 }
 
-.aligncenter {
-	clear: both;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 1.5em;
+.has-text-color.has-charlotte-color {
+	color: #a8dadc;
 }
 
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-.widget {
-	margin: 0 0 1.5em;
+.has-background.has-panache-background-color {
+	background-color: #f1faee;
 }
 
-.widget select {
-	max-width: 100%;
+.has-text-color.has-panache-color {
+	color: #f1faee;
 }
 
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Posts and pages
---------------------------------------------------------------*/
-.sticky {
-	display: block;
+.has-background.has-amaranth-background-color {
+	background-color: #e63946;
 }
 
-.post,
-.page {
-	margin: 0 0 1.5em;
+.has-text-color.has-amaranth-color {
+	color: #e63946;
 }
 
-.updated:not(.published) {
-	display: none;
+.has-background.has-jelly-bean-background-color {
+	background-color: #457b9d;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
+.has-text-color.has-jelly-bean-color {
+	color: #457b9d;
 }
 
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+/* ==========================================================================
+TYPOGRAPHY UTILITIES
+========================================================================== */
+.has-heading-1-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h1-mobile);
+	line-height: var(--line-height-h1-mobile);
 }
 
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
-.comment-content a {
-	word-wrap: break-word;
+@media (min-width: 900px) {
+
+	.has-heading-1-font-size {
+		font-size: var(--font-size-h1-desktop);
+		line-height: var(--line-height-h1-desktop);
+	}
 }
 
-.bypostauthor {
-	display: block;
+.has-heading-2-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h2-mobile);
+	line-height: var(--line-height-h2-mobile);
 }
 
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
+@media (min-width: 900px) {
 
-/* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
-.infinite-scroll .posts-navigation,
-.infinite-scroll.neverending .site-footer {
-	display: none;
+	.has-heading-2-font-size {
+		font-size: var(--font-size-h2-desktop);
+		line-height: var(--line-height-h2-desktop);
+	}
 }
 
-/* Re-display the Theme Footer when Infinite Scroll has reached its end. */
-.infinity-end.neverending .site-footer {
-	display: block;
+.has-heading-3-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h3-mobile);
+	line-height: var(--line-height-h3-mobile);
 }
 
-/*--------------------------------------------------------------
-# Media
---------------------------------------------------------------*/
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
+@media (min-width: 900px) {
+
+	.has-heading-3-font-size {
+		font-size: var(--font-size-h3-desktop);
+		line-height: var(--line-height-h3-desktop);
+	}
 }
 
-/* Make sure embeds and iframes fit their containers. */
-embed,
-iframe,
-object {
-	max-width: 100%;
+.has-heading-4-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h4-mobile);
+	line-height: var(--line-height-h4-mobile);
 }
 
-/* Make sure logo link wraps around logo image. */
-.custom-logo-link {
-	display: inline-block;
+@media (min-width: 900px) {
+
+	.has-heading-4-font-size {
+		font-size: var(--font-size-h4-desktop);
+		line-height: var(--line-height-h4-desktop);
+	}
 }
 
-/*--------------------------------------------------------------
-## Captions
---------------------------------------------------------------*/
-.wp-caption {
-	margin-bottom: 1.5em;
-	max-width: 100%;
+.has-heading-5-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h5-mobile);
+	line-height: var(--line-height-h5-mobile);
 }
 
-.wp-caption img[class*="wp-image-"] {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+@media (min-width: 900px) {
+
+	.has-heading-5-font-size {
+		font-size: var(--font-size-h5-desktop);
+		line-height: var(--line-height-h5-desktop);
+	}
 }
 
-.wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+.has-heading-6-font-size {
+	font-family: var(--font-family-headings);
+	font-weight: var(--font-weight-headings-regular);
+	font-size: var(--font-size-h6-mobile);
+	line-height: var(--line-height-h6-mobile);
 }
 
-.wp-caption-text {
-	text-align: center;
+@media (min-width: 900px) {
+
+	.has-heading-6-font-size {
+		font-size: var(--font-size-h6-desktop);
+		line-height: var(--line-height-h6-desktop);
+	}
 }
 
-/*--------------------------------------------------------------
-## Galleries
---------------------------------------------------------------*/
-.gallery {
-	margin-bottom: 1.5em;
-}
+/*------------------------------------
+Trumps
+------------------------------------*/
 
-.gallery-item {
-	display: inline-block;
-	text-align: center;
-	vertical-align: top;
-	width: 100%;
-}
+/* ==========================================================================
+SHAME
+========================================================================== */
 
-.gallery-columns-2 .gallery-item {
-	max-width: 50%;
-}
+/**
+ * The idea of shame.css is that you have a totally new stylesheet reserved
+ * just for your hacky code. The code you have to write to get the release
+ * out on time, but the code that makes you ashamed.
+ *
+ * @see https://csswizardry.com/2013/04/shame-css/
+ */
 
-.gallery-columns-3 .gallery-item {
-	max-width: 33.33%;
-}
+/* ==========================================================================
+TEMPORARY
+========================================================================== */
 
-.gallery-columns-4 .gallery-item {
-	max-width: 25%;
-}
-
-.gallery-columns-5 .gallery-item {
-	max-width: 20%;
-}
-
-.gallery-columns-6 .gallery-item {
-	max-width: 16.66%;
-}
-
-.gallery-columns-7 .gallery-item {
-	max-width: 14.28%;
-}
-
-.gallery-columns-8 .gallery-item {
-	max-width: 12.5%;
-}
-
-.gallery-columns-9 .gallery-item {
-	max-width: 11.11%;
-}
-
-.gallery-caption {
-	display: block;
-}
+/**
+ * This file should always be empty.
+ * It could be a good place to put your styles in as you develop new features.
+ * Once done, you should move your styles in the appropriate folder.
+ */

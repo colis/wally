@@ -1,0 +1,25 @@
+/* ==========================================================================
+GRID
+========================================================================== */
+
+@mixin grid_container {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: $grid-width-full;
+	padding-left: $grid-gutter;
+	padding-right: $grid-gutter;
+	width: 100%;
+}
+
+@mixin grid_container__negative {
+	left: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	max-width: 100vw;
+	padding-left: 0;
+	padding-right: 0;
+	position: relative;
+	right: 50%;
+	width: 100vw;
+}

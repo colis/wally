@@ -1,0 +1,12 @@
+/* ==========================================================================
+CORE BLOCKS
+========================================================================== */
+
+@mixin core-block-spacing() {
+	margin-top: var(--spacing-m);
+	margin-bottom: var(--spacing-m);
+	@include for-tablet-landscape-up {
+		margin-top: var(--spacing-xl);
+		margin-bottom: var(--spacing-xl);
+	}
+}

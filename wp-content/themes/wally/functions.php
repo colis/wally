@@ -100,6 +100,42 @@ if ( ! function_exists( 'wally_setup' ) ) :
 				'flex-height' => true,
 			)
 		);
+
+		// Add support for editor styles.
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'style.css' );
+
+		// Add support for wide-aligned images.
+		add_theme_support( 'align-wide' );
+
+		// Remove support for custom colors and font sizes.
+		add_theme_support( 'disable-custom-colors' );
+		add_theme_support( 'disable-custom-font-sizes' );
+		add_theme_support( 'editor-color-palette' );
+		add_theme_support( 'editor-button-styles' );
+
+		/**
+		 * Add color palette for the gutenberg editor.
+		 * Get the values from a JSON file.
+		 */
+		$theme_json_file = file_get_contents( get_theme_file_path( 'config/theme.json' ) );
+		$theme_json      = json_decode( $theme_json_file, true );
+
+		$gutenberg_palette = array_map(
+			function( $name, $hex_color ) {
+					$slug = sanitize_title( $name );
+					$name = str_replace( '-', ' ', ucwords( $slug ) );
+
+					return [
+						'name'  => $name,
+						'slug'  => $slug,
+						'color' => sanitize_hex_color( $hex_color ),
+					];
+			},
+			array_keys( $theme_json['colors'] ),
+			array_values( $theme_json['colors'] )
+		);
+		add_theme_support( 'editor-color-palette', $gutenberg_palette );
 	}
 endif;
 add_action( 'after_setup_theme', 'wally_setup' );
@@ -144,7 +180,6 @@ add_action( 'widgets_init', 'wally_widgets_init' );
  */
 function wally_scripts() {
 	wp_enqueue_style( 'wally-style', get_stylesheet_uri(), array(), THEME_VERSION );
-	wp_style_add_data( 'wally-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'wally-navigation', get_template_directory_uri() . '/js/navigation.js', array(), THEME_VERSION, true );
 
@@ -155,6 +190,19 @@ function wally_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'wally_scripts' );
+
+/**
+ * Enqueue the block editor assets.
+ */
+function wally_editor_assets() {
+	wp_enqueue_style(
+		'wally-editor-style',
+		get_stylesheet_directory_uri() . '/editor-style.css',
+		[ 'wp-edit-blocks' ],
+		THEME_VERSION
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'wally_editor_assets' );
 
 /**
  * Implement the Custom Header feature.
