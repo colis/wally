@@ -116,33 +116,26 @@ if ( ! function_exists( 'wally_setup' ) ) :
 
 		/**
 		 * Add color palette for the gutenberg editor.
-		 * Get the value from the CSS variables.
-		 *
-		 * @todo improvement: ideally get these from a yml or JSON file?
+		 * Get the values from a JSON file.
 		 */
-		$css_vars    = get_theme_file_path( 'sass/00-settings/_colors.scss' );
-		$css_colours = file_get_contents( $css_vars );
+		$theme_json_file = file_get_contents( get_theme_file_path( 'config/theme.json' ) );
+		$theme_json      = json_decode( $theme_json_file, true );
 
-		preg_match_all( '/^\s*--color-(.*):(?>\s|\t)*(?>#)(.*);$/m', $css_colours, $matches );
+		$gutenberg_palette = array_map(
+			function( $name, $hex_color ) {
+					$slug = sanitize_title( $name );
+					$name = str_replace( '-', ' ', ucwords( $slug ) );
 
-		if ( is_array( $matches ) && ! empty( $matches[1] ) && ! empty( $matches[2] ) ) {
-			$gutenberg_palette = array_map(
-				function( $name, $hex_color ) {
-						$slug = sanitize_title( $name );
-						$name = str_replace( '-', ' ', ucwords( $slug ) );
-
-						return [
-							'name'  => $name,
-							'slug'  => $slug,
-							'color' => sanitize_hex_color( "#{$hex_color}" ),
-						];
-				},
-				$matches[1],
-				$matches[2]
-			);
-
-			add_theme_support( 'editor-color-palette', $gutenberg_palette );
-		}
+					return [
+						'name'  => $name,
+						'slug'  => $slug,
+						'color' => sanitize_hex_color( $hex_color ),
+					];
+			},
+			array_keys( $theme_json['colors'] ),
+			array_values( $theme_json['colors'] )
+		);
+		add_theme_support( 'editor-color-palette', $gutenberg_palette );
 	}
 endif;
 add_action( 'after_setup_theme', 'wally_setup' );
