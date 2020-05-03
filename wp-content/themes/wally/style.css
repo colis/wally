@@ -658,6 +658,24 @@ Elements
 ------------------------------------*/
 
 /* ==========================================================================
+COPY
+========================================================================== */
+strong {
+	font-family: var(--font-family-primary);
+	font-weight: var(--font-weight-primary-bold);
+	font-size: var(--font-size-body-mobile);
+	line-height: var(--line-height-body-mobile);
+}
+
+@media (min-width: 900px) {
+
+	strong {
+		font-size: var(--font-size-body-desktop);
+		line-height: var(--line-height-body-desktop);
+	}
+}
+
+/* ==========================================================================
 HEADINGS
 ========================================================================== */
 h1 {
