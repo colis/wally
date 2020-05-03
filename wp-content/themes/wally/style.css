@@ -824,7 +824,7 @@ ACCESSIBILITY UTILITIES
  */
 
 /* Text meant only for screen readers. */
-.screen-reader-text {
+.u-screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: inset(50%);
@@ -839,7 +839,7 @@ ACCESSIBILITY UTILITIES
 	/* [1] */
 }
 
-.screen-reader-text:focus {
+.u-screen-reader-text:focus {
 	background-color: #fff;
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
