@@ -5,9 +5,9 @@ const sass = require("node-sass");
 
 module.exports = {
 	"getFromJSON($key)": function(key) {
-		key = key.getValue();
+		const sassKey = key.getValue();
 		const json = themeJSON;
-		const sassVars = json[key];
+		const sassVars = json[sassKey];
 
 		const map = new sass.types.Map(Object.keys(sassVars).length);
 
