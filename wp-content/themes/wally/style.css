@@ -792,6 +792,8 @@ CONTAINER
 	padding-left: 24px;
 	padding-right: 24px;
 	width: 100%;
+	padding-top: var(--spacing-m);
+	padding-bottom: var(--spacing-m);
 }
 
 /* ==========================================================================
@@ -826,6 +828,63 @@ WP
 - In this section you should add any relevant file that overrides
 - a specific WordPress component (e.g. block, plugin, etc..)
 ------------------------------------*/
+
+/* ==========================================================================
+INSTAGRAM FEED
+========================================================================== */
+#sb_instagram .sb_instagram_header {
+	margin-bottom: var(--spacing-m) !important;
+}
+
+#sb_instagram .sbi_header_text {
+	padding-top: 0 !important;
+	color: var(--color-catalina-blue);
+}
+
+#sb_instagram .sbi_header_text h3 {
+	font-family: var(--font-family-primary);
+	font-weight: var(--font-weight-primary-bold);
+	font-size: var(--font-size-body-mobile);
+	line-height: var(--line-height-body-mobile);
+}
+
+@media (min-width: 900px) {
+
+	#sb_instagram .sbi_header_text h3 {
+		font-size: var(--font-size-body-desktop);
+		line-height: var(--line-height-body-desktop);
+	}
+}
+
+#sb_instagram .sbi_header_text p {
+	font-size: var(--font-size-medium);
+	line-height: var(--line-height-medium);
+}
+
+#sb_instagram #sbi_images {
+	display: grid;
+	grid-template-columns: 1fr;
+	row-gap: var(--spacing-m);
+	column-gap: var(--spacing-m);
+}
+
+@media (min-width: 600px) {
+
+	#sb_instagram #sbi_images {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1200px) {
+
+	#sb_instagram #sbi_images {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+#sb_instagram #sbi_images .sbi_item {
+	width: 100% !important;
+}
 
 /*------------------------------------
 Utilities

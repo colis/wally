@@ -4,4 +4,6 @@ CONTAINER
 
 .o-container {
 	@include grid_container();
+	padding-top: var(--spacing-m);
+	padding-bottom: var(--spacing-m);
 }
