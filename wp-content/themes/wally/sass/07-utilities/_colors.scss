@@ -9,7 +9,7 @@ COLORS UTILITIES
 		}
 	}
 
-	.has-text-color {
+	.has-text-color, .has-inline-color {
 		&.has-#{$colorName}-color {
 			color: $colorHex;
 		}

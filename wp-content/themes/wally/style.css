@@ -869,7 +869,8 @@ COLORS UTILITIES
 	background-color: #1d3557;
 }
 
-.has-text-color.has-catalina-blue-color {
+.has-text-color.has-catalina-blue-color,
+.has-inline-color.has-catalina-blue-color {
 	color: #1d3557;
 }
 
@@ -877,7 +878,8 @@ COLORS UTILITIES
 	background-color: #a8dadc;
 }
 
-.has-text-color.has-charlotte-color {
+.has-text-color.has-charlotte-color,
+.has-inline-color.has-charlotte-color {
 	color: #a8dadc;
 }
 
@@ -885,7 +887,8 @@ COLORS UTILITIES
 	background-color: #f1faee;
 }
 
-.has-text-color.has-panache-color {
+.has-text-color.has-panache-color,
+.has-inline-color.has-panache-color {
 	color: #f1faee;
 }
 
@@ -893,7 +896,8 @@ COLORS UTILITIES
 	background-color: #e63946;
 }
 
-.has-text-color.has-amaranth-color {
+.has-text-color.has-amaranth-color,
+.has-inline-color.has-amaranth-color {
 	color: #e63946;
 }
 
@@ -901,7 +905,8 @@ COLORS UTILITIES
 	background-color: #457b9d;
 }
 
-.has-text-color.has-jelly-bean-color {
+.has-text-color.has-jelly-bean-color,
+.has-inline-color.has-jelly-bean-color {
 	color: #457b9d;
 }
 
