@@ -97,15 +97,11 @@ wp-content/languages/
 wp-content/install.php
 
 ## WP PLUGINS
-wp-content/plugins/query-monitor/
+wp-content/plugins/*
 wp-content/db.php
-wp-content/plugins/what-the-file/
 wp-content/uploads/sucuri/sucuri-settings.php
 *.mmdb
 srdb*/
-
-## 3rd Party Composer-Managed Plugins
-wp-content/plugins/*
 
 ## PRAGMATIC
 node_modules/
@@ -116,5 +112,6 @@ config.codekit
 config.codekit3
 /robots.txt
 
-# In house plugins to keep (not 3rd-party composer managed)
+# Plugins to keep
 !wp-content/plugins/wally-**
+!wp-content/plugins/gutenberg
