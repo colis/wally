@@ -36,6 +36,9 @@ Components
 - must be prefixed with `c-*`
 ------------------------------------*/
 
+@import '05-components/header';
+@import '05-components/logo';
+
 /*------------------------------------
 Blocks
 filename: `namespace/block` becomes `namespace-block`

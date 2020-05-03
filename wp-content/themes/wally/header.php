@@ -30,8 +30,8 @@
 			<div class="c-main-nav__wrapper">
 				<div class="o-container">
 					<div class="c-main-nav">
+						<a href="<?php echo esc_url( home_url() ); ?>" class="c-logo">veronica urbano</a>
 						<?php
-							// get_template_part( 'template-parts/common/logo' );
 							// get_template_part( 'template-parts/header/mobile-menu-button' );
 							// get_template_part( 'template-parts/header/navigation' );
 						?>

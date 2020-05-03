@@ -818,6 +818,30 @@ Components
 - must be prefixed with `c-*`
 ------------------------------------*/
 
+/* ==========================================================================
+HEADER
+========================================================================== */
+
+/* ==========================================================================
+LOGO
+========================================================================== */
+.c-logo {
+	font-family: var(--font-family-primary);
+	font-weight: var(--font-weight-primary-bold);
+	font-size: var(--font-size-body-mobile);
+	line-height: var(--line-height-body-mobile);
+	color: var(--color-catalina-blue);
+	text-decoration: none;
+}
+
+@media (min-width: 900px) {
+
+	.c-logo {
+		font-size: var(--font-size-body-desktop);
+		line-height: var(--line-height-body-desktop);
+	}
+}
+
 /*------------------------------------
 Blocks
 filename: `namespace/block` becomes `namespace-block`
