@@ -770,9 +770,9 @@ CONTAINER
 	position: relative;
 	margin-right: auto;
 	margin-left: auto;
-	max-width: 1320px;
-	padding-left: 24px;
-	padding-right: 24px;
+	max-width: 1400px;
+	padding-left: 64px;
+	padding-right: 64px;
 	width: 100%;
 }
 
@@ -783,12 +783,12 @@ GRID
 	position: relative;
 	margin-right: auto;
 	margin-left: auto;
-	max-width: 1320px;
-	padding-left: 24px;
-	padding-right: 24px;
+	max-width: 1400px;
+	padding-left: 64px;
+	padding-right: 64px;
 	width: 100%;
-	grid-gap: 24px;
-	gap: 24px;
+	grid-gap: 64px;
+	gap: 64px;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 }
