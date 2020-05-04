@@ -823,9 +823,23 @@ ARCHIVE
 ========================================================================== */
 .c-content-archive__content {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
 	gap: var(--spacing-l);
-	margin-top: 54px;
+	margin-top: 56px;
+	grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+
+	.c-content-archive__content {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 900px) {
+
+	.c-content-archive__content {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 
 /* ==========================================================================

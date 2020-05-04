@@ -4,7 +4,15 @@ ARCHIVE
 
 .c-content-archive__content {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
 	gap: var(--spacing-l);
-	margin-top: 54px;
+	margin-top: spacing(7);
+	grid-template-columns: 1fr;
+
+	@include for-tablet-portrait-up {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include for-tablet-landscape-up {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
