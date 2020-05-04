@@ -86,16 +86,6 @@ html.navigation-open {
 
 .menu-item {
 	@include reset_list_style;
-
-	a {
-		color: var(--color-catalina-blue);
-		text-decoration: none;
-
-		&:hover,
-		&:focus {
-			color: var(--color-amaranth);
-		}
-	}
 }
 
 .c-navigation__menu-wrapper {

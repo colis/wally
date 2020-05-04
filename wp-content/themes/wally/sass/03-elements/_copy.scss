@@ -5,3 +5,13 @@ COPY
 strong {
 	@include font_prop_body('bold');
 }
+
+a {
+	text-decoration: none;
+	color: var(--color-catalina-blue);
+
+	&:hover,
+	&:focus {
+		color: var(--color-amaranth);
+	}
+}

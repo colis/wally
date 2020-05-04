@@ -675,6 +675,16 @@ strong {
 	}
 }
 
+a {
+	text-decoration: none;
+	color: var(--color-catalina-blue);
+}
+
+a:hover,
+a:focus {
+	color: var(--color-amaranth);
+}
+
 /* ==========================================================================
 HEADINGS
 ========================================================================== */
@@ -935,16 +945,6 @@ html.navigation-open .c-navigation {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-}
-
-.menu-item a {
-	color: var(--color-catalina-blue);
-	text-decoration: none;
-}
-
-.menu-item a:hover,
-.menu-item a:focus {
-	color: var(--color-amaranth);
 }
 
 .c-navigation__menu-wrapper {
