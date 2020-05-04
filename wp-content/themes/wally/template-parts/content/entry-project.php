@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying any post. This is used as fallback if none is found for the current post type.
+ * Template part for displaying the a single Project.
  *
  * @package Wally
  */
