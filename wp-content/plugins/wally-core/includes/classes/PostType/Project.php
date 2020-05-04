@@ -43,9 +43,11 @@ class Project extends BaseCustomPostType {
 			'author',
 		];
 
+		$slug = _x( 'projects', 'Projects slug', 'treatwell-core' );
+
 		$rewrite = [
-			'slug'       => '/',
-			'with_front' => false,
+			'slug'       => $slug,
+			'with_front' => true,
 		];
 
 		return [
@@ -54,7 +56,7 @@ class Project extends BaseCustomPostType {
 			'rewrite'      => $rewrite,
 			'public'       => true,
 			'show_in_rest' => true,
-			'has_archive'  => false,
+			'has_archive'  => true,
 		];
 	}
 }

@@ -1,0 +1,10 @@
+/* ==========================================================================
+ARCHIVE
+========================================================================== */
+
+.c-content-archive__content {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--spacing-l);
+	margin-top: 54px;
+}

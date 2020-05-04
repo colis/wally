@@ -3,7 +3,7 @@
 // (e.g. variables, mixins, functions, etc..)
 //------------------------------------
 
-@import "import_all_settings";
+@import 'import_all_settings';
 
 /*------------------------------------
 Generic
@@ -36,6 +36,7 @@ Components
 - must be prefixed with `c-*`
 ------------------------------------*/
 
+@import '05-components/archive';
 @import '05-components/header';
 @import '05-components/logo';
 
@@ -50,8 +51,8 @@ WP
 - a specific WordPress component (e.g. block, plugin, etc..)
 ------------------------------------*/
 
-@import "06-wp/plugins/instagram-feed";
-@import "06-wp/plugins/typed-js";
+@import '06-wp/plugins/instagram-feed';
+@import '06-wp/plugins/typed-js';
 
 /*------------------------------------
 Utilities

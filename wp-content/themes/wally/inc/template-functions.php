@@ -35,15 +35,3 @@ function wally_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'wally_pingback_header' );
-
-/**
- * Set the archive page of a specific post type to be used as the homepage.
- *
- * @param WP_Query $query The current query.
- */
-function use_cpt_archive_as_home_page( $query ) {
-	if ( ! is_admin() && $query->is_main_query() && is_home() ) {
-		$query->set( 'post_type', [ 'project' ] );
-	}
-}
-add_action( 'pre_get_posts', 'use_cpt_archive_as_home_page' );
