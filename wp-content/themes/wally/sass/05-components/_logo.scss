@@ -6,4 +6,9 @@ LOGO
 	@include font_prop_body('bold');
 	color: var(--color-catalina-blue);
 	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: inherit;
+	}
 }

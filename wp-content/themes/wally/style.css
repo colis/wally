@@ -1024,6 +1024,11 @@ LOGO
 	}
 }
 
+.c-logo:hover,
+.c-logo:focus {
+	color: inherit;
+}
+
 /*------------------------------------
 Blocks
 filename: `namespace/block` becomes `namespace-block`
