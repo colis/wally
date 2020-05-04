@@ -1068,6 +1068,17 @@ INSTAGRAM FEED
 	width: 100% !important;
 }
 
+/* ==========================================================================
+TYPED.JS
+========================================================================== */
+.typed-cursor {
+	color: var(--color-amaranth);
+}
+
+#typed-strings {
+	display: none;
+}
+
 /*------------------------------------
 Utilities
 - ideally prefixed with `u-*`

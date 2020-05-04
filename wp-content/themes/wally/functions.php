@@ -188,6 +188,11 @@ function wally_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if ( is_front_page() ) {
+		wp_enqueue_script( 'typed-js-lib', get_template_directory_uri() . '/js/lib/typed.js', array(), THEME_VERSION, true );
+		wp_enqueue_script( 'wally-typed-js', get_template_directory_uri() . '/js/typed.js', array(), THEME_VERSION, true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'wally_scripts' );
 
