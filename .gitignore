@@ -116,3 +116,4 @@ config.codekit3
 !wp-content/plugins/wally-**
 !wp-content/plugins/gutenberg
 !wp-content/plugins/instagram-feed
+!wp-content/plugins/wordpress-seo
