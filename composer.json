@@ -1,0 +1,29 @@
+{
+	"name": "carmine/wally",
+	"description": "WordPress project for the veronicaurbano.it website",
+	"type": "project",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Carmine Colicino",
+			"email": "carminecolicino@gmail.com"
+		}
+	],
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		}
+	],
+	"require": {
+		"php": ">=7.3",
+		"wpackagist-plugin/gutenberg": "^8.0.0",
+		"wpackagist-plugin/instagram-feed": "^2.4.1",
+		"wpackagist-plugin/wordpress-seo":"^14.0.4",
+		"wpackagist-plugin/wp-smushit":"^3.6.1"
+	},
+	"require-dev": {
+		"johnbillion/query-monitor": "^3.5",
+		"wpackagist-plugin/regenerate-thumbnails":"^3.1.3"
+	}
+}
