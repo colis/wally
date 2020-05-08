@@ -807,6 +807,48 @@ CONTAINER
 }
 
 /* ==========================================================================
+CONTENT LIST
+========================================================================== */
+.o-content-list__item {
+	position: relative;
+}
+
+.o-content-list__item img {
+	width: 100%;
+	height: auto;
+}
+
+.o-content-list__item:hover .project-meta,
+.o-content-list__item:focus .project-meta {
+	opacity: 0.8;
+}
+
+.o-content-list__item .project-meta {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	background-color: #fff;
+	opacity: 0;
+	transition: opacity 0.2s ease-in;
+}
+
+.o-content-list__item .project-title {
+	margin: 0;
+	color: var(--color-amaranth);
+}
+
+.o-content-list__item .project-category {
+	margin: 0;
+	color: var(--color-catalina-blue);
+}
+
+/* ==========================================================================
 GRID
 ========================================================================== */
 .o-grid {
