@@ -8,7 +8,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'o-content-list__item' ); ?>>
-	<?php the_post_thumbnail( 'medium' ); ?>
+	<?php the_post_thumbnail( 'project-archive' ); ?>
 	<a href="<?php the_permalink(); ?>" class="project-meta">
 		<h3 class="project-title"><?php the_title(); ?></h3>
 		<?php $categories = get_the_category(); ?>

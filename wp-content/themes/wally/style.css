@@ -841,6 +841,7 @@ CONTENT LIST
 .o-content-list__item .project-title {
 	margin: 0;
 	color: var(--color-amaranth);
+	font-weight: var(--font-weight-primary-bold);
 }
 
 .o-content-list__item .project-category {
@@ -1075,7 +1076,7 @@ LOGO
 SINGLE PROJECT
 ========================================================================== */
 .c-single-post-project__hero {
-	height: 45vh;
+	height: 50vh;
 }
 
 .c-single-post-project__hero img {

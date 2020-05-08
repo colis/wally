@@ -8,9 +8,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'c-single-post-project' ); ?>>
-
 	<div class="c-single-post-project__hero"><?php the_post_thumbnail( 'full' ); ?></div>
-
 	<h1 class="c-single-post-project__title"><?php the_title(); ?></h1>
 
 	<?php $categories = get_the_category(); ?>
