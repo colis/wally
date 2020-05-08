@@ -40,6 +40,7 @@ Components
 @import '05-components/archive';
 @import '05-components/header';
 @import '05-components/logo';
+@import '05-components/single-project';
 
 /*------------------------------------
 Blocks
@@ -52,6 +53,7 @@ WP
 - a specific WordPress component (e.g. block, plugin, etc..)
 ------------------------------------*/
 
+@import '06-wp/blocks/core/image';
 @import '06-wp/plugins/instagram-feed';
 @import '06-wp/plugins/typed-js';
 

@@ -1071,6 +1071,39 @@ LOGO
 	color: inherit;
 }
 
+/* ==========================================================================
+SINGLE PROJECT
+========================================================================== */
+.c-single-post-project__hero {
+	height: 45vh;
+}
+
+.c-single-post-project__hero img {
+	height: 100%;
+	object-fit: cover;
+}
+
+.c-single-post-project__title {
+	margin-bottom: 0;
+	color: var(--color-amaranth);
+}
+
+.c-single-post-project__category {
+	margin-top: 0;
+	font-weight: var(--font-weight-primary-bold);
+}
+
+.c-single-post-project__content {
+	margin: var(--spacing-m) 0;
+}
+
+@media (min-width: 900px) {
+
+	.c-single-post-project__content {
+		margin: var(--spacing-xxl) 0;
+	}
+}
+
 /*------------------------------------
 Blocks
 filename: `namespace/block` becomes `namespace-block`
@@ -1081,6 +1114,13 @@ WP
 - In this section you should add any relevant file that overrides
 - a specific WordPress component (e.g. block, plugin, etc..)
 ------------------------------------*/
+
+/* ==========================================================================
+IMAGE BLOCK
+========================================================================== */
+.wp-block-image {
+	margin: var(--spacing-m) 0;
+}
 
 /* ==========================================================================
 INSTAGRAM FEED

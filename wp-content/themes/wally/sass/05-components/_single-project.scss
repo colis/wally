@@ -1,0 +1,30 @@
+/* ==========================================================================
+SINGLE PROJECT
+========================================================================== */
+
+.c-single-post-project__hero {
+	height: 45vh;
+
+	img {
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.c-single-post-project__title {
+	margin-bottom: 0;
+	color: var(--color-amaranth);
+}
+
+.c-single-post-project__category {
+	margin-top: 0;
+	font-weight: var(--font-weight-primary-bold);
+}
+
+.c-single-post-project__content {
+	margin: var(--spacing-m) 0;
+
+	@include for-tablet-landscape-up {
+		margin: var(--spacing-xxl) 0;
+	}
+}
