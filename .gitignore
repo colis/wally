@@ -117,3 +117,4 @@ config.codekit3
 !wp-content/plugins/gutenberg
 !wp-content/plugins/instagram-feed
 !wp-content/plugins/wordpress-seo
+!wp-content/plugins/wp-smushit
