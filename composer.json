@@ -20,7 +20,8 @@
 		"wpackagist-plugin/gutenberg": "^8.0.0",
 		"wpackagist-plugin/instagram-feed": "^2.4.1",
 		"wpackagist-plugin/wordpress-seo":"^14.0.4",
-		"wpackagist-plugin/wp-smushit":"^3.6.1"
+		"wpackagist-plugin/wp-smushit":"^3.6.1",
+		"wpackagist-plugin/wordfence":"^7.4.7"
 	},
 	"require-dev": {
 		"johnbillion/query-monitor": "^3.5",
