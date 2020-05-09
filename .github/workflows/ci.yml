@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: Checkout files and setup environment
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
 
     - name: Set up Node
       uses: actions/setup-node@v1
@@ -31,11 +33,13 @@ jobs:
         npm install && npm run compile:css
       working-directory: wp-content/themes/wally
 
+    - name: List output files
+      run: ls
+
     - name: Sync
       uses: SamKirkland/FTP-Deploy-Action@3.1.0
       with:
         ftp-server: ${{ secrets.FTPS_SERVER }}
         ftp-username: ${{ secrets.FTPS_USERNAME }}
         ftp-password: ${{ secrets.FTPS_PASSWORD }}
-        local-dir: wp-content
         git-ftp-args: --insecure --remote-root www.veronicaurbano.it/test --dry-run
