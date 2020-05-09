@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout files and setup environment
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
 
     - name: Set up Node
-    - uses: actions/setup-node@v1
+      uses: actions/setup-node@v1
       with:
         version: 12.x
 
@@ -38,4 +38,4 @@ jobs:
         ftp-username: ${{ secrets.FTPS_USERNAME }}
         ftp-password: ${{ secrets.FTPS_PASSWORD }}
         local-dir: wp-content
-        git-ftp-args: --insecure --remote-root /www.veronicaurbano.it/test --dry-run
+        git-ftp-args: --insecure --remote-root www.veronicaurbano.it/test --dry-run
