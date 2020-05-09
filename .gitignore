@@ -103,8 +103,9 @@ wp-content/uploads/sucuri/sucuri-settings.php
 *.mmdb
 srdb*/
 
-# Build files
-wp-content/themes/**/*.css
-
 # Plugins to keep
 !wp-content/plugins/wally-**
+
+# Build files
+wp-content/themes/**/*.css
+wp-content/plugins/wally-**/vendor/
