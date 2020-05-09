@@ -17,7 +17,7 @@ jobs:
     - name: Set up Node
       uses: actions/setup-node@v1
       with:
-        version: 12.x
+        node-version: 12.x
 
     - name: Build plugins
       run: composer install --no-dev -o
@@ -33,6 +33,9 @@ jobs:
         npm install && npm run compile:css
       working-directory: wp-content/themes/wally
 
+    - name: Reset Git
+      run: git reset --hard
+
     - name: List output files
       run: ls
 
@@ -42,4 +45,5 @@ jobs:
         ftp-server: ${{ secrets.FTPS_SERVER }}
         ftp-username: ${{ secrets.FTPS_USERNAME }}
         ftp-password: ${{ secrets.FTPS_PASSWORD }}
+        local-dir: wp-content
         git-ftp-args: --insecure --remote-root www.veronicaurbano.it/test --dry-run
