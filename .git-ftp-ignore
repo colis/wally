@@ -1,0 +1,15 @@
+.eslintrc
+.stylelintrc.json
+.browserslistrc
+.editorconfig
+.gitignore
+composer.json
+composer.lock
+package.json
+package-lock.json
+phpcs.xml
+phpcs.xml.dist
+phpunit.xml
+wp-content/themes/wally/config*
+wp-content/themes/wally/sass*
+wp-content/plugins/wally-core/tests*
