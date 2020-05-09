@@ -46,4 +46,4 @@ jobs:
         ftp-username: ${{ secrets.FTPS_USERNAME }}
         ftp-password: ${{ secrets.FTPS_PASSWORD }}
         local-dir: wp-content
-        git-ftp-args: --insecure --remote-root www.veronicaurbano.it/test --dry-run
+        git-ftp-args: --insecure --remote-root www.veronicaurbano.it/test
