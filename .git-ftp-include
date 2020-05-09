@@ -1,1 +1,4 @@
 wp-content/plugins/:/composer.lock
+wp-content/plugins/wally-core/vendor/:plugins/wally-core/composer.lock
+wp-content/themes/wally/editor-style.css:themes/wally/sass/editor-style.scss
+wp-content/themes/wally/style.css:themes/wally/sass/style.scss
