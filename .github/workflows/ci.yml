@@ -1,0 +1,41 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout files and setup environment
+    - uses: actions/checkout@v2
+
+    - name: Set up Node
+    - uses: actions/setup-node@v1
+      with:
+        version: 12.x
+
+    - name: Build plugins
+      run: composer install --no-dev -o
+
+    - name: Build core plugin dependencies
+      run: composer install --no-dev -o
+      working-directory: wp-content/plugins/wally-core
+
+
+    - name: Build theme dependencies
+      run: |
+        composer install --no-dev -o
+        npm install && npm run compile:css
+      working-directory: wp-content/themes/wally
+
+    - name: Sync
+      uses: SamKirkland/FTP-Deploy-Action@3.1.0
+      with:
+        ftp-server: ${{ secrets.FTPS_SERVER }}
+        ftp-username: ${{ secrets.FTPS_USERNAME }}
+        ftp-password: ${{ secrets.FTPS_PASSWORD }}
+        local-dir: wp-content
+        git-ftp-args: --insecure --remote-root /www.veronicaurbano.it/test --dry-run
