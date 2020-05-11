@@ -41,6 +41,7 @@ class Project extends BaseCustomPostType {
 			'thumbnail',
 			'excerpt',
 			'author',
+			'custom-fields',
 		];
 
 		$slug = _x( 'projects', 'Projects slug', 'treatwell-core' );

@@ -41,5 +41,7 @@ add_action( 'wp_head', 'wally_pingback_header' );
  */
 function wally_add_image_sizes() {
 	add_image_size( 'project-archive', 403, 403, true );
+	add_image_size( 'project-archive-right', 404, 404, [ 'right', 'center' ] );
+	add_image_size( 'project-archive-left', 405, 405, [ 'left', 'center' ] );
 }
 add_action( 'after_setup_theme', 'wally_add_image_sizes' );
