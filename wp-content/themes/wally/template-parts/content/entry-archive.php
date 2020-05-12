@@ -8,7 +8,8 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'o-content-list__item' ); ?>>
-	<?php the_post_thumbnail( 'project-archive' ); ?>
+	<?php $image_id = get_field( 'archive_thumbnail' ) ?: get_post_thumbnail_id(); // phpcs:ignore WordPress.PHP.DisallowShortTernary.Found ?>
+	<?php echo wp_get_attachment_image( $image_id, 'project-archive' ); ?>
 	<a href="<?php the_permalink(); ?>" class="project-meta">
 		<h3 class="project-title"><?php the_title(); ?></h3>
 		<?php $categories = get_the_category(); ?>
