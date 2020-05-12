@@ -18,10 +18,11 @@
   },
   "devDependencies": {
     "@wordpress/scripts": "^8.0.1",
-    "node-sass": "^4.13.1"
+    "node-sass": "^4.13.1",
+    "node-sass-json-vars": "^1.0.1"
   },
   "scripts": {
-    "compile:css": "node-sass --functions config/sass-functions.js sass/style.scss style.css && node-sass --functions config/sass-functions.js sass/editor-style.scss editor-style.css && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+    "compile:css": "node-sass --functions node_modules/node-sass-json-vars/lib/index.js sass/style.scss style.css && node-sass --functions node_modules/node-sass-json-vars/lib/index.js sass/editor-style.scss editor-style.css && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'"
   }
