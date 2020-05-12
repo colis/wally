@@ -5,7 +5,7 @@ COLOR PALETTE
 //
 // Map of colours where [key] is the name of the colour and [value] is the hex code.
 //
-$colors: getFromJSON("colors");
+$colors: getMapFromJSON("colors");
 
 :root {
 	// Brand colours.
