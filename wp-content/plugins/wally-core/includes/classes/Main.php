@@ -53,6 +53,7 @@ class Main {
 	 */
 	private function get_registrable_services() : array {
 		return [
+			ACF\ACF::class,
 			PostType\Project::class,
 			Taxonomy\Category::class,
 			Taxonomy\PostTag::class,

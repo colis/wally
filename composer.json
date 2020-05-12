@@ -17,6 +17,7 @@
 	],
 	"require": {
 		"php": ">=7.3",
+		"wpackagist-plugin/advanced-custom-fields": "^5.8.9",
 		"wpackagist-plugin/gutenberg": "^8.0.0",
 		"wpackagist-plugin/instagram-feed": "^2.4.1",
 		"wpackagist-plugin/wordpress-seo":"^14.0.4",

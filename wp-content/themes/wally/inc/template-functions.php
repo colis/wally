@@ -40,6 +40,6 @@ add_action( 'wp_head', 'wally_pingback_header' );
  * Add custom image sizes.
  */
 function wally_add_image_sizes() {
-	add_image_size( 'project-archive', 403, 403, true );
+	add_image_size( 'project-archive', 600, 600, true );
 }
 add_action( 'after_setup_theme', 'wally_add_image_sizes' );
