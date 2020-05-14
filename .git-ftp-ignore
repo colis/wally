@@ -10,5 +10,5 @@ package-lock.json
 phpcs.xml
 phpcs.xml.dist
 phpunit.xml
-wp-content/themes/wally/sass*
+wp-content/themes/wally/assets*
 wp-content/plugins/wally-core/tests*

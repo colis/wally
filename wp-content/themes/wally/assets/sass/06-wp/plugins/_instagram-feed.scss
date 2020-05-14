@@ -1,0 +1,42 @@
+/* ==========================================================================
+INSTAGRAM FEED
+========================================================================== */
+
+#sb_instagram {
+
+	.sb_instagram_header {
+		margin-bottom: var(--spacing-m) !important;
+	}
+
+	.sbi_header_text {
+		padding-top: 0 !important;
+		color: var(--color-catalina-blue);
+
+		h3 {
+			@include font_prop_body("bold");
+		}
+
+		p {
+			@include font_prop_medium();
+		}
+	}
+
+	#sbi_images {
+		display: grid;
+		grid-template-columns: 1fr;
+		row-gap: var(--spacing-m);
+		column-gap: var(--spacing-m);
+
+		@include for-tablet-portrait-up {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include for-desktop-up {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		.sbi_item {
+			width: 100% !important;
+		}
+	}
+}

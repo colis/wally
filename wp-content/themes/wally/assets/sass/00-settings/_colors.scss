@@ -1,0 +1,16 @@
+/* ==========================================================================
+COLOR PALETTE
+========================================================================== */
+
+//
+// Map of colours where [key] is the name of the colour
+// and [value] is the hex code.
+//
+$colors: getMapFromJSON("colors");
+
+:root {
+	// Brand colours.
+	@each $colorName, $colorHex in $colors {
+		--color-#{$colorName}: #{$colorHex};
+	}
+}

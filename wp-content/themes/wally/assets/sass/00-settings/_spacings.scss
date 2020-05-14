@@ -1,0 +1,30 @@
+/* ==========================================================================
+SPACINGS
+========================================================================== */
+
+//
+// Baseline grid lines height. Every spacing metric should be based on this.
+//
+$global-baseline: 8px;
+
+//
+// Map of spacings where [key] is the name of the spacing
+// and [value] is the spacing value in px.
+//
+$spacings: (
+	"xxs" : 0.5,
+	"xs"  : 1,
+	"s"   : 2,
+	"m"   : 3,
+	"l"   : 4,
+	"xl"  : 5,
+	"xxl" : 6,
+);
+
+:root {
+	--global-baseline: #{$global-baseline};
+
+	@each $spacingName, $spacingRatio in $spacings {
+		--spacing-#{$spacingName}: #{$global-baseline * $spacingRatio};
+	}
+}
