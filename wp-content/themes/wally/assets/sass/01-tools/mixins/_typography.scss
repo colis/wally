@@ -6,7 +6,7 @@ TYPOGRAPHY
  * Typography mixins to ensure that the correct desktop
  * and mobile sizes of fonts are correct
  */
-@mixin font_prop_body( $font-weight: 'light' ) {
+@mixin font_prop_body( $font-weight: "light" ) {
 	font-family: var(--font-family-primary);
 	font-weight: var(--font-weight-primary-#{$font-weight});
 	font-size: var(--font-size-body-mobile);
@@ -18,7 +18,7 @@ TYPOGRAPHY
 	}
 }
 
-@mixin font_prop_heading( $heading-type: 1, $font-weight: 'regular' ) {
+@mixin font_prop_heading( $heading-type: 1, $font-weight: "regular" ) {
 	font-family: var(--font-family-headings);
 	font-weight: var(--font-weight-headings-#{$font-weight});
 	font-size: var(--font-size-h#{$heading-type}-mobile);

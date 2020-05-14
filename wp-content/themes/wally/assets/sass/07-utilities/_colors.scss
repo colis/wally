@@ -3,13 +3,17 @@ COLORS UTILITIES
 ========================================================================== */
 
 @each $colorName, $colorHex in $colors {
+
 	.has-background {
+
 		&.has-#{$colorName}-background-color {
 			background-color: $colorHex;
 		}
 	}
 
-	.has-text-color, .has-inline-color {
+	.has-text-color,
+	.has-inline-color {
+
 		&.has-#{$colorName}-color {
 			color: $colorHex;
 		}

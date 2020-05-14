@@ -14,6 +14,6 @@ SPACING FUNCTIONS
  * This function should only be used if the spacing you're trying
  * to achieve doesn't exist in the styleguide. (see settings/spacings.scss)
  */
- @function spacing( $ratio ) {
+@function spacing( $ratio ) {
 	@return $global-baseline * $ratio;
 }

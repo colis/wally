@@ -3,44 +3,44 @@
 // (e.g. variables, mixins, functions, etc..)
 //------------------------------------
 
-@import 'import_all_settings';
+@import "import_all_settings";
 
 /*------------------------------------
 Generic
 ------------------------------------*/
 
-@import '02-generic/body';
-@import '02-generic/box-sizing';
-@import '02-generic/fonts';
-@import '02-generic/normalize';
+@import "02-generic/body";
+@import "02-generic/box-sizing";
+@import "02-generic/fonts";
+@import "02-generic/normalize";
 
 /*------------------------------------
 Elements
 - only simple HTML tags can go here
 ------------------------------------*/
 
-@import '03-elements/copy';
-@import '03-elements/headings';
-@import '03-elements/images';
+@import "03-elements/copy";
+@import "03-elements/headings";
+@import "03-elements/images";
 
 /*------------------------------------
 Objects
 - must be prefixed with `o-*`
 ------------------------------------*/
 
-@import '04-objects/container';
-@import '04-objects/content-list';
-@import '04-objects/grid';
+@import "04-objects/container";
+@import "04-objects/content-list";
+@import "04-objects/grid";
 
 /*------------------------------------
 Components
 - must be prefixed with `c-*`
 ------------------------------------*/
 
-@import '05-components/archive';
-@import '05-components/header';
-@import '05-components/logo';
-@import '05-components/single-project';
+@import "05-components/archive";
+@import "05-components/header";
+@import "05-components/logo";
+@import "05-components/single-project";
 
 /*------------------------------------
 Blocks
@@ -53,22 +53,22 @@ WP
 - a specific WordPress component (e.g. block, plugin, etc..)
 ------------------------------------*/
 
-@import '06-wp/blocks/core/image';
-@import '06-wp/plugins/instagram-feed';
-@import '06-wp/plugins/typed-js';
+@import "06-wp/blocks/core/image";
+@import "06-wp/plugins/instagram-feed";
+@import "06-wp/plugins/typed-js";
 
 /*------------------------------------
 Utilities
 - ideally prefixed with `u-*`
 ------------------------------------*/
 
-@import '07-utilities/accessibility';
-@import '07-utilities/colors';
-@import '07-utilities/typography';
+@import "07-utilities/accessibility";
+@import "07-utilities/colors";
+@import "07-utilities/typography";
 
 /*------------------------------------
 Trumps
 ------------------------------------*/
 
-@import '08-trumps/shame';
-@import '08-trumps/temp';
+@import "08-trumps/shame";
+@import "08-trumps/temp";

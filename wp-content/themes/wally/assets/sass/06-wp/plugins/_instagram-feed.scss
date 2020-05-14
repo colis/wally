@@ -3,6 +3,7 @@ INSTAGRAM FEED
 ========================================================================== */
 
 #sb_instagram {
+
 	.sb_instagram_header {
 		margin-bottom: var(--spacing-m) !important;
 	}
@@ -12,7 +13,7 @@ INSTAGRAM FEED
 		color: var(--color-catalina-blue);
 
 		h3 {
-			@include font_prop_body('bold');
+			@include font_prop_body("bold");
 		}
 
 		p {

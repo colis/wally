@@ -29,10 +29,11 @@ html.navigation-open {
 	width: 28px;
 	height: 4px;
 	background-color: var(--color-catalina-blue);
-	transition: transform .22s cubic-bezier(.55,.055,.675,.19);
+	transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
-	&::before, &::after {
-		content: '';
+	&::before,
+	&::after {
+		content: "";
 		position: absolute;
 		display: block;
 		width: 28px;
@@ -42,28 +43,28 @@ html.navigation-open {
 
 	&::before {
 		top: -10px;
-		transition: top .1s ease-in .25s,opacity .1s ease-in;
+		transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
 
 		html.navigation-open & {
 			top: 0;
-			transition: top .1s ease-out,opacity .1s ease-out .12s;
+			transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
 			opacity: 0;
 		}
 	}
 
 	&::after {
 		bottom: -10px;
-		transition: bottom .1s ease-in .25s,transform .22s cubic-bezier(.55,.055,.675,.19);
+		transition: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
 		html.navigation-open & {
 			bottom: 0;
-			transition: bottom .1s ease-out,transform .22s cubic-bezier(.215,.61,.355,1) .12s;
+			transition: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
 			transform: rotate(-90deg);
 		}
 	}
 
 	html.navigation-open & {
-		transition: transform .22s cubic-bezier(.215,.61,.355,1) .12s;
+		transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
 		transform: rotate(225deg);
 	}
 }
@@ -77,8 +78,8 @@ html.navigation-open {
 	height: 100%;
 	width: 100%;
 	visibility: hidden;
-	transition: visibility .7s;
-	
+	transition: visibility 0.7s;
+
 	html.navigation-open & {
 		visibility: visible;
 	}
@@ -91,15 +92,16 @@ html.navigation-open {
 .c-navigation__menu-wrapper {
 	padding: 0;
 	transform: translateX(100vw);
-	transition: transform .5s cubic-bezier(.86,.01,.77,.78);
+	transition: transform 0.5s cubic-bezier(0.86, 0.01, 0.77, 0.78);
 
 	html.navigation-open & {
 		transform: translateX(0);
-		transition: transform .7s cubic-bezier(.82,.01,.77,.78);
+		transition: transform 0.7s cubic-bezier(0.82, 0.01, 0.77, 0.78);
 	}
 }
 
 #menu-main-navigation {
+
 	a {
 		@include font_prop_heading;
 	}
@@ -118,7 +120,7 @@ html.navigation-open {
 }
 
 #main {
-	transition: transform .7s cubic-bezier(.91,.01,.6,.99);
+	transition: transform 0.7s cubic-bezier(0.91, 0.01, 0.6, 0.99);
 }
 
 .navigation-open #main {

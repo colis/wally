@@ -5,7 +5,7 @@ DIMENSIONS
 /**
  * Helper for absolute full
  */
- @mixin absolute-full($top: 0, $left: 0, $height: 100%, $width: 100%) {
+@mixin absolute-full($top: 0, $left: 0, $height: 100%, $width: 100%) {
 	position: absolute;
 	top: $top;
 	left: $left;

@@ -12,8 +12,9 @@ CONTENT LIST
 
 	&:hover,
 	&:focus {
+
 		.project-meta {
-			opacity: .8;
+			opacity: 0.8;
 		}
 	}
 
@@ -27,9 +28,9 @@ CONTENT LIST
 		height: 100%;
 		align-items: center;
 		justify-content: center;
-		background-color: #ffffff;
+		background-color: #fff;
 		opacity: 0;
-		transition: opacity .2s ease-in;
+		transition: opacity 0.2s ease-in;
 	}
 
 	.project-title {

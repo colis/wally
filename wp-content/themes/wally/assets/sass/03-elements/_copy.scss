@@ -3,7 +3,7 @@ COPY
 ========================================================================== */
 
 strong {
-	@include font_prop_body('bold');
+	@include font_prop_body("bold");
 }
 
 a {
