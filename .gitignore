@@ -59,6 +59,9 @@ vendor/
 # NPM
 node_modules/
 
+# Assets
+dist/
+
 ### WP CLI ###
 wp-cli.yml
 wp-cli*.yml

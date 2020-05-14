@@ -7,7 +7,7 @@
 		"Themes"
 	],
 	"homepage": "https://github.com/colis/wally",
-	"license": "GPL-2.0-or-later",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Carmine Colicino",
