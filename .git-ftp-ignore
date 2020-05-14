@@ -1,3 +1,4 @@
+**/.babelrc
 **/.eslintrc
 **/.stylelintrc.json
 **/.browserslistrc
@@ -10,5 +11,6 @@
 **/phpcs.xml
 **/phpcs.xml.dist
 **/phpunit.xml
+**/webpack.config.babel.js
 wp-content/themes/wally/assets*
 wp-content/plugins/wally-core/tests*
