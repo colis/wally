@@ -30,7 +30,7 @@ jobs:
     - name: Build theme dependencies
       run: |
         composer install --no-dev -o
-        npm install && npm run compile:css
+        npm install && npm run build
       working-directory: wp-content/themes/wally
 
     - name: Reset Git
