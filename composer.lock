@@ -135,15 +135,15 @@
         },
         {
             "name": "wpackagist-plugin/advanced-custom-fields",
-            "version": "5.8.10",
+            "version": "5.8.11",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
-                "reference": "tags/5.8.10"
+                "reference": "tags/5.8.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.5.8.10.zip"
+                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.5.8.11.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -153,15 +153,15 @@
         },
         {
             "name": "wpackagist-plugin/gutenberg",
-            "version": "8.0.0",
+            "version": "8.1.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/gutenberg/",
-                "reference": "tags/8.0.0"
+                "reference": "tags/8.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/gutenberg.8.0.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.8.1.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -207,15 +207,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "14.0.4",
+            "version": "14.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/14.0.4"
+                "reference": "tags/14.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.14.0.4.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.14.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
