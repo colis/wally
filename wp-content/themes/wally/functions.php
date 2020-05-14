@@ -103,7 +103,7 @@ if ( ! function_exists( 'wally_setup' ) ) :
 
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
-		add_editor_style( 'style.css' );
+		add_editor_style( 'dist/css/style.css' );
 
 		// Add support for wide-aligned images.
 		add_theme_support( 'align-wide' );
@@ -202,7 +202,7 @@ add_action( 'wp_enqueue_scripts', 'wally_scripts' );
 function wally_editor_assets() {
 	wp_enqueue_style(
 		'wally-editor-style',
-		get_stylesheet_directory_uri() . '/editor-style.css',
+		get_stylesheet_directory_uri() . '/dist/css/editor-style.css',
 		[ 'wp-edit-blocks' ],
 		THEME_VERSION
 	);

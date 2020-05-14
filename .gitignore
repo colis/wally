@@ -110,5 +110,4 @@ srdb*/
 !wp-content/plugins/wally-**
 
 # Build files
-wp-content/themes/**/*.css
 wp-content/plugins/wally-**/vendor/

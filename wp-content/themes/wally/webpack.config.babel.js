@@ -12,7 +12,7 @@ export default {
 	mode: process.env.NODE_ENV,
 	entry: {
 		style: path.resolve( process.cwd(), './assets/sass/style.scss' ),
-		editorStyle: path.resolve( process.cwd(), './assets/sass/editor-style.scss' ),
+		'editor-style': path.resolve( process.cwd(), './assets/sass/editor-style.scss' ),
 	},
 	output: {
 		path: path.resolve( process.cwd(), './dist/' ),
