@@ -181,17 +181,17 @@ add_action( 'widgets_init', 'wally_widgets_init' );
 function wally_scripts() {
 	wp_enqueue_style( 'wally-style', get_template_directory_uri() . '/dist/css/style.css', array(), THEME_VERSION );
 
-	wp_enqueue_script( 'wally-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), THEME_VERSION, true );
+	wp_enqueue_script( 'wally-navigation', get_template_directory_uri() . '/dist/js/navigation.js', array(), THEME_VERSION, true );
 
-	wp_enqueue_script( 'wally-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), THEME_VERSION, true );
+	wp_enqueue_script( 'wally-skip-link-focus-fix', get_template_directory_uri() . '/dist/js/skip-link-focus-fix.js', array(), THEME_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
 	if ( is_front_page() ) {
-		wp_enqueue_script( 'typed-js-lib', get_template_directory_uri() . '/assets/js/lib/typed.js', array(), THEME_VERSION, true );
-		wp_enqueue_script( 'wally-typed-js', get_template_directory_uri() . '/assets/js/typed.js', array(), THEME_VERSION, true );
+		wp_enqueue_script( 'typed-js-lib', get_template_directory_uri() . '/dist/js/lib/typed.js', array(), THEME_VERSION, true );
+		wp_enqueue_script( 'wally-typed-js', get_template_directory_uri() . '/dist/js/typed.js', array(), THEME_VERSION, true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'wally_scripts' );
