@@ -3,6 +3,10 @@ INSTAGRAM FEED
 ========================================================================== */
 
 #sb_instagram {
+	margin-top: spacing(10);
+	@include for-tablet-portrait-up {
+		margin-top: spacing(12);
+	}
 
 	.sb_instagram_header {
 		margin-bottom: var(--spacing-m) !important;
