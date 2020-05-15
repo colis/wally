@@ -22,6 +22,7 @@ function initTyped() {
 		startDelay: 310, 
 		typeSpeed: 110,  
 		loop: true,
+		smartBackspace: true,
 		stringsElement: '#typed-strings',
 	} );
 }
