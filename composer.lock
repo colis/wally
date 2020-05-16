@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59d9f3ba7b91dc62ec4a00dfe444b071",
+    "content-hash": "e7c68fa85087201bb1f15e2d591aab2e",
     "packages": [
         {
             "name": "composer/installers",
@@ -152,6 +152,24 @@
             "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
         },
         {
+            "name": "wpackagist-plugin/autoptimize",
+            "version": "2.7.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/autoptimize/",
+                "reference": "tags/2.7.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/autoptimize.2.7.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/autoptimize/"
+        },
+        {
             "name": "wpackagist-plugin/gutenberg",
             "version": "8.1.0",
             "source": {
@@ -168,6 +186,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/gutenberg/"
+        },
+        {
+            "name": "wpackagist-plugin/imagify",
+            "version": "1.9.9",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/imagify/",
+                "reference": "tags/1.9.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/imagify.1.9.9.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/imagify/"
         },
         {
             "name": "wpackagist-plugin/instagram-feed",
@@ -222,24 +258,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
-        },
-        {
-            "name": "wpackagist-plugin/wp-smushit",
-            "version": "3.6.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-smushit/",
-                "reference": "tags/3.6.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-smushit.3.6.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-smushit/"
         }
     ],
     "packages-dev": [
