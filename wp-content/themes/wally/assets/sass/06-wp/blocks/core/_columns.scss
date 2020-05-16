@@ -1,0 +1,45 @@
+/* ==========================================================================
+COLUMNS BLOCK
+========================================================================== */
+
+.wp-block-columns {
+	display: grid;
+	grid-template-columns: 1fr;
+	margin: var(--spacing-l) 0;
+	gap: var(--spacing-l);
+
+	@include for-tablet-portrait-up {
+		grid-template-columns: unset;
+		grid-auto-flow: column;
+	}
+
+	&.one-two {
+		@include for-tablet-portrait-up {
+			grid-template-columns: 1fr 2fr;
+		}
+
+		.wp-block-cover {
+			min-height: 430px !important;
+
+			@include for-tablet-landscape-up {
+				min-height: 60vh !important;
+			}
+		}
+	}
+
+	&.reverse {
+
+		.wp-block-column:nth-child(2n) {
+			grid-row: 1;
+
+			@include for-tablet-portrait-up {
+				grid-column: 2;
+			}
+		}
+	}
+}
+
+.wp-block-column {
+	width: 100%;
+	margin: 0 !important;
+}
