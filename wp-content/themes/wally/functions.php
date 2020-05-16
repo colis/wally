@@ -9,7 +9,7 @@
 
 if ( ! defined( 'THEME_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'THEME_VERSION', '1.1.1' );
+	define( 'THEME_VERSION', '1.2.0' );
 }
 
 if ( ! function_exists( 'wally_setup' ) ) :
