@@ -13,7 +13,21 @@
 
 	<?php $categories = get_the_category(); ?>
 	<?php if ( $categories ) : ?>
-		<h2 class="c-single-post-project__category"><?php echo esc_html( $categories[0]->name ); ?></h2>
+		<h2 class="c-single-post-project__category">
+			<?php
+			echo esc_html(
+				join(
+					' - ',
+					array_map(
+						function( $category ) {
+							return $category->name;
+						},
+						$categories
+					)
+				)
+			);
+			?>
+		</h2>
 	<?php endif; ?>
 
 	<div class="c-single-post-project__content">
