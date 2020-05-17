@@ -14,7 +14,21 @@
 		<h3 class="project-title"><?php the_title(); ?></h3>
 		<?php $categories = get_the_category(); ?>
 		<?php if ( $categories ) : ?>
-			<p class="project-category"><?php echo esc_html( $categories[0]->name ); ?></p>
+			<p class="project-category">
+				<?php
+				echo esc_html(
+					join(
+						' - ',
+						array_map(
+							function( $category ) {
+								return $category->name;
+							},
+							$categories
+						)
+					)
+				);
+				?>
+			</p>
 		<?php endif; ?>
 	</a>
 </article>
