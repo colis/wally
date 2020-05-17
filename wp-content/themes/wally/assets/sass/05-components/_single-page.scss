@@ -4,10 +4,13 @@ SINGLE PAGE
 
 .c-single-page {
 
-	h1 {
-		min-height: 420px;
-		@include for-tablet-portrait-up {
-			min-height: unset;
+	.home & {
+
+		h1 {
+			min-height: 420px;
+			@include for-tablet-portrait-up {
+				min-height: unset;
+			}
 		}
 	}
 }
