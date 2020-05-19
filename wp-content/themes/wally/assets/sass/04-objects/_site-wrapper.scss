@@ -2,12 +2,8 @@
 CONTAINER
 ========================================================================== */
 
-.o-container {
-	@include grid_container();
-	padding-top: var(--spacing-m);
-	padding-bottom: var(--spacing-m);
-}
-
-#main.o-container {
-	flex-grow: 1;
+.o-site-wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
