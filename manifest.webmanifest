@@ -1,0 +1,22 @@
+{
+  "short_name": "VU website",
+  "name": "Veronica Urbano - Creative Designer",
+  "description": "veronicaurbano.it website",
+  "icons": [
+    {
+      "src": "/wp-content/uploads/2020/05/favicon-192x192-1.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/wp-content/uploads/2020/05/favicon-512x512-1.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#fff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#1D3557"
+}
