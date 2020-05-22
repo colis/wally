@@ -185,6 +185,8 @@ function wally_scripts() {
 
 	wp_enqueue_script( 'wally-skip-link-focus-fix', get_template_directory_uri() . '/dist/js/skip-link-focus-fix.js', array(), THEME_VERSION, true );
 
+	wp_enqueue_script( 'wally-register-sw', get_template_directory_uri() . '/dist/js/register-sw.js', array(), THEME_VERSION, true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
