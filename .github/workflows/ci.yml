@@ -12,7 +12,7 @@ jobs:
     - name: Checkout WordPress core
       uses: actions/checkout@v2
       with:
-        name: WordPress/WordPress
+        repository: WordPress/WordPress
         ref: tags/5.7
 
     - name: Checkout files and setup environment
