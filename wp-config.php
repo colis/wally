@@ -2,7 +2,6 @@
 if ( file_exists( __DIR__ . '/wp-config-local.php' ) ) {
 	require_once __DIR__ . '/wp-config-local.php';
 } else {
-	var_dump('aws');die();
 	define( 'DB_NAME', $_SERVER['RDS_DB_NAME'] );
 	define( 'DB_USER', $_SERVER['RDS_USERNAME'] );
 	define( 'DB_PASSWORD', $_SERVER['RDS_PASSWORD'] );
