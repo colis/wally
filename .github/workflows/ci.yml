@@ -9,12 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout WordPress core
-      uses: actions/checkout@v2
-      with:
-        repository: WordPress/WordPress
-        ref: refs/tags/5.7
-
     - name: Checkout files and setup environment
       uses: actions/checkout@v2
       with:

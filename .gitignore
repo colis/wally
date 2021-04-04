@@ -70,26 +70,6 @@ wp-cli*.yml
 .vscode/
 *.code-workspace
 
-## WORDPRESS CORE
-/index.php
-/license.txt
-/readme.html
-wp-activate.php
-wp-admin/
-wp-blog-header.php
-wp-comments-post.php
-wp-config*.php
-wp-cron.php
-wp-includes/
-wp-links-opml.php
-wp-load.php
-wp-login.php
-wp-mail.php
-wp-settings.php
-wp-signup.php
-wp-trackback.php
-xmlrpc.php
-
 ## WORDPRESS CONTENT
 wp-content/backup*
 wp-content/blogs.dir/
@@ -108,6 +88,3 @@ srdb*/
 
 # Plugins to keep
 !wp-content/plugins/wally-**
-
-# Build files
-wp-content/plugins/wally-**/vendor/
