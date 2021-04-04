@@ -1,0 +1,41 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout files and setup environment
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    - name: Build plugins
+      run: composer install --no-dev -o
+
+    - name: Build theme dependencies
+      run: npm install && npm run build
+      working-directory: wp-content/themes/wally
+
+    - name: Generate deployment package
+      run: zip wally.zip -r . -x wp-config-local.php *.lock .* '.vscode/*' '.git/*' 'wp-content/themes/wally/node_modules/*' 'wp-content/themes/wally/assets/*'
+
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v16
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: wally
+        environment_name: wally
+        version_label: v1.0
+        region: eu-central-1
+        deployment_package: wally.zip
