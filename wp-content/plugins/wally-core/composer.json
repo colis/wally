@@ -1,6 +1,7 @@
 {
   "name": "colis/wally-core",
   "description": "Wally Core",
+  "type": "wordpress-plugin",
   "authors": [
     {
       "name": "Carmine Colicino",

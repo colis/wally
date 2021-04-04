@@ -28,9 +28,4 @@ register_deactivation_hook( __FILE__, '\Wally\Core\Setup\deactivate' );
 // Bootstrap.
 Wally\Core\Setup\setup();
 
-// Require Composer autoloader if it exists.
-if ( file_exists( WALLY_CORE_PATH . '/vendor/autoload.php' ) ) {
-	require_once WALLY_CORE_PATH . 'vendor/autoload.php';
-}
-
 new Wally\Core\Main( __FILE__ );
