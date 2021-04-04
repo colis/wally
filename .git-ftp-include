@@ -1,3 +1,0 @@
-wp-content/plugins/:/composer.lock
-wp-content/plugins/wally-core/vendor/:plugins/wally-core/composer.lock
-!wp-content/themes/wally/dist/
