@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: WordPress/WordPress
-        ref: tags/5.7
+        ref: refs/tags/5.7
 
     - name: Checkout files and setup environment
       uses: actions/checkout@v2
