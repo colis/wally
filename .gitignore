@@ -88,3 +88,4 @@ srdb*/
 
 # Plugins to keep
 !wp-content/plugins/wally-**
+!wp-content/plugins/static-html-output-plugin
