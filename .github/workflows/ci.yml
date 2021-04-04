@@ -9,6 +9,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout WordPress core
+      uses: actions/checkout@v2
+      with:
+        name: WordPress/WordPress
+        ref: tags/5.7
+
     - name: Checkout files and setup environment
       uses: actions/checkout@v2
       with:
@@ -27,7 +33,7 @@ jobs:
       working-directory: wp-content/themes/wally
 
     - name: Generate deployment package
-      run: zip wally.zip -r . -x wp-config-local.php *.lock .* '.vscode/*' '.git/*' 'wp-content/themes/wally/node_modules/*' 'wp-content/themes/wally/assets/*'
+      run: zip wally.zip -r . -x wp-config-local.php *.lock *.json .* '.vscode/*' '.git*/*' 'wp-content/uploads/*' 'wp-content/themes/wally/node_modules/*' 'wp-content/themes/wally/assets/*'
 
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v16
@@ -36,6 +42,6 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: wally
         environment_name: wally
-        version_label: v1.0
+        version_label: v1.1
         region: eu-central-1
         deployment_package: wally.zip
