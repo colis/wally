@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "430741de4917c7b676fd0989ebfdb90d",
+    "content-hash": "bfff2d2399577744d796be2608acd883",
     "packages": [
         {
             "name": "colis/wally-core",
@@ -231,24 +231,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/amazon-s3-and-cloudfront/"
-        },
-        {
-            "name": "wpackagist-plugin/autoptimize",
-            "version": "2.8.3",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/autoptimize/",
-                "reference": "tags/2.8.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/autoptimize.2.8.3.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/autoptimize/"
         },
         {
             "name": "wpackagist-plugin/gutenberg",
