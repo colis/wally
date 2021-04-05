@@ -57,6 +57,6 @@
     }
   },
   "scripts": {
-    "create-bundle": "composer install --no-dev -o && rm -f wally.zip && zip wally.zip -r . -x wp-config-local.php *.lock *.json .* '.vscode/*' '.git*/*' 'wp-content/uploads/*' 'wp-content/themes/wally/node_modules/*' 'wp-content/themes/wally/assets/*'"
+    "create-bundle": "composer install --no-dev -o && rm -f wally.zip && zip wally.zip -r . -x wp-config-local.php *.lock *.json .gitignore '.vscode/*' '.git*/*' 'wp-content/uploads/*' 'wp-content/themes/wally/node_modules/*' 'wp-content/themes/wally/assets/*'"
   }
 }

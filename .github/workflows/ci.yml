@@ -27,7 +27,7 @@ jobs:
       working-directory: wp-content/themes/wally
 
     - name: Generate deployment package
-      run: zip wally.zip -r . -x wp-config-local.php *.lock *.json .* '.vscode/*' '.git*/*' 'wp-content/uploads/*' 'wp-content/themes/wally/node_modules/*' 'wp-content/themes/wally/assets/*'
+      run: zip wally.zip -r . -x wp-config-local.php *.lock *.json .gitignore '.vscode/*' '.git*/*' 'wp-content/uploads/*' 'wp-content/themes/wally/node_modules/*' 'wp-content/themes/wally/assets/*'
 
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v16
@@ -36,6 +36,6 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: wally
         environment_name: wallyprod
-        version_label: v1.1
+        version_label: v1.2
         region: eu-central-1
         deployment_package: wally.zip
