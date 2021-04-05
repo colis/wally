@@ -36,6 +36,6 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: wally
         environment_name: wally
-        version_label: v1.6
+        version_label: v1.7
         region: eu-central-1
         deployment_package: wally.zip
