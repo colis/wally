@@ -2,6 +2,14 @@
 if ( file_exists( __DIR__ . '/wp-config-local.php' ) ) {
 	require_once __DIR__ . '/wp-config-local.php';
 } else {
+	/**
+	 * Detect if SSL is used.
+	 * This is required since we are terminating SSL either on CloudFront or on ELB.
+	 */
+	if ( $_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO'] === 'https' || $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ) {
+		$_SERVER['HTTPS'] = 'on';
+	}
+
 	define( 'DB_NAME', $_SERVER['RDS_DB_NAME'] );
 	define( 'DB_USER', $_SERVER['RDS_USERNAME'] );
 	define( 'DB_PASSWORD', $_SERVER['RDS_PASSWORD'] );
