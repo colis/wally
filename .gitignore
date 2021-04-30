@@ -72,6 +72,7 @@ wp-content/upgrade/
 wp-content/uploads/
 wp-content/install.php
 wp-content/vendor/
+wp-content/wflogs/
 
 ## WP PLUGINS
 wp-content/plugins/*
@@ -82,6 +83,7 @@ srdb*/
 
 ## WP THEMES
 wp-content/themes/wally/dist/
+wp-content/themes/wally/vendor/
 
 # Plugins to keep
 !wp-content/plugins/wally-**
