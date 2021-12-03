@@ -30,12 +30,12 @@ jobs:
       run: zip wally.zip -r . -x wp-config-local.php *.lock *.json .gitignore '.vscode/*' '.git*/*' 'wp-content/uploads/*' 'wp-content/themes/wally/node_modules/*' 'wp-content/themes/wally/assets/*'
 
     - name: Deploy to EB
-      uses: einaregilsson/beanstalk-deploy@v16
+      uses: einaregilsson/beanstalk-deploy@v19
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: wally
         environment_name: wallyprod
-        version_label: v1.3.1
+        version_label: v1.3.2
         region: eu-central-1
         deployment_package: wally.zip
