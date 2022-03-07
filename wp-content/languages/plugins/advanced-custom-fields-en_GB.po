@@ -225,7 +225,7 @@ msgstr "Before creating your first Field Group, we recommend first reading our <
 msgid "Please use the Help & Support tab to get in touch should you find yourself requiring assistance."
 msgstr "Please use the Help and Support tab to get in touch, should you find yourself requiring assistance."
 
-#: acf.php:437 includes/admin/admin-field-group.php:385
+#: acf.php:440 includes/admin/admin-field-group.php:385
 #: includes/admin/admin-field-groups.php:230
 msgctxt "post status"
 msgid "Disabled"
@@ -1128,7 +1128,7 @@ msgstr "Edit"
 msgid "The changes you made will be lost if you navigate away from this page"
 msgstr "The changes you made will be lost if you navigate away from this page"
 
-#: includes/api/api-helpers.php:3423
+#: includes/api/api-helpers.php:3413
 msgid "File type must be %s."
 msgstr "File type must be %s."
 
@@ -1137,34 +1137,34 @@ msgstr "File type must be %s."
 #: includes/admin/views/field-group-field-conditional-logic.php:170
 #: includes/admin/views/field-group-locations.php:36
 #: includes/admin/views/html-location-group.php:3
-#: includes/api/api-helpers.php:3419 assets/build/js/acf-field-group.js:447
+#: includes/api/api-helpers.php:3409 assets/build/js/acf-field-group.js:447
 #: assets/build/js/acf-field-group.js:1727
 #: assets/build/js/acf-field-group.js:538
 #: assets/build/js/acf-field-group.js:2055
 msgid "or"
 msgstr "or"
 
-#: includes/api/api-helpers.php:3392
+#: includes/api/api-helpers.php:3382
 msgid "File size must not exceed %s."
 msgstr "File size must not exceed %s."
 
-#: includes/api/api-helpers.php:3387
+#: includes/api/api-helpers.php:3377
 msgid "File size must be at least %s."
 msgstr "File size must be at least %s."
 
-#: includes/api/api-helpers.php:3372
+#: includes/api/api-helpers.php:3362
 msgid "Image height must not exceed %dpx."
 msgstr "Image height must not exceed %dpx."
 
-#: includes/api/api-helpers.php:3367
+#: includes/api/api-helpers.php:3357
 msgid "Image height must be at least %dpx."
 msgstr "Image height must be at least %dpx."
 
-#: includes/api/api-helpers.php:3353
+#: includes/api/api-helpers.php:3343
 msgid "Image width must not exceed %dpx."
 msgstr "Image width must not exceed %dpx."
 
-#: includes/api/api-helpers.php:3348
+#: includes/api/api-helpers.php:3338
 msgid "Image width must be at least %dpx."
 msgstr "Image width must be at least %dpx."
 
@@ -2407,86 +2407,86 @@ msgstr "Display format"
 msgid "Time Picker"
 msgstr "Time picker"
 
-#: acf.php:442
+#: acf.php:445
 msgid "Disabled <span class=\"count\">(%s)</span>"
 msgid_plural "Disabled <span class=\"count\">(%s)</span>"
 msgstr[0] "Disabled <span class=\"count\">(%s)</span>"
 msgstr[1] "Disabled <span class=\"count\">(%s)</span>"
 
-#: acf.php:399
+#: acf.php:402
 msgid "No Fields found in Trash"
 msgstr "No fields found in bin"
 
-#: acf.php:398
+#: acf.php:401
 msgid "No Fields found"
 msgstr "No fields found"
 
-#: acf.php:397
+#: acf.php:400
 msgid "Search Fields"
 msgstr "Search fields"
 
-#: acf.php:396
+#: acf.php:399
 msgid "View Field"
 msgstr "View field"
 
-#: acf.php:395 includes/admin/views/field-group-fields.php:56
+#: acf.php:398 includes/admin/views/field-group-fields.php:56
 msgid "New Field"
 msgstr "New field"
 
-#: acf.php:394
+#: acf.php:397
 msgid "Edit Field"
 msgstr "Edit field"
 
-#: acf.php:393
+#: acf.php:396
 msgid "Add New Field"
 msgstr "Add new field"
 
-#: acf.php:391
+#: acf.php:394
 msgid "Field"
 msgstr "Field"
 
-#: acf.php:390 includes/admin/admin-field-group.php:233
+#: acf.php:393 includes/admin/admin-field-group.php:233
 #: includes/admin/admin-field-groups.php:266
 msgid "Fields"
 msgstr "Fields"
 
-#: acf.php:365
+#: acf.php:368
 msgid "No Field Groups found in Trash"
 msgstr "No field groups found in bin"
 
-#: acf.php:364
+#: acf.php:367
 msgid "No Field Groups found"
 msgstr "No field groups found"
 
-#: acf.php:363
+#: acf.php:366
 msgid "Search Field Groups"
 msgstr "Search field groups"
 
-#: acf.php:362
+#: acf.php:365
 msgid "View Field Group"
 msgstr "View field group"
 
-#: acf.php:361
+#: acf.php:364
 msgid "New Field Group"
 msgstr "New field group"
 
-#: acf.php:360
+#: acf.php:363
 msgid "Edit Field Group"
 msgstr "Edit field group"
 
-#: acf.php:359
+#: acf.php:362
 msgid "Add New Field Group"
 msgstr "Add new field group"
 
-#: acf.php:358 acf.php:392 includes/admin/admin.php:51
+#: acf.php:361 acf.php:395 includes/admin/admin.php:51
 msgid "Add New"
 msgstr "Add new"
 
-#: acf.php:357
+#: acf.php:360
 msgid "Field Group"
 msgstr "Field group"
 
-#: acf.php:356 includes/admin/admin.php:50
+#: acf.php:359 includes/admin/admin.php:50
 msgid "Field Groups"
 msgstr "Field groups"
 
