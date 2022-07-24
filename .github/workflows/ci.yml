@@ -34,3 +34,4 @@ jobs:
         server-dir: /public_html/wp-content/
         exclude: |
           themes/wally/assets/**
+          themes/wally/node_modules/**
