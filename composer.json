@@ -15,7 +15,10 @@
     "preferred-install": "dist",
     "process-timeout": 600,
     "sort-packages": true,
-    "vendor-dir": "wp-content/vendor"
+    "vendor-dir": "wp-content/vendor",
+    "allow-plugins": {
+      "composer/installers": true
+    }
   },
   "repositories": [
     {

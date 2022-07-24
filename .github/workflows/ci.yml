@@ -11,13 +11,11 @@ jobs:
     steps:
     - name: Checkout files and setup environment
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
 
     - name: Set up Node
       uses: actions/setup-node@v1
       with:
-        node-version: 12.x
+        node-version: 14.x
 
     - name: Build plugins
       run: composer install --no-dev -o
@@ -26,16 +24,13 @@ jobs:
       run: npm install && npm run build
       working-directory: wp-content/themes/wally
 
-    - name: Generate deployment package
-      run: zip wally.zip -r . -x wp-config-local.php *.lock *.json .gitignore '.vscode/*' '.git*/*' 'wp-content/uploads/*' 'wp-content/themes/wally/node_modules/*' 'wp-content/themes/wally/assets/*'
-
-    - name: Deploy to EB
-      uses: einaregilsson/beanstalk-deploy@v19
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: wally
-        environment_name: wallyprod
-        version_label: v1.4.0
-        region: eu-central-1
-        deployment_package: wally.zip
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: wp-content/
+        server-dir: /public_html/wp-content
+        exclude: |
+          themes/wally/assets/**
