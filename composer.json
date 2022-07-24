@@ -38,11 +38,9 @@
     "php": ">=7.3",
     "colis/wally-core": "*",
     "wpackagist-plugin/advanced-custom-fields": "^5.12",
-    "wpackagist-plugin/amazon-s3-and-cloudfront": "^2.5.3",
-    "wpackagist-plugin/gutenberg": "^12.7",
-    "wpackagist-plugin/imagify": "^1.9.9",
+    "wpackagist-plugin/imagify": "^2.0",
     "wpackagist-plugin/instagram-feed": "^6.0.4",
-    "wpackagist-plugin/wordpress-seo": "^18.2",
+    "wpackagist-plugin/wordpress-seo": "^19.3",
     "wpackagist-plugin/wordfence": "^7.5.8"
   },
   "require-dev": {
