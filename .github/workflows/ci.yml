@@ -35,3 +35,18 @@ jobs:
         exclude: |
           themes/wally/assets/**
           themes/wally/node_modules/**
+          themes/wally/.*
+          themes/wally/composer.json
+          themes/wally/composer.lock
+          themes/wally/package-lock.json
+          themes/wally/package.json
+          themes/wally/phpcs.xml.dist
+          themes/wally/webpack.config.js
+          plugins/wally-core/tests/**
+          plugins/wally-core/.*
+          plugins/wally-core/composer.json
+          plugins/wally-core/composer.lock
+          plugins/wally-core/package-lock.json
+          plugins/wally-core/package.json
+          plugins/wally-core/phpcs.xml
+          plugins/wally-core/phpunit.xml
