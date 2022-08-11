@@ -248,15 +248,15 @@
         },
         {
             "name": "wpackagist-plugin/wordfence",
-            "version": "7.5.11",
+            "version": "7.6.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordfence/",
-                "reference": "tags/7.5.11"
+                "reference": "tags/7.6.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordfence.7.5.11.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordfence.7.6.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -266,15 +266,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "19.3",
+            "version": "19.5.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/19.3"
+                "reference": "tags/19.5.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.19.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.19.5.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
