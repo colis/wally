@@ -37,7 +37,7 @@
   "require": {
     "php": ">=7.3",
     "colis/wally-core": "*",
-    "wpackagist-plugin/advanced-custom-fields": "^5.12",
+    "wpackagist-plugin/advanced-custom-fields": "^6.0",
     "wpackagist-plugin/imagify": "^2.0",
     "wpackagist-plugin/instagram-feed": "^6.0.4",
     "wpackagist-plugin/wordpress-seo": "^19.3",
