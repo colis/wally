@@ -24,7 +24,7 @@ function initNavigation() {
 function initNavToggle() {
 	const toggleButton = document.querySelector( '.js-menu-button' );
 
-	toggleButton.addEventListener( 'click', function() {
+	toggleButton.addEventListener( 'click', function () {
 		toggleMainNavigation();
 	} );
 }

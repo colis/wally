@@ -1,3 +1,4 @@
+/* global navigator */
 /**
  * File skip-link-focus-fix.js.
  *
@@ -5,27 +6,35 @@
  *
  * Learn more: https://git.io/vWdr2
  */
-( function() {
-	var isIe = /(trident|msie)/i.test( navigator.userAgent );
+( function () {
+	const isIe = /(trident|msie)/i.test( navigator.userAgent );
 
 	if ( isIe && document.getElementById && window.addEventListener ) {
-		window.addEventListener( 'hashchange', function() {
-			var id = location.hash.substring( 1 ),
-				element;
+		window.addEventListener(
+			'hashchange',
+			function () {
+				const id = window.location.hash.substring( 1 );
+				let element = null;
 
-			if ( ! ( /^[A-z0-9_-]+$/.test( id ) ) ) {
-				return;
-			}
-
-			element = document.getElementById( id );
-
-			if ( element ) {
-				if ( ! ( /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) ) {
-					element.tabIndex = -1;
+				if ( ! /^[A-z0-9_-]+$/.test( id ) ) {
+					return;
 				}
 
-				element.focus();
-			}
-		}, false );
+				element = document.getElementById( id );
+
+				if ( element ) {
+					if (
+						! /^(?:a|select|input|button|textarea)$/i.test(
+							element.tagName
+						)
+					) {
+						element.tabIndex = -1;
+					}
+
+					element.focus();
+				}
+			},
+			false
+		);
 	}
-}() );
+} )();

@@ -16,11 +16,11 @@ if ( 'loading' === document.readyState ) {
 // Initiate the menus when the DOM loads.
 function initTyped() {
 	new Typed( '#typed', {
-		cursorChar: '_', 
-		backSpeed: 60,  
-		backDelay: 510, 
-		startDelay: 310, 
-		typeSpeed: 110,  
+		cursorChar: '_',
+		backSpeed: 60,
+		backDelay: 510,
+		startDelay: 310,
+		typeSpeed: 110,
 		loop: true,
 		smartBackspace: true,
 		stringsElement: '#typed-strings',
