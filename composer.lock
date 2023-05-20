@@ -8,7 +8,7 @@
     "packages": [
         {
             "name": "colis/wally-core",
-            "version": "dev-feature/composer-and-npm-updates",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "wp-content/plugins/wally-core",
@@ -195,15 +195,15 @@
         },
         {
             "name": "wpackagist-plugin/advanced-custom-fields",
-            "version": "6.0.7",
+            "version": "6.1.6",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
-                "reference": "tags/6.0.7"
+                "reference": "tags/6.1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.0.7.zip"
+                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.1.6.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -231,15 +231,15 @@
         },
         {
             "name": "wpackagist-plugin/instagram-feed",
-            "version": "6.1.2",
+            "version": "6.1.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/instagram-feed/",
-                "reference": "tags/6.1.2"
+                "reference": "tags/6.1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/instagram-feed.6.1.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/instagram-feed.6.1.4.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -249,15 +249,15 @@
         },
         {
             "name": "wpackagist-plugin/wordfence",
-            "version": "7.9.1",
+            "version": "7.9.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordfence/",
-                "reference": "tags/7.9.1"
+                "reference": "tags/7.9.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordfence.7.9.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordfence.7.9.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -267,15 +267,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "20.2.1",
+            "version": "20.7",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/20.2.1"
+                "reference": "tags/20.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.20.2.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.20.7.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -287,15 +287,15 @@
     "packages-dev": [
         {
             "name": "wpackagist-plugin/query-monitor",
-            "version": "3.11.2",
+            "version": "3.12.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/query-monitor/",
-                "reference": "tags/3.11.2"
+                "reference": "tags/3.12.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.11.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.12.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
