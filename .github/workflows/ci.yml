@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout files and setup environment
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
-        node-version: 14.x
+        node-version: 18
 
     - name: Build plugins
       run: composer install --no-dev -o
@@ -25,7 +25,7 @@ jobs:
       working-directory: wp-content/themes/wally
 
     - name: Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      uses: SamKirkland/FTP-Deploy-Action@4.3.4
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
