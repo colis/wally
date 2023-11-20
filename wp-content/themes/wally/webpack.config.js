@@ -1,5 +1,4 @@
 const path = require('path');
-const sassFunctions = require('node-sass-json-vars');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -14,7 +13,7 @@ module.exports = {
 		style: path.resolve(process.cwd(), './assets/sass/style.scss'),
 		'editor-style': path.resolve(
 			process.cwd(),
-			'./assets/sass/editor-style.scss'
+			'./assets/sass/editor-style.scss',
 		),
 	},
 	output: {
@@ -72,9 +71,7 @@ module.exports = {
 					{
 						loader: 'sass-loader',
 						options: {
-							implementation: require('node-sass'),
 							sassOptions: {
-								functions: sassFunctions,
 								sourceMap: !isProduction,
 							},
 						},
