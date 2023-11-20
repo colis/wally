@@ -40,7 +40,7 @@
     "wpackagist-plugin/advanced-custom-fields": "^6.0",
     "wpackagist-plugin/imagify": "^2.0",
     "wpackagist-plugin/instagram-feed": "^6.0.4",
-    "wpackagist-plugin/wordpress-seo": "^20.2",
+    "wpackagist-plugin/wordpress-seo": "^21.5",
     "wpackagist-plugin/wordfence": "^7.5.8"
   },
   "require-dev": {

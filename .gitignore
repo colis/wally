@@ -113,6 +113,7 @@ local-by-flywheel-demo-urls.php
 local-by-flywheel-live-link-helper.php
 local-adminer-*.php
 local-phpinfo.php
+local-xdebuginfo.php
 
 ### WP-CLI ###
 .wp-cli/config.yml
