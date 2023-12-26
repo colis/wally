@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Query Monitor - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-04 23:25:08+0000\n"
+"PO-Revision-Date: 2023-11-24 13:17:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,144 @@ msgstr ""
 "X-Generator: GlotPress/4.0.0-alpha.11\n"
 "Language: en_GB\n"
 "Project-Id-Version: Plugins - Query Monitor - Stable (latest release)\n"
+
+#: collectors/logger.php:173
+msgid "Assertion failed"
+msgstr "Assertion failed"
+
+#. translators: %s: Assertion message
+#: collectors/logger.php:169
+msgid "Assertion failed: %s"
+msgstr "Assertion failed: %s"
+
+#: collectors/logger.php:161
+msgid "Assertion passed"
+msgstr "Assertion passed"
+
+#. translators: %s: Assertion message
+#: collectors/logger.php:157
+msgid "Assertion passed: %s"
+msgstr "Assertion passed: %s"
+
+#: classes/Collector.php:122 output/html/environment.php:242
+msgid "empty string"
+msgstr "empty string"
+
+#. translators: %s: Drop-in plugin file name
+#: classes/Util.php:328
+msgid "Drop-in: %s"
+msgstr "Drop-in: %s"
+
+#: output/html/hooks.php:36
+msgid "Hooks, Actions, & Filters"
+msgstr "Hooks, Actions, & Filters"
+
+#: output/html/environment.php:247
+msgid "Development Mode"
+msgstr "Development Mode"
+
+#. translators: %s: Total number of Doing it Wrong occurrences
+#: output/html/doing_it_wrong.php:118
+msgctxt "Total Doing it Wrong occurrences"
+msgid "Total: %s"
+msgstr "Total: %s"
+
+#: output/html/doing_it_wrong.php:57
+msgid "No occurrences."
+msgstr "No occurrences."
+
+#. translators: %s: Total number of Doing it Wrong occurrences
+#: output/html/doing_it_wrong.php:43
+msgctxt "Doing it Wrong"
+msgid "Doing it Wrong (%s)"
+msgstr "Doing it Wrong (%s)"
+
+#: output/html/doing_it_wrong.php:41
+msgid "Doing it Wrong occurrences"
+msgstr "Doing it Wrong occurrences"
+
+#. translators: %s: Total number of Doing it Wrong occurrences
+#: output/html/doing_it_wrong.php:40
+msgctxt "Doing it Wrong"
+msgid "Total: %s"
+msgstr "Total: %s"
+
+#: output/html/doing_it_wrong.php:31
+msgid "Doing it Wrong"
+msgstr "Doing it Wrong"
+
+#. translators: %s: Name of WordPress filter
+#: dispatchers/Html.php:595
+msgid "The file link format for your editor is set by the %s filter."
+msgstr "The file link format for your editor is set by the %s filter."
+
+#. translators: 1: WordPress hook name, 2: Version number, 3: Optional message
+#. regarding the change.
+#: collectors/doing_it_wrong.php:323
+msgid "Hook %1$s is deprecated since version %2$s with no alternative available. %3$s"
+msgstr "Hook %1$s is deprecated since version %2$s with no alternative available. %3$s"
+
+#. translators: 1: WordPress hook name, 2: Version number, 3: Alternative hook
+#. name, 4: Optional message regarding the change.
+#: collectors/doing_it_wrong.php:314
+msgid "Hook %1$s is deprecated since version %2$s! Use %3$s instead. %4$s"
+msgstr "Hook %1$s is deprecated since version %2$s! Use %3$s instead. %4$s"
+
+#. translators: 1: PHP function name, 2: Version number.
+#: collectors/doing_it_wrong.php:283
+msgid "Function %1$s was called with an argument that is deprecated since version %2$s with no alternative available."
+msgstr "Function %1$s was called with an argument that is deprecated since version %2$s with no alternative available."
+
+#. translators: 1: PHP function name, 2: Version number, 3: Optional message
+#. regarding the change.
+#: collectors/doing_it_wrong.php:275
+msgid "Function %1$s was called with an argument that is deprecated since version %2$s! %3$s"
+msgstr "Function %1$s was called with an argument that is deprecated since version %2$s! %3$s"
+
+#. translators: 1: PHP file name, 2: Version number, 3: Optional message
+#. regarding the change.
+#: collectors/doing_it_wrong.php:244
+msgid "File %1$s is deprecated since version %2$s with no alternative available. %3$s"
+msgstr "File %1$s is deprecated since version %2$s with no alternative available. %3$s"
+
+#. translators: 1: PHP file name, 2: Version number, 3: Alternative file name,
+#. 4: Optional message regarding the change.
+#: collectors/doing_it_wrong.php:235
+msgid "File %1$s is deprecated since version %2$s! Use %3$s instead. %4$s"
+msgstr "File %1$s is deprecated since version %2$s! Use %3$s instead. %4$s"
+
+#. translators: 1: PHP class name, 2: PHP parent class name, 3: Version number,
+#. 4: __construct() method.
+#: collectors/doing_it_wrong.php:202
+msgid "The called constructor method for %1$s class in %2$s is deprecated since version %3$s! Use %4$s instead."
+msgstr "The called constructor method for %1$s class in %2$s is deprecated since version %3$s! Use %4$s instead."
+
+#. translators: 1: PHP class name, 2: Version number, 3: __construct() method.
+#: collectors/doing_it_wrong.php:193
+msgid "The called constructor method for %1$s class is deprecated since version %2$s! Use %3$s instead."
+msgstr "The called constructor method for %1$s class is deprecated since version %2$s! Use %3$s instead."
+
+#. translators: 1: PHP function name, 2: Version number, 3: Alternative
+#. function name.
+#: collectors/doing_it_wrong.php:163
+msgid "Function %1$s is deprecated since version %2$s! Use %3$s instead."
+msgstr "Function %1$s is deprecated since version %2$s! Use %3$s instead."
+
+#. translators: 1: PHP function name, 2: Version number.
+#: collectors/doing_it_wrong.php:155
+msgid "Function %1$s is deprecated since version %2$s with no alternative available."
+msgstr "Function %1$s is deprecated since version %2$s with no alternative available."
+
+#. translators: Developer debugging message. 1: PHP function name, 2:
+#. Explanatory message, 3: WordPress version number.
+#: collectors/doing_it_wrong.php:132
+msgid "Function %1$s was called incorrectly. %2$s %3$s"
+msgstr "Function %1$s was called incorrectly. %2$s %3$s"
+
+#. translators: %s: Version number.
+#: collectors/doing_it_wrong.php:123
+msgid "(This message was added in version %s.)"
+msgstr "(This message was added in version %s.)"
 
 #. translators: %s: Number of PHP errors
 #: output/html/php_errors.php:185
