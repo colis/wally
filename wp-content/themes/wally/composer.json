@@ -1,35 +1,40 @@
 {
-	"name": "colis/wally",
-	"type": "wordpress-theme",
-	"description": "WordPress theme for the veronicaurbano.it website.",
-	"keywords": [
-		"WordPress",
-		"Themes"
-	],
-	"homepage": "https://github.com/colis/wally",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Carmine Colicino",
-			"homepage": "https://github.com/colis"
-		}
-	],
-	"require": {
-		"php": ">=5.6"
-	},
-	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-		"wptrt/wpthemereview": "^0.2.1",
-		"php-parallel-lint/php-parallel-lint": "^1.2.0",
-		"wp-cli/i18n-command": "^2.2"
-	},
-	"scripts": {
-		"lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
-		"lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
-		"make-pot": "wp i18n make-pot . languages/wally.pot"
-	},
-	"support": {
-		"issues": "https://github.com/colis/wally/issues",
-		"source": "https://github.com/colis/wally"
-	}
+  "name": "colis/wally",
+  "type": "wordpress-theme",
+  "description": "WordPress theme for the veronicaurbano.it website.",
+  "keywords": [
+    "WordPress",
+    "Themes"
+  ],
+  "homepage": "https://github.com/colis/wally",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Carmine Colicino",
+      "homepage": "https://github.com/colis"
+    }
+  ],
+  "require": {
+    "php": ">=5.6"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
+    "wptrt/wpthemereview": "^0.2.1",
+    "php-parallel-lint/php-parallel-lint": "^1.2.0",
+    "wp-cli/i18n-command": "^2.2"
+  },
+  "scripts": {
+    "lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
+    "make-pot": "wp i18n make-pot . languages/wally.pot"
+  },
+  "support": {
+    "issues": "https://github.com/colis/wally/issues",
+    "source": "https://github.com/colis/wally"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
 }
