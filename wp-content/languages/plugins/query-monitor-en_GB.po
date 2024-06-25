@@ -1,15 +1,19 @@
-# Translation of Plugins - Query Monitor - Stable (latest release) in English (UK)
-# This file is distributed under the same license as the Plugins - Query Monitor - Stable (latest release) package.
+# Translation of Plugins - Query Monitor &#8211; The developer tools panel for WordPress - Stable (latest release) in English (UK)
+# This file is distributed under the same license as the Plugins - Query Monitor &#8211; The developer tools panel for WordPress - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-24 13:17:31+0000\n"
+"PO-Revision-Date: 2024-04-22 15:16:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/4.0.0-alpha.11\n"
+"X-Generator: GlotPress/4.0.1\n"
 "Language: en_GB\n"
-"Project-Id-Version: Plugins - Query Monitor - Stable (latest release)\n"
+"Project-Id-Version: Plugins - Query Monitor &#8211; The developer tools panel for WordPress - Stable (latest release)\n"
+
+#: output/html/assets.php:53
+msgid "Module"
+msgstr "Module"
 
 #: collectors/logger.php:173
 msgid "Assertion failed"
@@ -34,7 +38,7 @@ msgid "empty string"
 msgstr "empty string"
 
 #. translators: %s: Drop-in plugin file name
-#: classes/Util.php:328
+#: classes/Util.php:329
 msgid "Drop-in: %s"
 msgstr "Drop-in: %s"
 
@@ -83,69 +87,69 @@ msgstr "The file link format for your editor is set by the %s filter."
 
 #. translators: 1: WordPress hook name, 2: Version number, 3: Optional message
 #. regarding the change.
-#: collectors/doing_it_wrong.php:323
+#: collectors/doing_it_wrong.php:374
 msgid "Hook %1$s is deprecated since version %2$s with no alternative available. %3$s"
 msgstr "Hook %1$s is deprecated since version %2$s with no alternative available. %3$s"
 
 #. translators: 1: WordPress hook name, 2: Version number, 3: Alternative hook
 #. name, 4: Optional message regarding the change.
-#: collectors/doing_it_wrong.php:314
+#: collectors/doing_it_wrong.php:365
 msgid "Hook %1$s is deprecated since version %2$s! Use %3$s instead. %4$s"
 msgstr "Hook %1$s is deprecated since version %2$s! Use %3$s instead. %4$s"
 
 #. translators: 1: PHP function name, 2: Version number.
-#: collectors/doing_it_wrong.php:283
+#: collectors/doing_it_wrong.php:326
 msgid "Function %1$s was called with an argument that is deprecated since version %2$s with no alternative available."
 msgstr "Function %1$s was called with an argument that is deprecated since version %2$s with no alternative available."
 
 #. translators: 1: PHP function name, 2: Version number, 3: Optional message
 #. regarding the change.
-#: collectors/doing_it_wrong.php:275
+#: collectors/doing_it_wrong.php:318
 msgid "Function %1$s was called with an argument that is deprecated since version %2$s! %3$s"
 msgstr "Function %1$s was called with an argument that is deprecated since version %2$s! %3$s"
 
 #. translators: 1: PHP file name, 2: Version number, 3: Optional message
 #. regarding the change.
-#: collectors/doing_it_wrong.php:244
+#: collectors/doing_it_wrong.php:279
 msgid "File %1$s is deprecated since version %2$s with no alternative available. %3$s"
 msgstr "File %1$s is deprecated since version %2$s with no alternative available. %3$s"
 
 #. translators: 1: PHP file name, 2: Version number, 3: Alternative file name,
 #. 4: Optional message regarding the change.
-#: collectors/doing_it_wrong.php:235
+#: collectors/doing_it_wrong.php:270
 msgid "File %1$s is deprecated since version %2$s! Use %3$s instead. %4$s"
 msgstr "File %1$s is deprecated since version %2$s! Use %3$s instead. %4$s"
 
 #. translators: 1: PHP class name, 2: PHP parent class name, 3: Version number,
 #. 4: __construct() method.
-#: collectors/doing_it_wrong.php:202
+#: collectors/doing_it_wrong.php:229
 msgid "The called constructor method for %1$s class in %2$s is deprecated since version %3$s! Use %4$s instead."
 msgstr "The called constructor method for %1$s class in %2$s is deprecated since version %3$s! Use %4$s instead."
 
 #. translators: 1: PHP class name, 2: Version number, 3: __construct() method.
-#: collectors/doing_it_wrong.php:193
+#: collectors/doing_it_wrong.php:220
 msgid "The called constructor method for %1$s class is deprecated since version %2$s! Use %3$s instead."
 msgstr "The called constructor method for %1$s class is deprecated since version %2$s! Use %3$s instead."
 
 #. translators: 1: PHP function name, 2: Version number, 3: Alternative
 #. function name.
-#: collectors/doing_it_wrong.php:163
+#: collectors/doing_it_wrong.php:182
 msgid "Function %1$s is deprecated since version %2$s! Use %3$s instead."
 msgstr "Function %1$s is deprecated since version %2$s! Use %3$s instead."
 
 #. translators: 1: PHP function name, 2: Version number.
-#: collectors/doing_it_wrong.php:155
+#: collectors/doing_it_wrong.php:174
 msgid "Function %1$s is deprecated since version %2$s with no alternative available."
 msgstr "Function %1$s is deprecated since version %2$s with no alternative available."
 
 #. translators: Developer debugging message. 1: PHP function name, 2:
 #. Explanatory message, 3: WordPress version number.
-#: collectors/doing_it_wrong.php:132
+#: collectors/doing_it_wrong.php:143
 msgid "Function %1$s was called incorrectly. %2$s %3$s"
 msgstr "Function %1$s was called incorrectly. %2$s %3$s"
 
 #. translators: %s: Version number.
-#: collectors/doing_it_wrong.php:123
+#: collectors/doing_it_wrong.php:134
 msgid "(This message was added in version %s.)"
 msgstr "(This message was added in version %s.)"
 
@@ -183,7 +187,7 @@ msgid "No data logged."
 msgstr "No data logged."
 
 #. translators: A closure is an anonymous PHP function
-#: classes/Util.php:397
+#: classes/Util.php:398
 msgid "Unknown closure"
 msgstr "Unknown closure"
 
@@ -191,11 +195,6 @@ msgstr "Unknown closure"
 #: output/html/languages.php:62 output/html/languages.php:75
 msgid "%s Language"
 msgstr "%s Language"
-
-#. translators: 1: CLI command to run, 2: plugin directory name
-#: classes/PHP.php:54
-msgid "Dependencies for Query Monitor need to be installed. Run %1$s from the %2$s directory."
-msgstr "Dependencies for Query Monitor need to be installed. Run %1$s from the %2$s directory."
 
 #: dispatchers/Html.php:611
 msgctxt "colour scheme"
@@ -333,7 +332,7 @@ msgstr "Context"
 msgid "%1$s%% of %2$s MB server limit"
 msgstr "%1$s%% of %2$s MB server limit"
 
-#: classes/QueryMonitor.php:80
+#: classes/QueryMonitor.php:81
 msgctxt "verb"
 msgid "Sponsor"
 msgstr "Sponsor"
@@ -479,11 +478,11 @@ msgstr "Default value: %s"
 msgid "Not Loaded"
 msgstr "Not Loaded"
 
-#. translators: 1: Required PHP version number, 2: Current PHP version number,
-#. 3: URL of PHP update help page
+#. translators: 1: Query Monitor, 2: Required PHP version number, 3: Current
+#. PHP version number, 4: URL of PHP update help page
 #: classes/PHP.php:32
-msgid "The Query Monitor plugin requires PHP version %1$s or higher. This site is running PHP version %2$s. <a href=\"%3$s\">Learn about updating PHP</a>."
-msgstr "The Query Monitor plugin requires PHP version %1$s or higher. This site is running PHP version %2$s. <a href=\"%3$s\">Learn about updating PHP</a>."
+msgid "The %1$s plugin requires PHP version %2$s or higher. This site is running PHP version %3$s. <a href=\"%4$s\">Learn about updating PHP</a>."
+msgstr "The %1$s plugin requires PHP version %2$s or higher. This site is running PHP version %3$s. <a href=\"%4$s\">Learn about updating PHP</a>."
 
 #. translators: %s: Total number of enqueued scripts
 #: output/html/assets_scripts.php:37
@@ -592,7 +591,7 @@ msgstr "No memory limit. The %1$s PHP configuration directive is set to %2$s."
 msgid "No execution time limit. The %1$s PHP configuration directive is set to %2$s."
 msgstr "No execution time limit. The %1$s PHP configuration directive is set to %2$s."
 
-#: classes/Collector_Assets.php:325
+#: classes/Collector_Assets.php:474
 msgid "Insecure content"
 msgstr "Insecure content"
 
@@ -639,7 +638,7 @@ msgstr[1] "Included %s times"
 msgid "Blocks"
 msgstr "Blocks"
 
-#: classes/QueryMonitor.php:213
+#: classes/QueryMonitor.php:214
 msgctxt "Human readable label for the user capability required to view Query Monitor."
 msgid "View Query Monitor"
 msgstr "View Query Monitor"
@@ -688,7 +687,7 @@ msgid_plural "Total: %s"
 msgstr[0] "Total: %s"
 msgstr[1] "Total: %s"
 
-#: output/html/assets.php:77
+#: output/html/assets.php:78
 msgid "Source"
 msgstr "Source"
 
@@ -767,6 +766,7 @@ msgid "Logger"
 msgstr "Logger"
 
 #. Description of the plugin
+#: query-monitor.php
 msgid "The developer tools panel for WordPress."
 msgstr "The developer tools panel for WordPress."
 
@@ -915,16 +915,16 @@ msgstr "True Conditionals"
 msgid "For performance reasons, this panel is not enabled by default. To enable it, add the following code to your %s file:"
 msgstr "For performance reasons, this panel is not enabled by default. To enable it, add the following code to your %s file:"
 
-#: output/html/assets.php:68
+#: output/html/assets.php:69
 msgid "Handle"
 msgstr "Handle"
 
-#: output/html/assets.php:75 output/html/environment.php:160
+#: output/html/assets.php:76 output/html/environment.php:160
 #: output/html/environment.php:279
 msgid "Host"
 msgstr "Host"
 
-#: output/html/assets.php:60 output/html/assets.php:152
+#: output/html/assets.php:61 output/html/assets.php:153
 msgid "Other"
 msgstr "Other"
 
@@ -1132,15 +1132,15 @@ msgctxt "Suppressed PHP error level"
 msgid "Warning (Suppressed)"
 msgstr "Warning (Suppressed)"
 
-#: output/html/assets.php:67
+#: output/html/assets.php:68
 msgid "Position"
 msgstr "Position"
 
-#: output/html/assets.php:54
+#: output/html/assets.php:55
 msgid "Footer"
 msgstr "Footer"
 
-#: output/html/assets.php:53
+#: output/html/assets.php:54
 msgid "Header"
 msgstr "Header"
 
@@ -1187,7 +1187,7 @@ msgid "Warning"
 msgstr "Warning"
 
 #. translators: %s: Hook name
-#: collectors/http.php:302
+#: collectors/http.php:300
 msgid "Request not executed due to a filter on %s"
 msgstr "Request not executed due to a filter on %s"
 
@@ -1282,21 +1282,23 @@ msgstr "No database queries were logged because the %1$s constant is set to %2$s
 msgid "Languages"
 msgstr "Languages"
 
-#: classes/Util.php:427
+#: classes/Util.php:428
 msgid "Unable to determine source of lambda function"
 msgstr "Unable to determine source of lambda function"
 
 #. Author of the plugin
+#: query-monitor.php
 msgid "John Blackbourn"
 msgstr "John Blackbourn"
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: query-monitor.php
 msgid "https://querymonitor.com/"
 msgstr "https://querymonitor.com/"
 
 #. translators: %s: Symlink file location
-#: classes/QueryMonitor.php:181
+#: classes/QueryMonitor.php:182
 msgid "The symlink at %s is no longer pointing to the correct location. Please remove the symlink, then deactivate and reactivate Query Monitor."
 msgstr "The symlink at %s is no longer pointing to the correct location. Please remove the symlink, then deactivate and reactivate Query Monitor."
 
@@ -1408,8 +1410,8 @@ msgstr "Hook"
 msgid "Server"
 msgstr "Server"
 
-#: output/html/environment.php:56 output/html/environment.php:231
-#: output/html/environment.php:251
+#: classes/QueryMonitor.php:62 output/html/environment.php:56
+#: output/html/environment.php:231 output/html/environment.php:251
 msgid "Help"
 msgstr "Help"
 
@@ -1471,7 +1473,7 @@ msgid "Time"
 msgstr "Time"
 
 #. translators: %s: Name of missing script or style dependency
-#: output/html/assets.php:143
+#: output/html/assets.php:144
 msgid "%s (missing)"
 msgstr "%s (missing)"
 
@@ -1481,16 +1483,16 @@ msgstr "%s (missing)"
 msgid "none"
 msgstr "none"
 
-#: output/html/assets.php:84 output/html/environment.php:62
+#: output/html/assets.php:85 output/html/environment.php:62
 #: output/html/environment.php:220 output/html/environment.php:277
 msgid "Version"
 msgstr "Version"
 
-#: output/html/assets.php:82
+#: output/html/assets.php:83
 msgid "Dependents"
 msgstr "Dependents"
 
-#: output/html/assets.php:79
+#: output/html/assets.php:80
 msgid "Dependencies"
 msgstr "Dependencies"
 
@@ -1532,7 +1534,7 @@ msgid "PHP Errors in Ajax Response"
 msgstr "PHP Errors in Ajax Response"
 
 #. Plugin Name of the plugin
-#: classes/QueryMonitor.php:195 classes/QueryMonitor.php:228
+#: query-monitor.php classes/QueryMonitor.php:196 classes/QueryMonitor.php:229
 #: dispatchers/Html.php:147 dispatchers/Html.php:437 dispatchers/Html.php:825
 #: dispatchers/WP_Die.php:132
 msgid "Query Monitor"
@@ -1579,7 +1581,7 @@ msgstr "Overview"
 msgid "Error"
 msgstr "Error"
 
-#: collectors/http.php:341
+#: collectors/http.php:339
 msgid "Request timed out"
 msgstr "Request timed out"
 
@@ -1610,18 +1612,18 @@ msgid "Admin Screen"
 msgstr "Admin Screen"
 
 #. translators: 1: Line number, 2: File name
-#: classes/Util.php:422
+#: classes/Util.php:423
 msgid "Anonymous function on line %1$d of %2$s"
 msgstr "Anonymous function on line %1$d of %2$s"
 
 #. translators: A closure is an anonymous PHP function. 1: Line number, 2: File
 #. name
-#: classes/Util.php:391
+#: classes/Util.php:392
 msgid "Closure on line %1$d of %2$s"
 msgstr "Closure on line %1$d of %2$s"
 
 #: classes/Backtrace.php:240 classes/Util.php:250
-#: collectors/environment.php:279 output/html/db_queries.php:344
+#: collectors/environment.php:281 output/html/db_queries.php:344
 #: output/html/db_queries.php:440 output/html/environment.php:70
 #: output/html/environment.php:77 output/html/environment.php:85
 #: output/html/environment.php:171 output/html/environment.php:294
