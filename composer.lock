@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "194e791477c29fcedecc5992540627b5",
+    "content-hash": "3c176761d728fad93e120dd470651134",
     "packages": [
         {
             "name": "colis/wally-core",
-            "version": "dev-feature/composer-and-npm-updates-2024-06-25",
+            "version": "dev-feature/composer-and-npm-updates-2024-10-13",
             "dist": {
                 "type": "path",
                 "url": "wp-content/plugins/wally-core",
@@ -196,15 +196,15 @@
         },
         {
             "name": "wpackagist-plugin/advanced-custom-fields",
-            "version": "6.3.2",
+            "version": "6.3.6.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
-                "reference": "tags/6.3.2"
+                "reference": "tags/6.3.6.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.3.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.3.6.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -232,15 +232,15 @@
         },
         {
             "name": "wpackagist-plugin/instagram-feed",
-            "version": "6.4.2",
+            "version": "6.5.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/instagram-feed/",
-                "reference": "tags/6.4.2"
+                "reference": "tags/6.5.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/instagram-feed.6.4.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/instagram-feed.6.5.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -250,15 +250,15 @@
         },
         {
             "name": "wpackagist-plugin/wordfence",
-            "version": "7.11.6",
+            "version": "7.11.7",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordfence/",
-                "reference": "tags/7.11.6"
+                "reference": "tags/7.11.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordfence.7.11.6.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordfence.7.11.7.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -268,15 +268,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "22.9",
+            "version": "23.6",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/22.9"
+                "reference": "tags/23.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.22.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.23.6.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -288,15 +288,15 @@
     "packages-dev": [
         {
             "name": "wpackagist-plugin/query-monitor",
-            "version": "3.16.3",
+            "version": "3.16.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/query-monitor/",
-                "reference": "tags/3.16.3"
+                "reference": "tags/3.16.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.16.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.16.4.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
