@@ -41,7 +41,7 @@
     "wpackagist-plugin/imagify": "^2.0",
     "wpackagist-plugin/instagram-feed": "^6.0.4",
     "wpackagist-plugin/wordpress-seo": "^23.0",
-    "wpackagist-plugin/wordfence": "^7.5.8"
+    "wpackagist-plugin/wordfence": "^8.0"
   },
   "require-dev": {
     "wpackagist-plugin/query-monitor": "^3.8",
