@@ -2,7 +2,7 @@
 // TYPOGRAPHY
 // ==========================================================================
 
-@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@300;700;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@300;600;700;800&display=swap);
 
 :root {
 	// Families
@@ -11,6 +11,7 @@
 
 	// Weights
 	--font-weight-primary-light: 300;
+	--font-weight-primary-semi-bold: 600;
 	--font-weight-primary-bold: 700;
 	--font-weight-headings-regular: 800;
 

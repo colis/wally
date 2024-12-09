@@ -188,11 +188,6 @@ function wally_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
-	if ( is_front_page() ) {
-		wp_enqueue_script( 'typed-js-lib', get_template_directory_uri() . '/dist/js/lib/typed.js', array(), THEME_VERSION, true );
-		wp_enqueue_script( 'wally-typed-js', get_template_directory_uri() . '/dist/js/typed.js', array(), THEME_VERSION, true );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'wally_scripts' );
 
@@ -210,9 +205,14 @@ function wally_editor_assets() {
 add_action( 'enqueue_block_editor_assets', 'wally_editor_assets' );
 
 /**
- * Implement the Custom Header feature.
+ * Use the project archive template as the front page.
  */
-require get_template_directory() . '/inc/custom-header.php';
+function use_project_archive_as_front_page( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && is_home() ) {
+		$query->set( 'post_type', [ 'project' ] );
+	}
+}
+add_action( 'pre_get_posts','use_project_archive_as_front_page' );
 
 /**
  * Custom template tags for this theme.
@@ -235,4 +235,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

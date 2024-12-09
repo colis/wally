@@ -27,15 +27,10 @@
 	<div id="site-wrapper" class="o-site-wrapper">
 
 		<header class="c-header">
-			<div class="c-main-nav__wrapper">
-				<div class="o-container">
-					<div class="c-main-nav">
-						<a href="<?php echo esc_url( home_url() ); ?>" class="c-logo">veronica urbano</a>
-						<?php
-							get_template_part( 'template-parts/header/menu-button' );
-							get_template_part( 'template-parts/header/navigation' );
-						?>
-					</div>
-				</div>
-			</div><!-- .c-main-nav__wrapper -->
+			<div class="c-main-nav">
+				<a href="<?php echo esc_url( home_url() ); ?>" class="c-logo" title="Veronica Urbano">
+					<?php get_template_part( 'template-parts/header/logo' ); ?>
+				</a>
+				<?php get_template_part( 'template-parts/header/navigation' ); ?>
+			</div>
 		</header><!-- .c-header -->

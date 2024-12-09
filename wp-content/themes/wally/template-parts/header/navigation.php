@@ -7,7 +7,7 @@
 
 ?>
 
-<nav class="c-header__navigation c-navigation o-container">
+<nav class="c-header__navigation c-navigation">
 	<?php
 	wp_nav_menu(
 		[
@@ -16,6 +16,5 @@
 			'menu_class'     => 'c-navigation__menu-wrapper',
 		]
 	);
-	get_template_part( 'template-parts/header/social-links' );
 	?>
 </nav>

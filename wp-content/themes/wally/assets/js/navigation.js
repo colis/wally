@@ -1,9 +1,9 @@
 /**
  * File navigation.js.
- *
- * Handles toggling the navigation menu for small screens and enables TAB key
- * navigation support for dropdown menus.
  */
+
+const header = document.querySelector( '.c-header' );
+const adminBar = document.querySelector( '#wpadminbar' );
 
 if ( 'loading' === document.readyState ) {
 	// The DOM has not yet been loaded.
@@ -15,42 +15,36 @@ if ( 'loading' === document.readyState ) {
 
 // Initiate the menus when the DOM loads.
 function initNavigation() {
-	initNavToggle();
+	initStickyToggle();
 }
 
 /**
- * Add event listener to the button that handles toggling the mobile menu.
+ * Add event listener on scroll event that handles toggling the sticky menu.
  */
-function initNavToggle() {
-	const toggleButton = document.querySelector( '.js-menu-button' );
-
-	toggleButton.addEventListener( 'click', function () {
-		toggleMainNavigation();
-	} );
+function initStickyToggle() {
+	toggleStickyNavigation();
 }
 
-function toggleMainNavigation() {
-	const html = document.querySelector( 'html' );
+function toggleStickyNavigation() {
+	// Add a "sentinel" element to track the scroll position of the page.
+	const sentinel = document.createElement( 'div' );
+	sentinel.setAttribute( 'id', 'jump-links-sentinel' );
+	header.after( sentinel );
 
-	if ( html.classList.contains( 'navigation-open' ) ) {
-		disableMainNavigation();
-	} else {
-		enableMainNavigation();
-	}
-}
+	const offset = adminBar?.offsetHeight || 0;
 
-function enableMainNavigation() {
-	const html = document.querySelector( 'html' );
-	const toggleButton = document.querySelector( '.js-menu-button' );
+	const observer = new window.IntersectionObserver(
+		( [ entry ] ) => {
+			header.classList.toggle(
+				'sticky',
+				! entry.isIntersecting &&
+					entry.boundingClientRect.top - offset < 0
+			);
+		},
+		{
+			rootMargin: `${ offset * -1 }px`,
+		}
+	);
 
-	html.classList.add( 'navigation-open' );
-	toggleButton.setAttribute( 'aria-expanded', 'true' );
-}
-
-function disableMainNavigation() {
-	const html = document.querySelector( 'html' );
-	const toggleButton = document.querySelector( '.js-menu-button' );
-
-	html.classList.remove( 'navigation-open' );
-	toggleButton.setAttribute( 'aria-expanded', 'false' );
+	observer.observe( sentinel );
 }

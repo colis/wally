@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7afa22bae29a3cf0ec573daf2acdf9c",
+    "content-hash": "2430eadb07f39339ae702140528d5c49",
     "packages": [
         {
             "name": "colis/wally-core",
-            "version": "dev-master",
+            "version": "dev-feature/header-redesign",
             "dist": {
                 "type": "path",
                 "url": "wp-content/plugins/wally-core",
@@ -229,24 +229,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/imagify/"
-        },
-        {
-            "name": "wpackagist-plugin/instagram-feed",
-            "version": "6.6.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/instagram-feed/",
-                "reference": "tags/6.6.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/instagram-feed.6.6.1.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/instagram-feed/"
         },
         {
             "name": "wpackagist-plugin/wordfence",
