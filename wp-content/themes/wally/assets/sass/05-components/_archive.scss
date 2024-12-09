@@ -5,7 +5,6 @@ ARCHIVE
 .c-content-archive__content {
 	display: grid;
 	gap: var(--spacing-l);
-	margin-top: spacing(7);
 	grid-template-columns: 1fr;
 
 	@include for-tablet-portrait-up {
