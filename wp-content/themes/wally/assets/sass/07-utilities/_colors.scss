@@ -7,7 +7,7 @@ COLORS UTILITIES
 	.has-background {
 
 		&.has-#{$colorName}-background-color {
-			background-color: $colorHex;
+			background-color: #{$colorHex};
 		}
 	}
 
@@ -15,7 +15,7 @@ COLORS UTILITIES
 	.has-inline-color {
 
 		&.has-#{$colorName}-color {
-			color: $colorHex;
+			color: #{$colorHex};
 		}
 	}
 }
