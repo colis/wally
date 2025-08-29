@@ -39,7 +39,7 @@
     "colis/wally-core": "*",
     "wpackagist-plugin/advanced-custom-fields": "^6.0",
     "wpackagist-plugin/imagify": "^2.0",
-    "wpackagist-plugin/wordpress-seo": "^24.0",
+    "wpackagist-plugin/wordpress-seo": "^25.0",
     "wpackagist-plugin/wordfence": "^8.0"
   },
   "require-dev": {
