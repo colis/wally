@@ -1,4 +1,3 @@
-/* global navigator */
 /**
  * File skip-link-focus-fix.js.
  *
