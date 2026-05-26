@@ -5,9 +5,7 @@
  * @package wally/core
  */
 
-namespace Wally\Core\Setup;
-
-use \WP_Error as WP_Error;
+namespace WallyCore\Setup;
 
 /**
  * Default setup routine

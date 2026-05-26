@@ -22,10 +22,10 @@ define( 'WALLY_CORE_INC', WALLY_CORE_PATH . 'includes/' );
 require_once WALLY_CORE_INC . 'functions/setup.php';
 
 // Activation/Deactivation.
-register_activation_hook( __FILE__, '\Wally\Core\Setup\activate' );
-register_deactivation_hook( __FILE__, '\Wally\Core\Setup\deactivate' );
+register_activation_hook( __FILE__, '\WallyCore\Setup\activate' );
+register_deactivation_hook( __FILE__, '\WallyCore\Setup\deactivate' );
 
 // Bootstrap.
-Wally\Core\Setup\setup();
+WallyCore\Setup\setup();
 
-new Wally\Core\Main( __FILE__ );
+new WallyCore\Main( __FILE__ );

@@ -2,12 +2,12 @@
  * File navigation.js.
  */
 
-const header = document.querySelector( '.c-header' );
-const adminBar = document.querySelector( '#wpadminbar' );
+const header = document.querySelector('.c-header');
+const adminBar = document.querySelector('#wpadminbar');
 
-if ( 'loading' === document.readyState ) {
+if ('loading' === document.readyState) {
 	// The DOM has not yet been loaded.
-	document.addEventListener( 'DOMContentLoaded', initNavigation );
+	document.addEventListener('DOMContentLoaded', initNavigation);
 } else {
 	// The DOM has already been loaded.
 	initNavigation();
@@ -27,24 +27,24 @@ function initStickyToggle() {
 
 function toggleStickyNavigation() {
 	// Add a "sentinel" element to track the scroll position of the page.
-	const sentinel = document.createElement( 'div' );
-	sentinel.setAttribute( 'id', 'jump-links-sentinel' );
-	header.after( sentinel );
+	const sentinel = document.createElement('div');
+	sentinel.setAttribute('id', 'jump-links-sentinel');
+	header.after(sentinel);
 
 	const offset = adminBar?.offsetHeight || 0;
 
 	const observer = new window.IntersectionObserver(
-		( [ entry ] ) => {
+		([entry]) => {
 			header.classList.toggle(
 				'sticky',
-				! entry.isIntersecting &&
+				!entry.isIntersecting &&
 					entry.boundingClientRect.top - offset < 0
 			);
 		},
 		{
-			rootMargin: `${ offset * -1 }px`,
+			rootMargin: `${offset * -1}px`,
 		}
 	);
 
-	observer.observe( sentinel );
+	observer.observe(sentinel);
 }

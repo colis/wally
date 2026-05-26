@@ -5,10 +5,10 @@
  * @package wally/core
  */
 
-namespace Wally\Core\ACF;
+namespace WallyCore\ACF;
 
-use Wally\Core\Registrable;
-use Wally\Core\Plugin;
+use WallyCore\Registrable;
+use WallyCore\Plugin;
 
 defined( 'ABSPATH' ) || die();
 

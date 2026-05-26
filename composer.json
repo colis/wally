@@ -24,19 +24,10 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
-    },
-    {
-      "type": "path",
-      "url": "wp-content/plugins/wally-core",
-      "name": "colis/wally-core",
-      "options": {
-        "symlink": false
-      }
     }
   ],
   "require": {
     "php": ">=8.1",
-    "colis/wally-core": "*",
     "wpackagist-plugin/advanced-custom-fields": "^6.0",
     "wpackagist-plugin/imagify": "^2.0",
     "wpackagist-plugin/wordpress-seo": "^27.0",
@@ -58,5 +49,13 @@
   },
   "scripts": {
     "create-bundle": "composer install --no-dev -o && rm -f wally.zip && zip wally.zip -r . -x wp-config-local.php *.lock *.json .gitignore '.vscode/*' '.git*/*' 'wp-content/uploads/*' 'wp-content/themes/wally/node_modules/*' 'wp-content/themes/wally/assets/*'"
+  },
+  "autoload": {
+    "files": [
+      "wp-content/plugins/wally-core/includes/functions/setup.php"
+    ],
+    "psr-4": {
+      "WallyCore\\": "wp-content/plugins/wally-core/includes/classes"
+    }
   }
 }

@@ -5,7 +5,7 @@
  * @package wally/core
  */
 
-namespace Wally\Core\PostType;
+namespace WallyCore\PostType;
 
 defined( 'ABSPATH' ) || die();
 

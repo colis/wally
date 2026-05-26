@@ -5,9 +5,9 @@
  * @package wally/core
  */
 
-namespace Wally\Core\PostType;
+namespace WallyCore\PostType;
 
-use Wally\Core\Registrable;
+use WallyCore\Registrable;
 
 defined( 'ABSPATH' ) || die();
 

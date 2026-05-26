@@ -1,5 +1,5 @@
 <?php
-namespace Wally\Core\Setup;
+namespace WallyCore\Setup;
 
 /**
  * This is a very basic test case to get things started. You should probably rename this and make
@@ -13,7 +13,7 @@ namespace Wally\Core\Setup;
  *   - https://github.com/10up/wp_mock
  */
 
-use Wally\Core as Base;
+use WallyCore as Base;
 
 class Core_Tests extends Base\TestCase {
 
@@ -26,8 +26,8 @@ class Core_Tests extends Base\TestCase {
 	 */
 	public function test_setup() {
 		// Setup
-		\WP_Mock::expectActionAdded( 'init', 'Wally\Core\Setup\i18n' );
-		\WP_Mock::expectActionAdded( 'init', 'Wally\Core\Setup\init' );
+		\WP_Mock::expectActionAdded( 'init', 'WallyCore\Setup\i18n' );
+		\WP_Mock::expectActionAdded( 'init', 'WallyCore\Setup\init' );
 		\WP_Mock::expectAction( 'wally_core_loaded' );
 
 		// Act
