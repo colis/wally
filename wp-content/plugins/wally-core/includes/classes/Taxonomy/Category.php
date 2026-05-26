@@ -5,10 +5,10 @@
  * @package wally/core
  */
 
-namespace Wally\Core\Taxonomy;
+namespace WallyCore\Taxonomy;
 
-use Wally\Core\Registrable;
-use Wally\Core\PostType\Project as ProjectCPT;
+use WallyCore\Registrable;
+use WallyCore\PostType\Project as ProjectCPT;
 
 defined( 'ABSPATH' ) || die();
 

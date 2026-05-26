@@ -5,25 +5,25 @@
  *
  * Learn more: https://git.io/vWdr2
  */
-( function () {
-	const isIe = /(trident|msie)/i.test( navigator.userAgent );
+(function () {
+	const isIe = /(trident|msie)/i.test(navigator.userAgent);
 
-	if ( isIe && document.getElementById && window.addEventListener ) {
+	if (isIe && document.getElementById && window.addEventListener) {
 		window.addEventListener(
 			'hashchange',
 			function () {
-				const id = window.location.hash.substring( 1 );
+				const id = window.location.hash.substring(1);
 				let element = null;
 
-				if ( ! /^[A-z0-9_-]+$/.test( id ) ) {
+				if (!/^[A-z0-9_-]+$/.test(id)) {
 					return;
 				}
 
-				element = document.getElementById( id );
+				element = document.getElementById(id);
 
-				if ( element ) {
+				if (element) {
 					if (
-						! /^(?:a|select|input|button|textarea)$/i.test(
+						!/^(?:a|select|input|button|textarea)$/i.test(
 							element.tagName
 						)
 					) {
@@ -36,4 +36,4 @@
 			false
 		);
 	}
-} )();
+})();

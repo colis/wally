@@ -1,6 +1,6 @@
 <?php
 
-namespace Wally\Core;
+namespace WallyCore;
 
 use PHPUnit_Framework_TestResult;
 use Text_Template;

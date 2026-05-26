@@ -5,9 +5,9 @@
  * @package wally/core
  */
 
-namespace Wally\Core\Taxonomy;
+namespace WallyCore\Taxonomy;
 
-use Wally\Core\Registrable;
+use WallyCore\Registrable;
 
 defined( 'ABSPATH' ) || die();
 

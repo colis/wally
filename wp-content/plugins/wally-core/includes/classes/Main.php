@@ -5,7 +5,7 @@
  * @package wally/core
  */
 
-namespace Wally\Core;
+namespace WallyCore;
 
 /**
  * Class Main
