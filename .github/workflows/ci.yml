@@ -38,6 +38,7 @@ jobs:
           themes/wally/.*
           themes/wally/composer.json
           themes/wally/composer.lock
+          themes/wally/eslint.config.mjs
           themes/wally/package-lock.json
           themes/wally/package.json
           themes/wally/phpcs.xml.dist
