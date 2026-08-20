@@ -176,6 +176,8 @@ wp-content/themes/*
 !/wp-content/mu-plugins/plugin-loader.php
 /wp-content/plugins/*
 !/wp-content/plugins/wally-*/
+!/wp-content/plugins/gravityforms/
+!/wp-content/plugins/gravityformsrecaptcha/
 
 ########################################################
 # Add your project-specific ignore files here!

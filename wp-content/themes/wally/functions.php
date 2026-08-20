@@ -192,6 +192,17 @@ function wally_scripts() {
 add_action( 'wp_enqueue_scripts', 'wally_scripts' );
 
 /**
+ * Enqueue Iubenda script.
+ */
+function iubenda_script() {
+	?>
+	<link rel="dns-prefetch" href="https://embeds.iubenda.com">
+	<script type="text/javascript" src="https://embeds.iubenda.com/widgets/61ffde8d-fa8a-44e2-bda1-7f18b502dabf.js"></script>
+	<?php
+}
+add_action( 'wp_head', 'iubenda_script', 1 );
+
+/**
  * Enqueue the block editor assets.
  */
 function wally_editor_assets() {
@@ -207,7 +218,7 @@ add_action( 'enqueue_block_editor_assets', 'wally_editor_assets' );
 /**
  * Use the project archive template as the front page.
  */
-function use_project_archive_as_front_page( $query ) {
+function use_project_archive_as_front_page( WP_Query $query ) {
 	if ( ! is_admin() && $query->is_main_query() && is_home() ) {
 		$query->set( 'post_type', [ 'project' ] );
 	}
