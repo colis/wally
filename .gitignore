@@ -178,6 +178,7 @@ wp-content/themes/*
 !/wp-content/plugins/wally-*/
 !/wp-content/plugins/gravityforms/
 !/wp-content/plugins/gravityforms/js/vendor
+!/wp-content/plugins/gravityforms/vendor
 !/wp-content/plugins/gravityformsrecaptcha/
 
 ########################################################
