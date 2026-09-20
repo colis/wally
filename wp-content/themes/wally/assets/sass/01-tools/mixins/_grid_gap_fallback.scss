@@ -3,6 +3,5 @@ GRID GAP
 ========================================================================== */
 
 @mixin grid_gap_fallback( $gap ) {
-	grid-gap: $gap;
 	gap: $gap;
 }

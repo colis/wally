@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Imagify Image Optimization: Optimize Images | Compress &amp; Convert to WebP/AVIF - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-08-15 00:28:05+0000\n"
+"PO-Revision-Date: 2026-09-07 09:00:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,69 @@ msgstr ""
 "X-Generator: GlotPress/4.1.0\n"
 "Language: en_GB\n"
 "Project-Id-Version: Plugins - Imagify Image Optimization: Optimize Images | Compress &amp; Convert to WebP/AVIF - Stable (latest release)\n"
+
+#: classes/Optimization/File.php:674
+msgid "Could not determine the destination path for the next-gen file."
+msgstr "Could not determine the destination path for the next-gen file."
+
+#: inc/classes/class-imagify-settings.php:422
+msgid "Settings saved."
+msgstr "Settings saved."
+
+#. translators: %s is a percentage, e.g. "20%".
+#: views/notice-wp-rocket.php:17
+msgid "Discover the best performance optimization plugin at %s off. Make your site even faster."
+msgstr "Discover the best performance optimisation plugin at %s off. Make your site even faster."
+
+#. translators: %s: media file name provided by the caller.
+#: classes/Abilities/MediaResolver.php:235
+msgid "No media in the library is named \"%s\"."
+msgstr "No media in the library is named \"%s\"."
+
+#. translators: 1: media file name provided by the caller, 2: number of
+#. attachments listed.
+#: classes/Abilities/MediaResolver.php:246
+msgid "More than %2$d media are named \"%1$s\". Retry with media_id, or with the full path such as \"2026/08/%1$s\"."
+msgstr "More than %2$d media are named \"%1$s\". Retry with media_id, or with the full path such as \"2026/08/%1$s\"."
+
+#: classes/Abilities/RestoreMedia.php:40
+msgid "The WordPress attachment ID to restore. Provide media_filename or media_url instead when the ID is unknown."
+msgstr "The WordPress attachment ID to restore. Provide media_filename or media_url instead when the ID is unknown."
+
+#. translators: 1: media file name provided by the caller, 2: comma-separated
+#. list of attachment IDs.
+#: classes/Abilities/MediaResolver.php:258
+msgid "Several media are named \"%1$s\" (IDs: %2$s). Retry with media_id set to the one you want."
+msgstr "Several media are named \"%1$s\" (IDs: %2$s). Retry with media_id set to the one you want."
+
+#: classes/Abilities/MediaResolver.php:192
+msgid "The media_filename provided is not a valid file name."
+msgstr "The media_filename provided is not a valid file name."
+
+#. translators: %s: media URL provided by the caller.
+#: classes/Abilities/MediaResolver.php:120
+msgid "No media in the library matches the URL \"%s\"."
+msgstr "No media in the library matches the URL \"%s\"."
+
+#: classes/Abilities/MediaResolver.php:82
+msgid "Provide one of media_id, media_url, or media_filename to identify the media."
+msgstr "Provide one of media_id, media_url, or media_filename to identify the media."
+
+#: classes/Abilities/MediaResolver.php:53
+msgid "The absolute URL of the media. Use instead of media_id when only the URL is known."
+msgstr "The absolute URL of the media. Use instead of media_id when only the URL is known."
+
+#: classes/Abilities/MediaResolver.php:49
+msgid "The media file name, for example \"hero-banner.jpg\". Use instead of media_id when only the file name is known."
+msgstr "The media file name, for example \"hero-banner.jpg\". Use instead of media_id when only the file name is known."
+
+#: classes/Abilities/GetMediaStatus.php:62
+msgid "The WordPress attachment ID. Provide media_filename or media_url instead when the ID is unknown."
+msgstr "The WordPress attachment ID. Provide media_filename or media_url instead when the ID is unknown."
+
+#: classes/Abilities/OptimizeMedia.php:53
+msgid "The WordPress attachment ID to optimize. Provide media_filename or media_url instead when the ID is unknown."
+msgstr "The WordPress attachment ID to optimise. Provide media_filename or media_url instead when the ID is unknown."
 
 #: inc/functions/i18n.php:305
 msgid "The optimization could not be stopped. Please reload the page and try again."
@@ -727,15 +790,15 @@ msgstr "Upgrade Now"
 msgid "Expand your image quota and eliminate upload limits."
 msgstr "Expand your image quota and eliminate upload limits."
 
-#: views/page-settings.php:119
+#: views/page-settings.php:131
 msgid "Beyond Imagify, there's a whole family of plugins designed to help you build better, faster, and safer websites. Each one is crafted with our unique blend of expertise, simplicity, and outstanding support. Combine our plugins below to build incredible WordPress websites!"
 msgstr "Beyond Imagify, there's a whole family of plugins designed to help you build better, faster, and safer websites. Each one is crafted with our unique blend of expertise, simplicity, and outstanding support. Combine our plugins below to build incredible WordPress websites!"
 
-#: views/page-settings.php:116
+#: views/page-settings.php:128
 msgid "Build better, faster, safer"
 msgstr "Build better, faster, safer"
 
-#: views/page-settings.php:115
+#: views/page-settings.php:127
 msgid "Our Plugins"
 msgstr "Our Plugins"
 
@@ -960,11 +1023,11 @@ msgstr[1] "It seems that you have %s optimised images without Next-Gen versions.
 msgid "You optimized %1$s images and saved %2$s out of %3$s"
 msgstr "You optimised %1$s images and saved %2$s out of %3$s"
 
-#: views/page-settings.php:83
+#: views/page-settings.php:95
 msgid "If you are a photographer or focus on the quality of your images rather than the performance, you may be interested in this option to make sure not a single pixel looks different in the optimized image compared with the original."
 msgstr "If you are a photographer or focus on the quality of your images rather than the performance, you may be interested in this option to make sure not a single pixel looks different in the optimised image compared with the original."
 
-#: views/page-settings.php:83
+#: views/page-settings.php:95
 msgid "By default, Imagify optimizes your images by using a smart compression to get the best compression rate with an optimal quality."
 msgstr "By default, Imagify optimises your images by using a smart compression to get the best compression rate with an optimal quality."
 
@@ -991,7 +1054,7 @@ msgstr "Please take a few seconds to leave a review on %1$sWordPress.org%2$s. It
 msgid "How about spreading the word?"
 msgstr "How about spreading the word?"
 
-#: views/page-settings.php:82
+#: views/page-settings.php:94
 msgid "Lossless compression"
 msgstr "Lossless compression"
 
@@ -2069,7 +2132,7 @@ msgid "This media is not optimized yet."
 msgstr "This media is not optimised yet."
 
 #. translators: %1$s is an error message, %2$s is a "More info?" link.
-#: classes/Optimization/File.php:733
+#: classes/Optimization/File.php:749
 msgid "No php extensions are available to edit images on the server. ImageMagick or GD is required. The internal error is: %1$s. %2$s"
 msgstr "No PHP extensions are available to edit images on the server. ImageMagick or GD is required. The internal error is: %1$s. %2$s"
 
@@ -2077,7 +2140,7 @@ msgstr "No PHP extensions are available to edit images on the server. ImageMagic
 msgid "Error while retrieving the backups directory path."
 msgstr "Error while retrieving the backups directory path."
 
-#: classes/Optimization/File.php:433 classes/Optimization/File.php:672
+#: classes/Optimization/File.php:433 classes/Optimization/File.php:688
 msgid "The file could not be moved to its final destination."
 msgstr "The file could not be moved to its final destination."
 
@@ -2259,11 +2322,11 @@ msgstr "Could not initialise a new cURL handle."
 msgid "All images greater than %s (after resizing, if any) will be optimized when using a paid plan."
 msgstr "All images greater than %s (after resizing, if any) will be optimized when using a paid plan."
 
-#: views/page-settings.php:179
+#: views/page-settings.php:191
 msgid "Display Partner Links"
 msgstr "Display Partner Links"
 
-#: views/page-settings.php:166
+#: views/page-settings.php:178
 msgid "Partners"
 msgstr "Partners"
 
@@ -2578,7 +2641,7 @@ msgctxt "verb"
 msgid "Filter"
 msgstr "Filter"
 
-#: views/page-settings.php:42
+#: views/page-settings.php:54
 msgid "General Settings"
 msgstr "General Settings"
 
@@ -2672,11 +2735,11 @@ msgstr "Other Media"
 msgid "Other Media optimized by Imagify"
 msgstr "Other Media optimised by Imagify"
 
-#: inc/classes/class-imagify-settings.php:606
+#: inc/classes/class-imagify-settings.php:620
 msgid "Unselect All"
 msgstr "Unselect All"
 
-#: inc/classes/class-imagify-settings.php:598
+#: inc/classes/class-imagify-settings.php:612
 msgid "Select All"
 msgstr "Select All"
 
@@ -2709,7 +2772,7 @@ msgid "Actions"
 msgstr "Actions"
 
 #: inc/classes/class-imagify-files-list-table.php:438
-#: views/page-settings.php:102
+#: views/page-settings.php:114
 msgid "Optimization"
 msgstr "Optimisation"
 
@@ -3054,7 +3117,7 @@ msgid "Your file is too big to be uploaded on our server."
 msgstr "Your file is too big to be uploaded on our server."
 
 #. translators: %s is a file path.
-#: views/page-settings.php:72
+#: views/page-settings.php:84
 msgid "The backup folder %s cannot be created or is not writable by the server, original images cannot be saved!"
 msgstr "The backup folder %s cannot be created or is not writable by the server, original images cannot be saved!"
 
@@ -3462,25 +3525,25 @@ msgstr "to maximum %s pixels width"
 msgid "Resize larger images"
 msgstr "Resize larger images"
 
-#: views/page-settings.php:62
+#: views/page-settings.php:74
 msgid "Keep your original images in a separate folder before optimization process."
 msgstr "Keep your original images in a separate folder before optimisation process."
 
-#: views/page-settings.php:61
+#: views/page-settings.php:73
 msgid "Backup original images"
 msgstr "Backup original images"
 
-#: views/page-settings.php:50
+#: views/page-settings.php:62
 msgid "Automatically optimize every image you upload to WordPress."
 msgstr "Automatically optimise every image you upload to WordPress."
 
-#: views/page-settings.php:49
+#: views/page-settings.php:61
 msgid "Auto-Optimize images on upload"
 msgstr "Auto-optimise images on upload"
 
-#: classes/Optimization/File.php:735 inc/deprecated/deprecated.php:629
+#: classes/Optimization/File.php:751 inc/deprecated/deprecated.php:629
 #: inc/functions/i18n.php:115 inc/functions/i18n.php:265
-#: views/page-settings.php:170
+#: views/page-settings.php:182
 msgid "More info?"
 msgstr "More info?"
 
@@ -3505,14 +3568,6 @@ msgstr "You can choose to optimise different image sizes created by WordPress he
 #: views/part-settings-account.php:39 views/part-settings-account.php:66
 msgid "API Key"
 msgstr "API Key"
-
-#: views/notice-wp-rocket.php:19
-msgid "Get WP Rocket now"
-msgstr "Get WP Rocket now"
-
-#: views/notice-wp-rocket.php:15
-msgid "Discover the best caching plugin to speed up your website."
-msgstr "Discover the best caching plugin to speed up your website."
 
 #: views/notice-grid-view.php:12
 msgid "Switch to the List View"
@@ -3547,6 +3602,10 @@ msgstr "The external HTTP requests are blocked!"
 #: views/notice-rating.php:26 views/part-settings-header.php:25
 msgid "%1$sDo you like this plugin?%2$s Please take a few seconds to %3$srate it on WordPress.org%4$s!"
 msgstr "%1$sDo you like this plugin?%2$s Please take a few seconds to %3$srate it on WordPress.org%4$s!"
+
+#: views/notice-wp-rocket.php:21
+msgid "Get WP Rocket Now"
+msgstr "Get WP Rocket Now"
 
 #: views/notice-welcome-steps.php:17
 msgid "Create an Account"
