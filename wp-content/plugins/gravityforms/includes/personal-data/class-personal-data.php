@@ -1413,122 +1413,22 @@ class GF_Personal_Data {
 	}
 
 	/**
-	 * Deletes and trashes entries according to the retention policy in each of the form settings.
+	 * Enqueues personal data retention work onto the background processor.
 	 *
 	 * @since 2.4
+	 * @since 3.1.0.3 Processes retention via GF_Personal_Data_Processor instead of inline loops.
 	 */
 	public static function cron_task() {
 
 		self::log_debug( __METHOD__ . '(): Starting personal data cron task' );
 
-		$forms = self::get_forms();
+		$processor = \Gravity_Forms\Gravity_Forms\Personal_Data\GF_Personal_Data_Processor::get_instance();
 
-		$trash_form_ids   = array();
-		$trash_conditions = array();
-
-		$delete_form_ids   = array();
-		$delete_conditions = array();
-
-		foreach ( $forms as $form ) {
-
-			$retention_policy = rgars( $form, 'personalData/retention/policy', 'retain' );
-
-			if ( $retention_policy == 'retain' ) {
-				continue;
-			}
-
-			$form_conditions = array();
-
-			$retention_days = rgars( $form, 'personalData/retention/retain_entries_days' );
-
-			$delete_timestamp = time() - ( DAY_IN_SECONDS * $retention_days );
-
-			$delete_date = date( 'Y-m-d H:i:s', $delete_timestamp );
-
-			$form_conditions[] = new GF_Query_Condition(
-				new GF_Query_Column( 'date_created' ),
-				GF_Query_Condition::LT,
-				new GF_Query_Literal( $delete_date )
-			);
-
-			$form_conditions[] = new GF_Query_Condition(
-				new GF_Query_Column( 'form_id' ),
-				GF_Query_Condition::EQ,
-				new GF_Query_Literal( $form['id'] )
-			);
-
-			if ( ! empty( $form_conditions ) ) {
-				if ( $retention_policy == 'trash' ) {
-					$trash_form_ids[] = $form['id'];
-					$trash_conditions[] = call_user_func_array( array(
-						'GF_Query_Condition',
-						'_and',
-					), $form_conditions );
-				} elseif ( $retention_policy == 'delete' ) {
-					$delete_form_ids[] = $form['id'];
-					$delete_conditions[] = call_user_func_array( array(
-						'GF_Query_Condition',
-						'_and',
-					), $form_conditions );
-				}
-			}
+		if ( $processor->is_processing() || $processor->is_queued() ) {
+			return;
 		}
 
-		if ( ! empty( $trash_conditions ) ) {
-
-			$query = new GF_Query();
-
-			$all_trash_conditions = array();
-
-			$all_trash_conditions[] = call_user_func_array( array( 'GF_Query_Condition', '_or' ), $trash_conditions );
-
-			$all_trash_conditions[] = new GF_Query_Condition(
-				new GF_Query_Column( 'status' ),
-				GF_Query_Condition::NEQ,
-				new GF_Query_Literal( 'trash' )
-			);
-
-			$all_trash_conditions = call_user_func_array( array( 'GF_Query_Condition', '_and' ), $all_trash_conditions );
-
-			$entry_ids = $query->from( $trash_form_ids )->where( $all_trash_conditions )->get_ids();
-
-			self::log_debug( __METHOD__ . '(): Trashing entries: ' . join( ', ', $entry_ids ) );
-
-			foreach ( $entry_ids as $entry_id ) {
-				GFAPI::update_entry_property( $entry_id, 'status', 'trash' );
-
-				self::log_debug( __METHOD__ . "(): Moved entry #{$entry_id} to Trash" );
-			}
-		}
-
-		if ( ! empty( $delete_conditions ) ) {
-
-			$query = new GF_Query();
-
-			$all_delete_conditions = call_user_func_array( array( 'GF_Query_Condition', '_or' ), $delete_conditions );
-
-			$entry_ids = $query->from( $delete_form_ids )->where( $all_delete_conditions )->get_ids();
-
-			self::log_debug( __METHOD__ . '(): Deleting entries: ' . join( ', ', $entry_ids ) );
-
-			/**
-			 * Allows the array of entry IDs to be modified before automatically deleting according to the
-			 * personal data retention policy.
-			 *
-			 * @since 2.4
-			 *
-			 * @param int[] $entry_ids The array of entry IDs to delete.
-			 */
-			$entry_ids = apply_filters( 'gform_entry_ids_automatic_deletion', $entry_ids );
-
-			foreach ( $entry_ids as $entry_id ) {
-				GFAPI::delete_entry( $entry_id );
-
-				self::log_debug( __METHOD__ . "(): Deleted entry #{$entry_id}" );
-			}
-		}
-
-		self::log_debug( __METHOD__ . '(): Done' );
+		$processor->push_to_queue( true )->save()->dispatch();
 
 	}
 

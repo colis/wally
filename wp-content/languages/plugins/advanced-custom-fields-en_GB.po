@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Advanced Custom Fields (ACF®) - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-08-19 17:55:05+0000\n"
+"PO-Revision-Date: 2026-09-10 18:54:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,11 +11,15 @@ msgstr ""
 "Language: en_GB\n"
 "Project-Id-Version: Plugins - Advanced Custom Fields (ACF®) - Stable (latest release)\n"
 
+#: includes/api/api-helpers.php:2534
+msgid "Sorry, this file could not be uploaded."
+msgstr "Sorry, this file could not be uploaded."
+
 #: src/Site_Health/Site_Health.php:623
 msgid "Field Groups by Post Type"
 msgstr "Field Groups by Post Type"
 
-#: includes/api/api-helpers.php:3306
+#: includes/api/api-helpers.php:3315
 #: includes/fields/class-acf-field-image.php:457
 msgid "File must be a valid image."
 msgstr "File must be a valid image."
@@ -5384,7 +5388,7 @@ msgstr "All %s formats"
 msgid "Attachment"
 msgstr "Attachment"
 
-#: includes/validation.php:333
+#: includes/validation.php:335
 msgid "%s value is required"
 msgstr "%s value is required"
 
@@ -5948,8 +5952,8 @@ msgstr "Are you sure?"
 msgid "%d fields require attention"
 msgstr "%d fields require attention"
 
-#: includes/assets.php:376 includes/validation.php:267
-#: includes/validation.php:275
+#: includes/assets.php:376 includes/validation.php:269
+#: includes/validation.php:277
 msgid "Validation failed"
 msgstr "Validation failed"
 
@@ -5980,7 +5984,7 @@ msgstr "Edit"
 msgid "The changes you made will be lost if you navigate away from this page"
 msgstr "The changes you made will be lost if you navigate away from this page"
 
-#: includes/api/api-helpers.php:3448
+#: includes/api/api-helpers.php:3457
 msgid "File type must be %s."
 msgstr "File type must be %s."
 
@@ -5989,31 +5993,31 @@ msgstr "File type must be %s."
 #: includes/admin/views/acf-field-group/conditional-logic.php:191
 #: includes/admin/views/acf-field-group/location-group.php:14
 #: includes/admin/views/acf-field-group/locations.php:43
-#: includes/api/api-helpers.php:3445
+#: includes/api/api-helpers.php:3454
 msgid "or"
 msgstr "or"
 
-#: includes/api/api-helpers.php:3421
+#: includes/api/api-helpers.php:3430
 msgid "File size must not exceed %s."
 msgstr "File size must not exceed %s."
 
-#: includes/api/api-helpers.php:3417
+#: includes/api/api-helpers.php:3426
 msgid "File size must be at least %s."
 msgstr "File size must be at least %s."
 
-#: includes/api/api-helpers.php:3404
+#: includes/api/api-helpers.php:3413
 msgid "Image height must not exceed %dpx."
 msgstr "Image height must not exceed %dpx."
 
-#: includes/api/api-helpers.php:3400
+#: includes/api/api-helpers.php:3409
 msgid "Image height must be at least %dpx."
 msgstr "Image height must be at least %dpx."
 
-#: includes/api/api-helpers.php:3388
+#: includes/api/api-helpers.php:3397
 msgid "Image width must not exceed %dpx."
 msgstr "Image width must not exceed %dpx."
 
-#: includes/api/api-helpers.php:3384
+#: includes/api/api-helpers.php:3393
 msgid "Image width must be at least %dpx."
 msgstr "Image width must be at least %dpx."
 
