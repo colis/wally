@@ -17,8 +17,8 @@
 		"url": "https://github.com/colis/wally/issues"
 	},
 	"devDependencies": {
-		"@wordpress/eslint-plugin": "^28.0.0",
-		"@wordpress/scripts": "^37.0.0",
+		"@wordpress/eslint-plugin": "^28.1.0",
+		"@wordpress/scripts": "^37.1.0",
 		"copy-webpack-plugin": "^14.0.0",
 		"css-loader": "^7.1.5",
 		"mini-css-extract-plugin": "^2.10.2",
@@ -26,7 +26,7 @@
 		"style-loader": "^4.0.0",
 		"stylelint-webpack-plugin": "^5.1.0",
 		"webpack": "^5.112.2",
-		"webpack-cli": "^7.2.3",
+		"webpack-cli": "^7.3.1",
 		"webpack-dev-server": "^6.1.0",
 		"webpack-fix-style-only-entries": "^0.6.1",
 		"webpackbar": "^7.0.0"

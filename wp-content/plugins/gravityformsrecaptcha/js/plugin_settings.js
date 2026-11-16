@@ -314,7 +314,7 @@
       var siteKeyContainer = v3Settings.cache.siteKey.closest('.gform-settings-input__container');
       var secretKeyContainer = v3Settings.cache.secretKey.closest('.gform-settings-input__container');
       var keysStatusInput = $(v3Settings.fields.keysStatus).find('input');
-      if (!$(v3Settings.fields.siteKey).val().trim().length) {
+      if ($(v3Settings.fields.siteKey).length !== 0 && !$(v3Settings.fields.siteKey).val().trim().length) {
         v3Settings.unsetValid(siteKeyContainer);
         v3Settings.unsetValid(secretKeyContainer);
         keysStatusInput.val('0');
@@ -476,7 +476,7 @@
     // Handle form submission on connect screen.
     $form.on('submit', function (e) {
       // Determining if we're just connecting for the first time.
-      if ($form.find('input[value="recaptcha_setup"]').length === 1) {
+      if ($form.find('#recaptcha_setup').length === 1) {
         // is_postback
         e.preventDefault();
 
@@ -521,6 +521,7 @@
         var $selected_site_key = $form.find('#recaptcha-site-keys :selected');
         $.post(ajaxurl, {
           action: 'save_recaptcha_enterprise_data',
+          global: $form.find('input[name="_gform_setting_global"]').is(':checked') ? '1' : '0',
           project_number: $selected_project.val(),
           project_id: $selected_project.data('project-id'),
           project_name: $selected_project.data('project-name'),

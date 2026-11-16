@@ -1,3 +1,16 @@
+### 2.2.3 | 2026-10-29
+- Added security enhancements.
+- Added a setting to enable reCAPTCHA by default for v3 Classic and v3 Enterprise, that can be overridden with form settings.
+- Added new score status to entry meta to distinguish v2 entries from genuine v3 disconnected.
+- Updated the uninstall process to include the removal of v2 settings when the add-on is uninstalled.
+- Updated to set a form level validation error message with Gravity Forms 3.0.3 and newer when the submission doesn't include the score-based reCAPTCHA response or it is invalid.
+- Fixed a fatal error during submission when validating the reCAPTCHA response fails.
+- Fixed an issue where a completed reCAPTCHA Checkbox field prevents a Conversational Form from being submitted.
+- Fixed an issue where if the keys are deleted without disconnecting, the settings screen gets stuck at the connection type selection.
+- Fixed a JavaScript error that occurs when the reCAPTCHA script is blocked and the badge is disabled.
+- Fixed an issue where the legacy settings screen displayed both the reCAPTCHA v2 and v3 Classic settings at the same time.
+- Fixed an issue where form submissions can fail validation or be marked as spam when the reCAPTCHA API returns an error.
+
 ### 2.2.2 | 2026-05-07
 - Updated the entry spam note to include the reCAPTCHA score and the threshold at the time entry was marked as spam.
 - Fixed a fatal error that can occur when v3 classic is the selected connection type and the key settings are being validated.

@@ -13,6 +13,7 @@ use GFFormDisplay;
 use GFFormsModel;
 use Gravity_Forms\Gravity_Forms\Honeypot;
 use Gravity_Forms\Gravity_Forms_RECAPTCHA\Settings;
+use WP_Error;
 
 // Include the Gravity Forms Add-On Framework.
 GFForms::include_addon_framework();
@@ -39,7 +40,22 @@ class GF_RECAPTCHA extends GFAddOn {
 	 *
 	 * @since 2.1
 	 */
-    const POLICY_REAUTH_REQUIRED = 'disconnected (reauthentication required)';
+	const POLICY_REAUTH_REQUIRED = 'disconnected (reauthentication required)';
+
+	/**
+	 * The status used to indicate that the v2 connection type was active when the entry was saved. reCAPTCHA v2
+	 * does not produce a score, so this distinguishes v2 entries from genuine disconnected/error states.
+	 *
+	 * @since 2.2.3
+	 */
+	const NO_SCORE_FOR_V2 = 'not_applicable_v2';
+
+	/**
+	 * The entry score status used when reCAPTCHA validation is bypassed due to an API error.
+	 *
+	 * @since 2.2.3
+	 */
+	const VALIDATION_BYPASSED = 'validation_bypassed';
 
 	/**
 	 * Contains an instance of this class, if available.
@@ -199,6 +215,7 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * disabled (quota limit): reCAPTCHA API quota limit hit.
 	 * disabled (token refresh in progress): Another settings page view or form submission was refreshing the Enterprise auth token.
 	 * disabled (token refresh failed): The request to refresh the Enterprise auth token failed.
+	 * not_applicable_v2: The v2 connection type was active, so no score was generated.
 	 *
 	 * @var array
 	 */
@@ -209,6 +226,8 @@ class GF_RECAPTCHA extends GFAddOn {
 		'disabled (token refresh in progress)',
 		'disabled (token refresh failed)',
 		self::POLICY_REAUTH_REQUIRED,
+		self::NO_SCORE_FOR_V2,
+		self::VALIDATION_BYPASSED,
 	);
 
 	/**
@@ -318,7 +337,6 @@ class GF_RECAPTCHA extends GFAddOn {
 
 		// Catch the ajax call to remove the reCAPTCHA quota notice.
 		add_action( 'wp_ajax_gf_recaptcha_quota_notice', array( $this, 'gf_recaptcha_quota_notice_dismiss' ), 10, 0 );
-
 	}
 
 	/**
@@ -520,6 +538,17 @@ class GF_RECAPTCHA extends GFAddOn {
 	}
 
 	/**
+	 * Hidden flag used by JS to detect the connection type setup screen.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @return void
+	 */
+	public function settings_recaptcha_setup() {
+		echo '<input type="hidden" id="recaptcha_setup" value="recaptcha_setup" />';
+	}
+
+	/**
 	 * Setting for the disconnect button.
 	 *
 	 * @since 1.7.0
@@ -600,7 +629,7 @@ class GF_RECAPTCHA extends GFAddOn {
 					<div class="gform-alert gform-alert--error" data-js="gform-alert">
 						<span class="gform-alert__icon gform-icon gform-icon--circle-close" aria-hidden="true"></span>
 						<div class="gform-alert__message-wrap">
-							<p class="gform-alert__message">' . $message . '</p>
+							<p class="gform-alert__message">' . wp_kses_post( $message ) . '</p>
 						</div>
 					</div>
 				</div>';
@@ -707,7 +736,7 @@ class GF_RECAPTCHA extends GFAddOn {
 						$html .= sprintf(
 							'<option value="%1$s" data-site-key-display-name="%2$s" data-site-key-type="%4$s" %3$s>%2$s</option>',
 							esc_attr( $key ),
-							esc_attr( sprintf( '%s (%s)', $site_key['displayName'], $supported_types[ $type ] ) ),
+							esc_html( sprintf( '%s (%s)', $site_key['displayName'], $supported_types[ $type ] ) ),
 							$is_site_key_selected,
 							$type
 						);
@@ -759,6 +788,11 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * @param array $settings The settings to update.
 	 */
 	public function update_plugin_settings( $settings ) {
+		$renderer       = $this->get_settings_renderer();
+		$refresh_fields = $renderer
+			&& \Gravity_Forms\Gravity_Forms\Settings\Settings::is_save_postback()
+			&& ! $this->get_connection_type()
+			&& in_array( rgar( $settings, 'connection_type' ), array( 'v2', 'classic' ), true );
 
 		if ( $this->get_connection_type() !== 'enterprise' ) {
 			$this->plugin_settings->update_settings( $settings );
@@ -771,6 +805,12 @@ class GF_RECAPTCHA extends GFAddOn {
 			}
 
 			parent::update_plugin_settings( $settings );
+		}
+
+		// The renderer was initialized with legacy fields before this save changed the connection type.
+		if ( $refresh_fields ) {
+			$sections = $this->prepare_settings_sections( $this->plugin_settings_fields(), 'plugin_settings' );
+			$renderer->set_fields( $sections );
 		}
 	}
 
@@ -827,6 +867,7 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * Add the input to the form for the score type reCAPTCHA key.
 	 *
 	 * @since 1.1
+	 * @since 2.2.3 Updated to handle global enablement.
 	 *
 	 * @param string $form_tag The form tag.
 	 * @param array  $form     The form array.
@@ -834,7 +875,15 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * @return string
 	 */
 	public function add_recaptcha_input( $form_tag, $form ) {
-		if ( empty( $form_tag ) || $this->is_disabled_by_form_setting( $form ) || ! $this->initialize_api( false ) ) {
+		if ( empty( $form_tag ) ) {
+			return $form_tag;
+		}
+
+		if ( $this->is_disabled_by_form_setting( $form ) ) {
+			return $form_tag;
+		}
+
+		if ( ! $this->initialize_api( false ) ) {
 			return $form_tag;
 		}
 
@@ -844,29 +893,64 @@ class GF_RECAPTCHA extends GFAddOn {
 	// # FORM SETTINGS
 
 	/**
+	 * Overrides the add-on framework's form settings registration.
+	 *
+	 * The v2 settings allow users to add a specific captcha field to their form, whereas both v3 classic and v3
+	 * enterprise insert a global script that must be applied across the entire site. If the user has configured v2
+	 * then the form settings for enabling reCAPTCHA don't apply and should not be displayed.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @return void
+	 */
+	public function form_settings_init() {
+		if ( $this->get_connection_type() === 'v2' ) {
+			return;
+		}
+
+		parent::form_settings_init();
+	}
+
+	/**
 	 * Register a form settings tab for reCAPTCHA v3.
 	 *
+	 * If the form settings have already been saved using the 'disable-recaptchav3' field, this handles flipping the
+	 * polarity of the setting and uses it for the default value of the toggle field.
+	 *
 	 * @since 1.0
+	 * @since 2.2.3 Changed field to an enablement toggle.
 	 *
 	 * @param array $form The form data.
 	 *
 	 * @return array
 	 */
 	public function form_settings_fields( $form ) {
+		$settings = $this->get_form_settings( $form );
+
+		$default = $this->is_globally_enabled() ? '1' : '0';
+
+		// If the user has already saved the "disable reCAPTCHA on this form" setting, use it as the field value.
+		$old_value = ( is_array( $settings ) && array_key_exists( 'disable-recaptchav3', $settings ) )
+			? $settings['disable-recaptchav3']
+			: null;
+
+		// Flip the value since we're now using an "enable" toggle and use it as the field default.
+		if ( $old_value !== null ) {
+			$default = $old_value === '1' ? '0' : '1';
+		}
+
 		return array(
 			array(
 				'title'  => 'reCAPTCHA Settings',
 				'fields' => array(
 					array(
-						'type'    => 'checkbox',
-						'name'    => 'disable-recaptchav3',
-						'choices' => array(
-							array(
-								'name'          => 'disable-recaptchav3',
-								'label'         => __( 'Disable reCAPTCHA v3 for this form.', 'gravityformsrecaptcha' ),
-								'default_value' => 0,
-							),
-						),
+						'type'          => 'toggle',
+						'name'          => 'enable-recaptchav3',
+						'label'         => esc_html__( 'Enable reCAPTCHA for this form', 'gravityformsrecaptcha' ),
+						'default_value' => $default,
+						'save_callback' => function ( $field, $value ) {
+							return $value === '' ? '0' : $value;
+						},
 					),
 				),
 			),
@@ -1225,7 +1309,7 @@ class GF_RECAPTCHA extends GFAddOn {
 			);
 		} else {
 			$query_args = array( 'render' => $key );
-        }
+		}
 
 		$script_url = add_query_arg( $query_args, 'https://www.google.com/recaptcha/enterprise.js' );
 
@@ -1304,7 +1388,8 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * Save the Recaptcha metadata values to the entry.
 	 *
 	 * @since 1.0
-	 * @since 2.0 Updated to save the Enterprise assessment ID, if available.
+	 * @since 2.0  Updated to save the Enterprise assessment ID, if available.
+	 * @since 2.2.3 Added a distinct status for when the v2 connection type is active.
 	 *
 	 * @see   GF_RECAPTCHA::get_entry_meta()
 	 *
@@ -1327,6 +1412,12 @@ class GF_RECAPTCHA extends GFAddOn {
 		$entry_id = rgar( $entry, 'id' );
 		$form_id  = rgar( $form, 'id' );
 
+		if ( $this->get_connection_type() === 'v2' ) {
+			$this->log_debug( __METHOD__ . sprintf( '(): Not saving score for entry #%d for form #%d; v2 connection type is active.', $entry_id, $form_id ) );
+
+			return self::NO_SCORE_FOR_V2;
+		}
+
 		if ( $this->is_disabled_by_form_setting( $form ) ) {
 			$this->log_debug( __METHOD__ . sprintf( '(): Not saving score for entry #%d for form #%d; disabled via setting.', $entry_id, $form_id ) );
 
@@ -1337,6 +1428,19 @@ class GF_RECAPTCHA extends GFAddOn {
 			$this->log_debug( __METHOD__ . sprintf( '(): Not saving score for entry #%d for form #%d; disabled due to API quota limit.', $entry_id, $form_id ) );
 
 			return 'disabled (quota limit)';
+		}
+
+		if ( $this->is_disabled_by_validation_bypassed() ) {
+			$this->log_debug(
+				__METHOD__ . sprintf(
+					'(): Not saving score for entry #%d for form #%d; validation was bypassed due to an API error.',
+					$entry_id,
+					$form_id
+				)
+			);
+
+			$this->add_note( $entry_id, esc_html__( 'reCAPTCHA validation was bypassed due to an API error.', 'gravityformsrecaptcha' ) );
+			return self::VALIDATION_BYPASSED;
 		}
 
 		if ( ! $this->initialize_api() ) {
@@ -1477,7 +1581,7 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * @return bool
 	 */
 	public function is_spam_submission( $form, $entry = array() ) {
-		if ( $this->should_skip_validation( $form ) || $this->is_disabled_by_quota_limit() ) {
+		if ( $this->should_skip_validation( $form ) || $this->is_disabled_by_quota_limit() || $this->is_disabled_by_validation_bypassed() ) {
 			$this->log_debug( __METHOD__ . '(): Score check skipped.' );
 
 			return false;
@@ -1533,6 +1637,8 @@ class GF_RECAPTCHA extends GFAddOn {
 			'disabled (token refresh in progress)' => __( 'Disabled (token refresh in progress)', 'gravityformsrecaptcha' ),
 			'disabled (token refresh failed)'      => __( 'Disabled (token refresh failed)', 'gravityformsrecaptcha' ),
 			self::POLICY_REAUTH_REQUIRED           => __( 'Disconnected (reauthentication required)', 'gravityformsrecaptcha' ),
+			self::NO_SCORE_FOR_V2                  => __( 'Not Applicable (v2)', 'gravityformsrecaptcha' ),
+			self::VALIDATION_BYPASSED              => __( 'Validation bypassed', 'gravityformsrecaptcha' ),
 		);
 
 		return rgar( $states, $meta_value, $meta_value );
@@ -1582,16 +1688,49 @@ class GF_RECAPTCHA extends GFAddOn {
 	}
 
 	/**
+	 * Determine whether reCAPTCHA is enabled globally.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @return bool True unless the global setting is explicitly off.
+	 */
+	private function is_globally_enabled() {
+		return $this->get_plugin_setting( 'global' ) !== '0';
+	}
+
+	/**
 	 * Determine whether a given form has disabled reCAPTCHA within its settings.
 	 *
 	 * @since 1.0
+	 * @since 2.2.3 Inverted the settings comparison and fall back to the global setting.
 	 *
 	 * @param array $form The form data.
 	 *
 	 * @return bool
 	 */
 	private function is_disabled_by_form_setting( $form ) {
-		return empty( $form['id'] ) || '1' === rgar( $this->get_form_settings( $form ), 'disable-recaptchav3' );
+		if ( empty( $form['id'] ) ) {
+			return false;
+		}
+
+		$settings = $this->get_form_settings( $form );
+
+		// Ensure that the setting has been saved before checking.
+		$enable = ( is_array( $settings ) && array_key_exists( 'enable-recaptchav3', $settings ) )
+				? $settings['enable-recaptchav3']
+				: null;
+
+		if ( $enable === null ) {
+			// Check if the user has previously used the disable toggle.
+			if ( is_array( $settings ) && array_key_exists( 'disable-recaptchav3', $settings ) ) {
+				return $settings['disable-recaptchav3'] === '1' ? true : false;
+			}
+
+			// If form setting has not been saved yet, and there is no previous value, fall back to the global setting.
+			return ! $this->is_globally_enabled();
+		}
+
+		return $enable !== '1';
 	}
 
 	/**
@@ -1604,11 +1743,25 @@ class GF_RECAPTCHA extends GFAddOn {
 	private function is_disabled_by_quota_limit() {
 		$recaptcha_result = $this->token_verifier->get_recaptcha_result();
 
-		if ( is_a( $recaptcha_result, "stdClass" ) && property_exists( $recaptcha_result, 'score' ) && $recaptcha_result->score === 'disabled (quota limit)' ) {
+		if ( is_a( $recaptcha_result, 'stdClass' ) && property_exists( $recaptcha_result, 'score' ) && $recaptcha_result->score === 'disabled (quota limit)' ) {
 			return true;
 		}
 
 		return false;
+	}
+
+	/**
+	 * Determines whether reCAPTCHA validation was bypassed due to an API error.
+	 *
+	 * The token verifier stores a result with a validation_bypassed score
+	 * so is_spam_submission() can skip the score check for the submission.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @return bool
+	 */
+	private function is_disabled_by_validation_bypassed() {
+		return rgar( $this->token_verifier->get_recaptcha_result(), 'score' ) === self::VALIDATION_BYPASSED;
 	}
 
 	/**
@@ -1807,7 +1960,7 @@ class GF_RECAPTCHA extends GFAddOn {
 		?>
 		<div class="notice notice-warning is-dismissible gf-notice"
 				data-gf_recaptcha_quota_nonce="<?php echo wp_create_nonce( 'gf_recaptcha_quota_notice' ) ?>" >
-			<h2><?php echo $this->_title; ?></h2>
+			<h2><?php echo esc_html( $this->_title ); ?></h2>
 			<p>
 				<?php
 					// translators: %s is the link markup.
@@ -1983,7 +2136,7 @@ class GF_RECAPTCHA extends GFAddOn {
 			$data[] = array(
 				'value'       => basename( $site_key['name'] ),
 				'displayName' => sprintf( '%s (%s)', $site_key['displayName'], $supported_types[ $type ] ),
-                'type'        => $type,
+				'type'        => $type,
 			);
 		}
 
@@ -2010,6 +2163,7 @@ class GF_RECAPTCHA extends GFAddOn {
 		$this->log_debug( __METHOD__ . '(): Saving reCAPTCHA Enterprise settings.' );
 		$updated_settings = array();
 
+		$updated_settings['global']                      = rgpost( 'global' ) === '1' ? '1' : '0';
 		$updated_settings['project_number']              = sanitize_text_field( rgpost( 'project_number' ) );
 		$updated_settings['project_id']                  = sanitize_text_field( rgpost( 'project_id' ) );
 		$updated_settings['site_key_v3_enterprise']      = sanitize_text_field( rgpost( 'site_key_v3_enterprise' ) );
@@ -2205,6 +2359,114 @@ class GF_RECAPTCHA extends GFAddOn {
 	 */
 	public function get_capabilities_settings_page() {
 		return $this->_capabilities_settings_page;
-    }
+	}
 
+	/**
+	 * Runs data migrations when upgrading from an earlier version.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @param string $previous_version The previously installed version.
+	 *
+	 * @return void
+	 */
+	public function upgrade( $previous_version ) {
+		$this->handle_upgrade_2_2_3( $previous_version );
+	}
+
+	/**
+	 * Migrates existing installations for the 2.2.3 global and per-form enablement change.
+	 *
+	 * The global and per-form enablement settings only apply to v3, so this runs only when v3
+	 * is configured. v2 and legacy installs without v3 keys are skipped.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @param string $previous_version The previously installed version.
+	 */
+	public function handle_upgrade_2_2_3( $previous_version ) {
+		$connection_type = $this->get_connection_type();
+
+		// The migration writes v3-only settings, so run it only when v3 is configured.
+		$has_v3_keys      = $this->plugin_settings->get_recaptcha_key( 'site_key_v3' ) || $this->plugin_settings->get_recaptcha_key( 'secret_key_v3' );
+		$is_v3_configured = $connection_type === 'classic' || $connection_type === 'enterprise' || ( empty( $connection_type ) && $has_v3_keys );
+
+		if ( empty( $previous_version ) || version_compare( $previous_version, '2.2.3', '>=' ) || ! $is_v3_configured ) {
+			return;
+		}
+
+		$this->maybe_set_default_global_setting();
+		$this->maybe_add_enable_setting_to_existing_forms();
+	}
+
+	/**
+	 * During upgrade, adds the new 'enable-recaptchav3' setting, set to '1' to existing forms that had no per-form setting.
+	 *
+	 * Before 2.2.3, reCAPTCHA was ON by default without a stored key. The 'enable-recaptchav3' key is introduced in 2.2.3;
+	 * we add it to the existing forms, with a value of '1'. This records their 'on-by-default' state as an explicit setting,
+	 * so it no longer follows the global setting. Forms that stored 'disable-recaptchav3' = '1' are skipped.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @return void
+	 */
+	private function maybe_add_enable_setting_to_existing_forms() {
+		foreach ( GFAPI::get_forms( null ) as $form ) {
+			$settings = $this->get_form_settings( $form );
+			$settings = is_array( $settings ) ? $settings : array();
+
+			// Skip if new setting exists.
+			$enable = rgar( $settings, 'enable-recaptchav3' );
+			if ( $enable === '1' || $enable === '0' ) {
+				continue;
+			}
+
+			// Skip if disabled within settings.
+			if ( rgar( $settings, 'disable-recaptchav3' ) === '1' ) {
+				continue;
+			}
+
+			$settings['enable-recaptchav3'] = '1';
+			$this->save_form_settings( $form, $settings );
+		}
+	}
+
+	/**
+	 * During upgrade, enables an unsaved 'global' setting, preserving the behavior from before
+	 * 2.2.3 where reCAPTCHA was enabled on all forms by default.
+	 *
+	 * Uses the parent get/update methods because the overridden ones merge in derived settings
+	 * that must not be written back to the stored option.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @return void
+	 */
+	private function maybe_set_default_global_setting() {
+		$settings = parent::get_plugin_settings();
+		$settings = is_array( $settings ) ? $settings : array();
+
+		if ( ! rgblank( rgar( $settings, 'global' ) ) ) {
+			return;
+		}
+
+		$settings['global'] = '1';
+		parent::update_plugin_settings( $settings );
+	}
+
+	/**
+	 * Handles the removal of v2 settings when the add-on is uninstalled.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @return bool
+	 */
+	public function uninstall() {
+		delete_option( 'rg_gforms_captcha_public_key' );
+		delete_option( 'rg_gforms_captcha_private_key' );
+		delete_option( 'rg_gforms_captcha_type' );
+		delete_option( 'gform_recaptcha_keys_status' );
+
+		return true;
+	}
 }

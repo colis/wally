@@ -8,6 +8,7 @@
 namespace Gravity_Forms\Gravity_Forms_RECAPTCHA;
 
 use stdClass;
+use WP_Error;
 
 /**
  * Class Token_Verifier
@@ -243,13 +244,13 @@ class Token_Verifier {
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $token The Recapatcha token.
+	 * @param string $token     The Recapatcha token.
+	 * @param string $form_id   The form attached to the Recaptcha token.
 	 *
 	 * @return bool
 	 */
-	public function verify_submission( $token ) {
-
-		$data = \GFCache::get( 'recaptcha_' . $token, $found );
+	public function verify_submission( $token, $form_id ) {
+		$data = \GFCache::get( 'recaptcha_' . $form_id . '_' . $token, $found );
 		if ( $found ) {
 			$this->addon->log_debug( __METHOD__ . '(): Using cached reCAPTCHA result: ' . print_r( $data, true ) ); // @codingStandardsIgnoreLine
 			$this->recaptcha_result = $data;
@@ -280,12 +281,9 @@ class Token_Verifier {
 
 		if ( is_wp_error( $response ) ) {
 			$this->addon->log_debug( __METHOD__ . '(): Validating the reCAPTCHA response has failed due to the following: ' . $response->get_error_message() );
-			wp_send_json_error(
-				array(
-					'error' => $data->get_error_message(),
-					'code'  => self::ERROR_CODE_CANNOT_VERIFY_TOKEN,
-				)
-			);
+
+			$this->recaptcha_result = array( 'score' => GF_RECAPTCHA::VALIDATION_BYPASSED );
+				return true;
 		}
 
 		if ( isset( $response->score ) && $response->score === 'disabled (quota limit)' ) {
@@ -309,8 +307,8 @@ class Token_Verifier {
 		$this->addon->log_debug( __METHOD__ . '(): Validated reCAPTCHA: ' . print_r( $response, true ) );
 		$this->recaptcha_result = $response;
 
-		// Caching result for 1 hour.
-		\GFCache::set( 'recaptcha_' . $token, $response, true, 60 * 60 );
+		// Caching result for 2 minutes, following Google's 2-minute token validity.
+		\GFCache::set( 'recaptcha_' . $form_id . '_' . $token, $response, true, 60 * 2 );
 
 		return true;
 	}
@@ -455,23 +453,21 @@ class Token_Verifier {
 	 *
 	 * @since 1.0
 	 *
-	 * @return float
+	 * @return float | string
 	 */
 	public function get_score() {
-		if ( empty( $this->recaptcha_result ) ||
-			( ! rgars( $this->recaptcha_result, 'riskAnalysis/score' ) &&
-			  ! property_exists( $this->recaptcha_result, 'score' ) )
-		) {
+		$result = is_object( $this->recaptcha_result ) ? (array) $this->recaptcha_result : $this->recaptcha_result;
+
+		if ( ! is_array( $result ) ) {
 			return $this->addon->is_preview() ? 0.9 : 0.0;
 		}
 
-		if ( rgars( $this->recaptcha_result, 'riskAnalysis/score' ) ) {
-			$score = rgars( $this->recaptcha_result, 'riskAnalysis/score' );
-		} else {
-			$score = $this->recaptcha_result->score;
+		$score = $result['riskAnalysis']['score'] ?? rgar( $result, 'score' );
+		if ( rgblank( $score ) ) {
+			return $this->addon->is_preview() ? 0.9 : 0.0;
 		}
 
-		return (float) $score;
+		return is_numeric( $score ) ? (float) $score : $score;
 	}
 
 	/**
