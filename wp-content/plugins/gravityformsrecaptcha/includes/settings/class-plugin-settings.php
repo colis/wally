@@ -61,11 +61,11 @@ class Plugin_Settings {
 	public function get_fields() {
 
 		// If we're in a legacy environment with both v2 and v3 keys, show the traditional settings.
+		// Only shows one key-pair settings.
 		if ( $this->use_legacy_settings() ) {
 			return array(
 				$this->get_description_fields(),
-				$this->get_v3_fields(),
-				$this->get_v2_fields(),
+				$this->get_legacy_settings_fields(),
 				$this->get_disconnect_button(),
 			);
 		}
@@ -88,6 +88,7 @@ class Plugin_Settings {
 				return array(
 					$this->get_description_fields( 'enterprise' ),
 					$this->get_v3_enterprise_fields(),
+					$this->get_global_toggle(),
 					$this->get_disconnect_button(),
 				);
 			case 'v2':
@@ -100,6 +101,7 @@ class Plugin_Settings {
 				return array(
 					$this->get_description_fields( 'classic' ),
 					$this->get_v3_fields(),
+					$this->get_global_toggle(),
 					$this->get_change_connection_button(),
 				);
 			default:
@@ -163,18 +165,14 @@ class Plugin_Settings {
 						'readonly' => true,
 					),
 					array(
-						'name'     => 'action',
-						'type'     => 'hidden',
-						'readonly' => true,
-						'value'    => 'recaptcha_setup',
-						'id'       => 'recaptcha_setup',
+						'name' => 'recaptcha_setup',
+						'type' => 'recaptcha_setup',
 					),
 					array(
 						'type'  => 'save',
 						'value' => esc_html__( 'Continue &rarr;', 'gravityformsrecaptcha' ),
 						'id'    => 'recaptcha-connect',
 					),
-
 				),
 			),
 			array(
@@ -199,11 +197,11 @@ class Plugin_Settings {
 	private function has_populated_keys() {
 		$plugin_settings = $this->addon->get_plugin_settings();
 		if ( ! empty( rgar( $plugin_settings, 'site_key_v3' ) ) ||
-			! empty( rgar( $plugin_settings, 'secret_key_v3' ) ) ||
-			! empty( rgar( $plugin_settings, 'site_key_v2' ) ) ||
-			! empty( rgar( $plugin_settings, 'secret_key_v2' ) ) ||
-			! empty( rgar( $plugin_settings, 'site_key_v3_enterprise' ) ) ||
-			! empty( rgar( $plugin_settings, 'access_token' ) )
+		     ! empty( rgar( $plugin_settings, 'secret_key_v3' ) ) ||
+		     ! empty( rgar( $plugin_settings, 'site_key_v2' ) ) ||
+		     ! empty( rgar( $plugin_settings, 'secret_key_v2' ) ) ||
+		     ! empty( rgar( $plugin_settings, 'site_key_v3_enterprise' ) ) ||
+		     ! empty( rgar( $plugin_settings, 'access_token' ) )
 		) {
 			return true;
 		}
@@ -220,10 +218,10 @@ class Plugin_Settings {
 	private function use_legacy_settings() {
 		$plugin_settings = $this->addon->get_plugin_settings();
 		if ( ( ! empty( rgar( $plugin_settings, 'site_key_v3' ) ) ||
-			! empty( rgar( $plugin_settings, 'secret_key_v3' ) ) ||
-			! empty( rgar( $plugin_settings, 'site_key_v2' ) ) ||
-			! empty( rgar( $plugin_settings, 'secret_key_v2' ) )
-		) && empty( rgar( $plugin_settings, 'connection_type' ) ) ) {
+		       ! empty( rgar( $plugin_settings, 'secret_key_v3' ) ) ||
+		       ! empty( rgar( $plugin_settings, 'site_key_v2' ) ) ||
+		       ! empty( rgar( $plugin_settings, 'secret_key_v2' ) )
+		     ) && empty( rgar( $plugin_settings, 'connection_type' ) ) ) {
 			return true;
 		}
 
@@ -303,13 +301,20 @@ class Plugin_Settings {
 	/**
 	 * Get the plugin settings fields for reCAPTCHA v3.
 	 *
+	 * @param null|string $connection_type
+	 *
+	 * @since 2.2.3 Added $connection_type in order to get away from legacy.
 	 * @since 1.0
+	 *
 	 * @return array
 	 */
-	private function get_v3_fields() {
+	private function get_v3_fields( $connection_type = null ) {
 		$site_key        = $this->get_recaptcha_key( 'site_key_v3', true );
 		$secret_key      = $this->get_recaptcha_key( 'secret_key_v3', true );
-		$connection_type = $this->addon->get_connection_type();
+
+		if ( is_null( $connection_type ) ) {
+			$connection_type = $this->addon->get_connection_type();
+		}
 
 		return array(
 			'id'     => 'gravityformsrecaptcha_v3',
@@ -349,6 +354,9 @@ class Plugin_Settings {
 					'readonly' => true,
 					'value'    => $connection_type,
 					'id'       => 'connection_type',
+					'save_callback' => function () use ( $connection_type ) {
+						return $connection_type;
+					},
 				),
 				array(
 					'name'        => 'disable_badge_v3',
@@ -477,13 +485,42 @@ class Plugin_Settings {
 	}
 
 	/**
-	 * Get the plugin settings fields for reCAPTCHA v2.
+	 * Get the plugin settings fields for legacy environments.
+	 * Only the fields for the configured reCAPTCHA version should appear.
 	 *
-	 * @since 1.0
+	 * @since 2.2.3
+	 *
 	 * @return array
 	 */
-	private function get_v2_fields() {
-		$connection_type = $this->addon->get_connection_type();
+	private function get_legacy_settings_fields() {
+		$settings = $this->get_settings( $this->addon->get_plugin_settings() );
+		$version  = rgar( $settings, 'legacy_recaptcha_version' );
+		$is_v2    = ! empty( rgar( $settings, 'site_key_v2' ) ) || ! empty( rgar( $settings, 'secret_key_v2' ) );
+		$is_v3    = ! empty( rgar( $settings, 'site_key_v3' ) ) || ! empty( rgar( $settings, 'secret_key_v3' ) );
+
+		if ( $version === 'v3' || $is_v3 ) {
+			return $this->get_v3_fields( 'classic' );
+		} elseif ( $version === 'v2' || $is_v2 ) {
+			return $this->get_v2_fields( 'v2' );
+		}
+
+		return $this->get_v3_fields( 'classic' );
+	}
+
+	/**
+	 * Get the plugin settings fields for reCAPTCHA v2.
+	 *
+	 * @param null|string $connection_type
+	 *
+	 * @since 2.2.3 Added $connection_type in order to get away from legacy.
+	 * @since 1.0
+	 *
+	 * @return array
+	 */
+	private function get_v2_fields( $connection_type = null ) {
+		if ( is_null( $connection_type ) ) {
+			$connection_type = $this->addon->get_connection_type();
+		}
 
 		return array(
 			'id'     => 'gravityformsrecaptcha_v2',
@@ -527,6 +564,9 @@ class Plugin_Settings {
 					'readonly' => true,
 					'value'    => $connection_type,
 					'id'       => 'connection_type',
+					'save_callback' => function () use ( $connection_type ) {
+						return $connection_type;
+					},
 				),
 				array(
 					'name'                => 'reset_v2',
@@ -625,6 +665,32 @@ class Plugin_Settings {
 	}
 
 	/**
+	 * The global toggle field.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @return array
+	 */
+	private function get_global_toggle() {
+		return array(
+			'id'          => 'gravityformsrecaptcha_global',
+			'title'       => esc_html__( 'reCAPTCHA by Default', 'gravityformsrecaptcha' ),
+			'description' => esc_html__( 'Use this setting to enable reCAPTCHA across all forms by default. You can override this for individual forms in each form\'s reCAPTCHA settings.', 'gravityformsrecaptcha' ),
+			'fields'      => array(
+				array(
+					'name'          => 'global',
+					'type'          => 'toggle',
+					'label'         => esc_html__( 'Enable reCAPTCHA by Default', 'gravityformsrecaptcha' ),
+					'default_value' => '1',
+					'save_callback' => function ( $field, $value ) {
+						return $value === '' ? '0' : $value;
+					},
+				),
+			),
+		);
+	}
+
+	/**
 	 * The change connection type button field.
 	 *
 	 * @since 1.7.0
@@ -669,15 +735,16 @@ class Plugin_Settings {
 				'<ul><li>',
 				esc_html__( 'reCAPTCHA v3 - Adds a script to every page of your site and uploads form content for processing by Google.', 'gravityformsrecaptcha' ),
 				esc_html__( 'All submissions are accepted and suspicious submissions are marked as spam.', 'gravityformsrecaptcha' ),
-				esc_html__( 'When reCAPTCHA v3 is configured, it is enabled automatically on all forms by default. It can be disabled for specific forms in the form settings.', 'gravityformsrecaptcha' ),
+				esc_html__( 'When reCAPTCHA v3 is configured, it is enabled automatically on all forms by default. You can turn it off globally in these settings, or override it for specific forms in the form settings.', 'gravityformsrecaptcha' ),
 				'</li><li>',
 				esc_html__( 'reCAPTCHA v2 (Invisible) - Displays a badge on your form and will present a challenge to the user if the activity is suspicious e.g. select the traffic lights.', 'gravityformsrecaptcha' ),
 				esc_html__( 'Please note, only v2 keys are supported and checkbox keys are not compatible with invisible reCAPTCHA.', 'gravityformsrecaptcha' ),
 				esc_html__( 'To activate reCAPTCHA v2 on your form, simply add the CAPTCHA field in the form editor.', 'gravityformsrecaptcha' ),
 				sprintf(
-					'<a href="%s">%s</a>',
+					'<a href="%s" target="_blank">%s<span class="screen-reader-text">%s</span>&nbsp;<span class="gform-icon gform-icon--external-link" aria-hidden="true"></span></a>',
 					esc_url( 'https://docs.gravityforms.com/captcha/' ),
-					__( 'Read more about reCAPTCHA.', 'gravityformsrecaptcha' )
+					__( 'Read more about reCAPTCHA.', 'gravityformsrecaptcha' ),
+					esc_html__( '(opens in a new tab)', 'gravityformsrecaptcha' )
 				),
 				'</li><li>',
 				esc_html__( 'reCAPTCHA v2 (Checkbox) - Requires a user to click a checkbox to indicate that they are not a robot and displays a challenge if the activity is suspicious', 'gravityformsrecaptcha' ),
@@ -689,7 +756,7 @@ class Plugin_Settings {
 				esc_html__( 'A site secret is not required since you are authenticated by OAuth.', 'gravityformsrecaptcha' ),
 				esc_html__( 'Enterprise reCAPTCHA gives you much greater control over how submissions are handled via the Cloud Console in your Google Cloud Project.', 'gravityformsrecaptcha' ),
 				esc_html__( 'All submissions are accepted and suspicious submissions are marked as spam.', 'gravityformsrecaptcha' ),
-				esc_html__( 'When reCAPTCHA v3 is configured, it is enabled automatically on all forms by default. It can be disabled for specific forms in the form settings.', 'gravityformsrecaptcha' ),
+				esc_html__( 'When reCAPTCHA v3 is configured, it is enabled automatically on all forms by default. You can turn it off globally in these settings, or override it for specific forms in the form settings.', 'gravityformsrecaptcha' ),
 			);
 		} elseif ( $connection_type === 'v2' ) {
 			$description[] = array(
@@ -701,16 +768,17 @@ class Plugin_Settings {
 			$description[] = array(
 				esc_html__( 'v3 Classic reCAPTCHA Adds a script to every page of your site and uploads form content for processing by Google.', 'gravityformsrecaptcha' ),
 				esc_html__( 'All submissions are accepted and suspicious submissions are marked as spam.', 'gravityformsrecaptcha' ),
-				esc_html__( 'When reCAPTCHA v3 is configured, it is enabled automatically on all forms by default. It can be disabled for specific forms in the form settings.', 'gravityformsrecaptcha' ),
+				esc_html__( 'When reCAPTCHA v3 is configured, it is enabled automatically on all forms by default. You can turn it off globally in these settings, or override it for specific forms in the form settings.', 'gravityformsrecaptcha' ),
 			);
 		}
 
 		$description[] = array(
 			esc_html__( 'For more information on reCAPTCHA, which version is right for you, and how to add it to your forms,', 'gravityformsrecaptcha' ),
 			sprintf(
-				'<a target="_blank" href="%s">%s</a>',
+				'<a target="_blank" href="%s">%s<span class="screen-reader-text">%s</span>&nbsp;<span class="gform-icon gform-icon--external-link" aria-hidden="true"></span></a>',
 				esc_url( 'https://docs.gravityforms.com/captcha/' ),
-				esc_html__( 'check out our documentation.', 'gravityformsrecaptcha' )
+				esc_html__( 'check out our documentation.', 'gravityformsrecaptcha' ),
+				esc_html__( '(opens in a new tab)', 'gravityformsrecaptcha' )
 			),
 		);
 
@@ -730,8 +798,9 @@ class Plugin_Settings {
 				esc_html__( 'If the score is less than or equal to this threshold, the form submission will be sent to spam.', 'gravityformsrecaptcha' ),
 				esc_html__( 'The default threshold is 0.5.', 'gravityformsrecaptcha' ),
 				sprintf(
-					'<a target="_blank" href="%s">Learn about reCAPTCHA.</a>',
-					esc_url( 'https://docs.gravityforms.com/captcha/' )
+					'<a target="_blank" href="%s">Learn about reCAPTCHA.<span class="screen-reader-text">%s</span>&nbsp;<span class="gform-icon gform-icon--external-link" aria-hidden="true"></span></a>',
+					esc_url( 'https://docs.gravityforms.com/recaptcha-scores-and-statuses/' ),
+					esc_html__( '(opens in a new tab)', 'gravityformsrecaptcha' )
 				),
 			),
 		);

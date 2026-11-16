@@ -247,7 +247,17 @@ class RECAPTCHA_API {
 			return $response;
 		}
 
-		$body = json_decode( wp_remote_retrieve_body( $response ), true );
+		$body          = json_decode( wp_remote_retrieve_body( $response ), true );
+		$response_code = (int) wp_remote_retrieve_response_code( $response );
+
+		if ( 200 !== $response_code || ! is_array( $body ) ) {
+			return new WP_Error(
+				rgars( $body, 'error/status', 'google_recaptcha_api_error' ),
+				rgars( $body, 'error/message', "Expected response code: 200. Returned response code: {$response_code}." ),
+				$response_code
+			);
+		}
+
 		return $body;
 	}
 

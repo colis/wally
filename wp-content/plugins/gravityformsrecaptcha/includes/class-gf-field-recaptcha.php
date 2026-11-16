@@ -135,13 +135,14 @@ class GF_Field_RECAPTCHA extends GF_Field {
 			return false;
 		}
 
-		return gf_recaptcha()->get_token_verifier()->verify_submission( $data );
+		return gf_recaptcha()->get_token_verifier()->verify_submission( $data , $this->formId );
 	}
 
 	/**
 	 * Set is_valid to false on the validation data.
 	 *
 	 * @since 1.0
+	 * @since 2.2.3 Updated to set the form level error message for GF 3.0.3 and newer.
 	 *
 	 * @param array $validation_data The validation data.
 	 *
@@ -149,6 +150,9 @@ class GF_Field_RECAPTCHA extends GF_Field {
 	 */
 	private function invalidate( $validation_data ) {
 		$validation_data['is_valid'] = false;
+
+		\GFFormDisplay::$submission[ $this->formId ]                     ??= array();
+		\GFFormDisplay::$submission[ $this->formId ]['form_level_error'] = __( 'The reCAPTCHA response was missing or invalid.', 'gravityformsrecaptcha' );
 
 		return $validation_data;
 	}
@@ -166,7 +170,9 @@ class GF_Field_RECAPTCHA extends GF_Field {
 			$this->formId = absint( $form_id );
 		}
 
-		return 'input_' . md5( 'recaptchav3' . gf_recaptcha()->get_version() . $this->formId );
+		$secret = wp_salt( 'gform_recaptcha_v3_input' );
+
+		return 'input_' . md5( 'recaptchav3' . gf_recaptcha()->get_version() . $this->formId . $secret );
 	}
 
 }

@@ -94,6 +94,16 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       }
       return data;
     });
+
+    // Count a completed reCAPTCHA checkbox toward Conversational Forms' empty field check.
+    gform.addFilter('gform_gfcf_custom_empty_field_check', function (bypassFunctions) {
+      bypassFunctions.push([function (input) {
+        return input.closest('.ginput_container_recaptcha_checkbox');
+      }, function () {
+        return false;
+      }]);
+      return bypassFunctions;
+    });
   };
 
   /**
@@ -162,7 +172,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         while (1) switch (_context4.n) {
           case 0:
             dataInput = form.querySelector('.ginput_recaptchav3 .gfield_recaptcha_response'); // If reCAPTCHA fields can't be found, or recaptcha response is already set, don't execute reCAPTCHA.
-            if (!(!dataInput || dataInput.value.length)) {
+            if (!(!dataInput || dataInput.value.length || !(grecaptcha !== null && grecaptcha !== void 0 && grecaptcha.execute))) {
               _context4.n = 1;
               break;
             }
@@ -204,7 +214,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         while (1) switch (_context5.p = _context5.n) {
           case 0:
             dataInput = form.querySelector('.ginput_recaptchav3 .gfield_recaptcha_response'); // If reCAPTCHA fields can't be found, or recaptcha response is already set, don't execute reCAPTCHA.
-            if (!(!dataInput || dataInput.value.length)) {
+            if (!(!dataInput || dataInput.value.length || !(grecaptcha !== null && grecaptcha !== void 0 && grecaptcha.enterprise))) {
               _context5.n = 1;
               break;
             }
@@ -236,15 +246,9 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     };
   }();
   maybeDisableBadge = function maybeDisableBadge() {
-    if (strings.connection_type === 'enterprise') {
-      grecaptcha.enterprise.ready(function () {
-        hideBadge();
-      });
-    } else {
-      grecaptcha.ready(function () {
-        hideBadge();
-      });
-    }
+    var _api$ready;
+    var api = strings.connection_type === 'enterprise' && grecaptcha !== null && grecaptcha !== void 0 && grecaptcha.enterprise ? grecaptcha.enterprise : grecaptcha;
+    api === null || api === void 0 || (_api$ready = api.ready) === null || _api$ready === void 0 || _api$ready.call(api, hideBadge);
   };
   hideBadge = function hideBadge() {
     if (strings.disable_badge) {

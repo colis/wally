@@ -327,19 +327,45 @@ EOD;
 
 		$token = rgpost( 'g-recaptcha-response' );
 		if ( empty( $token ) ) {
-			$hash = ! empty( $value ) && is_string( $value ) ? sanitize_key( $value ) : null;
-			if ( $hash ) {
-				$assessment = GFCache::get( $cache_key_prefix . $hash, $found );
-				if ( $found && ! empty( $assessment['name'] ) && $hash === wp_hash( $assessment['name'] ) ) {
+			$submitted_token = ! empty( $value ) && is_string( $value ) ? sanitize_key( $value ) : '';
+
+			if ( strlen( $submitted_token ) === 32 && ctype_xdigit( $submitted_token ) ) {
+				$cached     = GFCache::get( $cache_key_prefix . $submitted_token, $found );
+				$assessment = rgar( $cached, 'assessment' );
+
+				$validation_bypassed = rgar( $assessment, 'score' ) === GF_RECAPTCHA::VALIDATION_BYPASSED;
+				$has_assessment      = ! empty( $assessment['name'] );
+
+				// Require a live cache hit and a constant-time match against the random, server-issued token bound to it.
+				if ( $found && ! empty( $cached['token'] ) && ( $has_assessment || $validation_bypassed ) && hash_equals( $cached['token'], $submitted_token ) ) {
 					// Setting to the cached assessment so it is available when the entry spam check runs.
 					$token_verifier->set_recaptcha_result( $assessment );
-					$this->set_context_property( 'assessment_id_hash', $hash );
-					gf_recaptcha()->log_debug( __METHOD__ . sprintf( '(): Using existing cached and validated assessment (ID: %s) for submitted hash (%s) for field #%d on form #%d.', $assessment['name'], $hash, $this->id, $this->formId  ) );
+					$this->set_context_property( 'assessment_id_hash', $submitted_token );
+
+					if ( $has_assessment ) {
+						gf_recaptcha()->log_debug(
+							__METHOD__ . sprintf(
+								'(): Using existing cached and validated assessment (ID: %s) using token (%s) for field #%d on form #%d.',
+								$assessment['name'],
+								$submitted_token,
+								$this->id,
+								$this->formId
+							)
+						);
+					} else {
+						gf_recaptcha()->log_debug(
+							__METHOD__ . sprintf(
+								'(): Using cached validation bypass for field #%d on form #%d.',
+								$this->id,
+								$this->formId
+							)
+						);
+					}
 
 					return;
 				}
 
-				gf_recaptcha()->log_debug( __METHOD__ . sprintf( '(): Hash (%s) failed validation for field #%d on form #%d.', $hash, $this->id, $this->formId ) );
+				gf_recaptcha()->log_debug( __METHOD__ . sprintf( '(): Token (%s) failed validation for field #%d on form #%d.', $submitted_token, $this->id, $this->formId ) );
 			}
 
 			gf_recaptcha()->log_debug( __METHOD__ . sprintf( '(): No token submitted for field #%d on form #%d.', $this->id, $this->formId ) );
@@ -356,18 +382,37 @@ EOD;
 
 		gf_recaptcha()->log_debug( __METHOD__ . sprintf( '(): Validating token for field #%d on form #%d.', $this->id, $this->formId ) );
 
-		if ( ! $token_verifier->verify_submission( $token ) ) {
+		if ( ! $token_verifier->verify_submission( $token, $form['id'] ) ) {
 			$this->failed_validation  = true;
 			$this->validation_message = $this->errorMessage ?: __( 'The reCAPTCHA was invalid. Go back and try it again.', 'gravityformsrecaptcha' );
 
 			return;
 		}
 
-		$assessment         = $token_verifier->get_recaptcha_result();
-		$assessment_id_hash = wp_hash( rgar( $assessment, 'name' ) );
-		GFCache::set( $cache_key_prefix . $assessment_id_hash, $assessment, true, DAY_IN_SECONDS );
-		$this->set_context_property( 'assessment_id_hash', $assessment_id_hash );
-		gf_recaptcha()->log_debug( __METHOD__ . sprintf( '(): Caching validated assessment (ID: %s) using hash (%s).', $assessment['name'], $assessment_id_hash ) );
+		$assessment = $token_verifier->get_recaptcha_result();
+
+		// Generate a random server-issued token for this assessment so it can't be predicted, forged, or brute-forced during form re-renders.
+		try {
+			$assessment_token = bin2hex( random_bytes( 16 ) );
+		} catch ( \Exception $e ) {
+			// Secure randomness is unavailable; the submission has already passed, so skip caching for re-use.
+			gf_recaptcha()->log_debug( __METHOD__ . sprintf( '(): Unable to generate a secure token; skipping assessment cache for field #%d on form #%d.', $this->id, $this->formId ) );
+
+			return;
+		}
+
+		$lifetime = rgar( $assessment, 'score' ) === GF_RECAPTCHA::VALIDATION_BYPASSED ? 5 * MINUTE_IN_SECONDS : DAY_IN_SECONDS;
+		GFCache::set(
+			$cache_key_prefix . $assessment_token,
+			array(
+				'token'      => $assessment_token,
+				'assessment' => $assessment,
+			),
+			true,
+			$lifetime
+		);
+		$this->set_context_property( 'assessment_id_hash', $assessment_token );
+		gf_recaptcha()->log_debug( __METHOD__ . sprintf( '(): Caching validated assessment (ID: %s) using token (%s).', rgar( $assessment, 'name' ), $assessment_token ) );
 	}
 
 	/**
